@@ -40,3 +40,18 @@ void imprimirMenuDeOpcoesGeral(){
 void limparTerminal() {
     system("clear");
 }
+
+void cadastrarInsumo() {
+
+}
+void consultarEstoque() {
+
+}
+
+void consultarInsumosDistribuidos() {
+
+}
+
+void distribuirInsumo() {
+
+}

@@ -57,7 +57,7 @@ void consultarDescricaoInsumo();
 void consultarInsumosDistribuidos();
 void consultarInsumosDistribuidosComInfo();
 void consultarInsumosPorEstado(int);
-void distribuirInsumo(int, int);
+void distribuirInsumo();
 void debitarInsumoEstoque();
 void imprimirMenuDeOpcoesGeral();
 void lerInteiro(int &);
