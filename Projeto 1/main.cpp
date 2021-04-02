@@ -5,17 +5,16 @@
 using namespace std;
 
 int main(void) {
+    
+    int opcao;
 
-    while(true) {
-        
-        int opcao;
+    do {
 
         limparTerminal();
-        cout << "Sistema de Gerenciamento de Distribuição de Insumos" << endl << endl;
-        
+        cout << "Sistema de Gerenciamento de Distribuição de Insumos" << endl << endl;  
         imprimirMenuDeOpcoesGeral();
-        lerInteiro(opcao);
 
+        lerInteiro(opcao);
         switch(opcao) {
             case 1:
                 cadastrarInsumo();
@@ -29,10 +28,13 @@ int main(void) {
             case 4:
                 distribuirInsumo();
                 break;
+            case 5:
+                cout << "Fechando Sistema ..." << endl;
+                break;
             default: 
                 cout << "Opção Inválida" << endl;
         }
-    }
+    } while(opcao != 5);
 
     return 0;
 }

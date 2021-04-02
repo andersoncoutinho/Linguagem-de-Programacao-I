@@ -32,7 +32,9 @@ void imprimirMenuDeOpcoesGeral(){
     cout << "1 - Cadastrar Insumo" << endl;
     cout << "2 - Consultar Estoque de Insumos" << endl;
     cout << "3 - Consultar Insumos Distribuídos" << endl;
-    cout << "4 - Distribuir Insumos" << endl << endl;
+    cout << "4 - Distribuir Insumos" << endl;
+    cout << "5 - Sair" << endl;
+    cout << endl;
     
     cout << "Escolha uma opção: ";
 }
