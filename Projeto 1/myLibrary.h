@@ -12,28 +12,26 @@ typedef struct {
     int quantidade;
     string vencimento;
     string fabricante;
+}tDadosGeraisInsumos;
+
+typedef struct {
+    tDadosGeraisInsumos insumo;
     string tecnologia;
     int dosesNecessarias;
     int intervaloDeDias;
 }tVacina;
 
 typedef struct {
-    string nome;
-    double valorUnitario;
-    int quantidade;
-    string vencimento;
-    string fabricante;
+    tDadosGeraisInsumos insumo;
     double dosagem;
     string viaDeAdministracao;
     string formaDeDisponibilizacao;
 }tMedicamento;
 
+//Adicionar outros atributos
 typedef struct {
-    string nome;
-    double valorUnitario;
-    int quantidade;
-    string vencimento;
-    string fabricante;
+    tDadosGeraisInsumos insumo;
+    string tipo;
 }tEpi;
 
 typedef struct {
@@ -49,16 +47,20 @@ typedef struct {
     vector<tEpi> epi;
 } tEstoqueMinisterio;
 
-#endif
-
-void cadastrarInsumo();
-void consultarEstoque();
-void consultarDescricaoInsumo();
+void cadastrarInsumo(vector<tVacina> &,  vector<tMedicamento> &, vector<tEpi> &);
+void consultarEstoque(tEstoqueMinisterio);
+void consultarDescricaoInsumos(tEstoqueMinisterio);
 void consultarInsumosDistribuidos();
 void consultarInsumosDistribuidosComInfo();
 void consultarInsumosPorEstado(int);
 void distribuirInsumo();
 void debitarInsumoEstoque();
-void imprimirMenuDeOpcoesGeral();
-void lerInteiro(int &);
-void limparTerminal();
+void printOpcoesGerais();
+void lerInt(int &);
+void clear();
+void printOpcoesInsumos();
+void cadastrarVacina(vector<tVacina> &);
+bool ehDouble(string);
+void lerDouble(double &);
+#endif
+
