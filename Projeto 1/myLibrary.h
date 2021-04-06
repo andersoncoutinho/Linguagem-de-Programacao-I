@@ -12,17 +12,17 @@ typedef struct {
     int quantidade;
     string vencimento;
     string fabricante;
-}tDadosGeraisInsumos;
+}tDadosInsumos;
 
 typedef struct {
-    tDadosGeraisInsumos insumo;
+    tDadosInsumos insumo;
     string tecnologia;
     int dosesNecessarias;
     int intervaloDeDias;
 }tVacina;
 
 typedef struct {
-    tDadosGeraisInsumos insumo;
+    tDadosInsumos insumo;
     double dosagem;
     string viaDeAdministracao;
     string formaDeDisponibilizacao;
@@ -30,7 +30,7 @@ typedef struct {
 
 //Adicionar outros atributos
 typedef struct {
-    tDadosGeraisInsumos insumo;
+    tDadosInsumos insumo;
     string tipo;
 }tEpi;
 
@@ -60,7 +60,12 @@ void lerInt(int &);
 void clear();
 void printOpcoesInsumos();
 void cadastrarVacina(vector<tVacina> &);
+void cadastrarMedicamento(vector<tMedicamento> &);
+void cadastrarEpi(vector<tEpi> &);
 bool ehDouble(string);
 void lerDouble(double &);
+
+
+
 #endif
 

@@ -9,7 +9,7 @@
 using namespace std;
 
 int main(void) {
-
+    // corrigir bug do enter no menu principal
     int opcao;
     vector<tVacina> vacinas;
     vector<tMedicamento> medicamentos;

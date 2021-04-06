@@ -27,6 +27,10 @@ bool ehDouble(string valor) {
     return true;
 }
 
+bool insumoExiste(tDadosInsumos estoque, tDadosInsumos insumo) {
+    return (!estoque.nome.compare(insumo.nome));
+}
+
 void lerInt(int &valor) {
     
     string dado;
@@ -35,11 +39,9 @@ void lerInt(int &valor) {
     while(!ehInt(dado)) {
         clear();
         cout << "Valor Inválido. Digite um número decimal." << endl;
-        printOpcoesGerais();
         getline(cin, dado);
     }
     valor = stoi(dado);
-    cout << endl;
 }
 
 void lerDouble(double &valor) {
@@ -54,9 +56,7 @@ void lerDouble(double &valor) {
         getline(cin, dado);
     }
     valor = stod(dado);
-    cout << endl;
 }
-
 
 void printOpcoesGerais(){
     cout << "Menu de Opções" << endl << endl;
@@ -75,6 +75,7 @@ void clear() {
 }
 
 void cadastrarInsumo(vector<tVacina> &vacinas,  vector<tMedicamento> &medicamentos, vector<tEpi> &epis) {
+    
     int opcao;
     printOpcoesInsumos();
     lerInt(opcao);
@@ -84,10 +85,13 @@ void cadastrarInsumo(vector<tVacina> &vacinas,  vector<tMedicamento> &medicament
         cadastrarVacina(vacinas);
         break;
     case 2:
+        cadastrarMedicamento(medicamentos);
         break;
     case 3:
+        cadastrarEpi(epis);
         break;
     default:
+        cout << "Opção Inválida" << endl;
         break;
     }
 
@@ -115,99 +119,170 @@ void printOpcoesInsumos() {
 void cadastrarVacina(vector<tVacina> &vacinas) {
     clear();
     int qtd;
-    cout << "Digite a quantidade de tipos de vacinas que deseja-se cadastrar" << endl;
+    cout << "Digite quantos tipos de vacina deseja-se cadastrar" << endl;
     lerInt(qtd);
     
     for(int i = 0; i < qtd; i++) {
-        
+
+        bool vacinaExiste = false;
         tVacina vacina;
         cout << "Informe o nome da vacina: ";
         getline(cin, vacina.insumo.nome);
-        // verificar se a vacina já está cadastrada
-        cout << "Informe o preço da unidade: ";
-        lerDouble(vacina.insumo.valorUnitario);
-        cout << "Informe a quantidade de unidades da vacina a se cadastrar: ";
-        lerInt(vacina.insumo.quantidade);
-        cout << "Informe o fabricante: ";
-        getline(cin, vacina.insumo.fabricante);
 
-        cout << "Informe o tipo de tecnologia: ";
-        getline(cin, vacina.tecnologia);
-        cout << "Informe a quantidade de doses necessárias: ";
-        lerInt(vacina.dosesNecessarias);
-        if(vacina.dosesNecessarias > 1) {
-            cout << "Informe o intervalo de dias entre as doses: ";
-            lerInt(vacina.intervaloDeDias);
-        } else {
-            vacina.intervaloDeDias = 0;
+        for(tVacina estoque : vacinas) {
+            vacinaExiste = insumoExiste(estoque.insumo, vacina.insumo);
+            break;
         }
-        vacinas.push_back(vacina);
+
+        if(!vacinaExiste) {
+
+            cout << "Informe o preço da unidade: ";
+            lerDouble(vacina.insumo.valorUnitario);
+            cout << "Informe a quantidade de unidades da vacina a se cadastrar: ";
+            lerInt(vacina.insumo.quantidade);
+            cout << "Informe o fabricante: ";
+            getline(cin, vacina.insumo.fabricante);
+
+            cout << "Informe o tipo de tecnologia: ";
+            getline(cin, vacina.tecnologia);
+            cout << "Informe a quantidade de doses necessárias: ";
+            lerInt(vacina.dosesNecessarias);
+            if(vacina.dosesNecessarias > 1) {
+                cout << "Informe o intervalo de dias entre as doses: ";
+                lerInt(vacina.intervaloDeDias);
+            } else {
+                vacina.intervaloDeDias = 0;
+            }
+            vacinas.push_back(vacina);
+        } else {
+
+            cout << "A vacina já existe no estoque. Deseja adicionar mais unidades?[y/N]" << endl;
+
+            char opcao;
+            opcao = getchar();
+            
+            if(tolower(opcao) == 'y') {
+                cout << "Informe a quantidade de unidades da vacina a se adicionar: ";
+                int qtd;
+                lerInt(qtd);
+                vacina.insumo.quantidade += qtd;
+            }
+        }       
     }
 }
 
-void cadastrarMedicamento(vector<tMedicamento> medicamentos) {
+void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
     clear();
     int qtd;
-    cout << "Digite a quantidade de tipos de vacinas que deseja-se cadastrar" << endl;
+    cout << "Digite quantos tipos de medicamentos deseja-se cadastrar" << endl;
     lerInt(qtd);
     
     for(int i = 0; i < qtd; i++) {
         
+        int indice;
+        bool medicamentoExiste = false;
         tMedicamento medicamento;
-        cout << "Informe o nome da vacina: ";
+        cout << "Informe o nome do medicamento: ";
         getline(cin, medicamento.insumo.nome);
+
+        for(indice = 0; indice < medicamentos.size(); indice++) {
+            medicamentoExiste = insumoExiste(medicamentos[indice].insumo, medicamento.insumo);
+            break;
+        }
+
+        if(!medicamentoExiste) {
+            cout << "Informe o preço da unidade: ";
+            lerDouble(medicamento.insumo.valorUnitario);
+            cout << "Informe a quantidade de unidades do medicamento a se cadastrar: ";
+            lerInt(medicamento.insumo.quantidade);
+            cout << "Informe o fabricante: ";
+            getline(cin, medicamento.insumo.fabricante);
+
+            cout << "Informe a dosagem: ";
+            lerDouble(medicamento.dosagem);
+            cout << "Informe a via de administração: ";
+            // as vias de administração são limitadas, ajeite isso
+            getline(cin, medicamento.viaDeAdministracao);
+            cout << "Informe a forma de disponibilização: ";
+            // as vias de administração são limitadas, ajeite isso
+            getline(cin, medicamento.formaDeDisponibilizacao);
+            medicamentos.push_back(medicamento);
+        } else {
+
+            cout << "O medicamento já existe no estoque. Deseja adicionar mais unidades?[y/N]" << endl;
+
+            char opcao;
+            opcao = getchar();
+            
+            if(tolower(opcao) == 'y') {
+                getchar();
+                cout << "Informe a quantidade de unidades a se adicionar: ";
+                int qtd;
+                lerInt(qtd);
+                medicamentos[indice].insumo.quantidade += qtd;
+            } else if(tolower(opcao) == 'n') {
+                getchar();
+            }
+        }
+    }
+}
+
+void cadastrarEpi(vector<tEpi> &epis) {
+
+    clear();
+    int qtd;
+    cout << "Digite quantos tipos de EPIs deseja-se cadastrar" << endl;
+    lerInt(qtd);
+    
+    for(int i = 0; i < qtd; i++) {
+        
+        tEpi epi;
+        cout << "Informe o nome do medicamento: ";
+        getline(cin, epi.insumo.nome);
         // verificar se o medicamento já está cadastrada
         cout << "Informe o preço da unidade: ";
-        lerDouble(medicamento.insumo.valorUnitario);
+        lerDouble(epi.insumo.valorUnitario);
         cout << "Informe a quantidade de unidades da vacina a se cadastrar: ";
-        lerInt(medicamento.insumo.quantidade);
+        lerInt(epi.insumo.quantidade);
         cout << "Informe o fabricante: ";
-        getline(cin, medicamento.insumo.fabricante);
+        getline(cin, epi.insumo.fabricante);
 
-        cout << "Informe a dosagem: ";
-        lerDouble(medicamento.dosagem);
-        cout << "Informe a via de administração: ";
-        // as vias de administração são limitadas, ajeite isso
-        getline(cin, medicamento.viaDeAdministracao);
-        cout << "Informe a forma de disponibilização: ";
-        // as vias de administração são limitadas, ajeite isso
-        getline(cin, medicamento.formaDeDisponibilizacao);
-        medicamentos.push_back(medicamento);
+        epis.push_back(epi);
     }
 }
 
 void consultarEstoque(tEstoqueMinisterio estoque) {
 
-    for(int i = 0; i < estoque.vacina.size(); i++) {
-        
-        if(estoque.vacina[i].insumo.quantidade > 0) {
+    for(tVacina vacina : estoque.vacina) {
 
-            cout << "Vacina: " << estoque.vacina[i].insumo.nome << endl;
-            cout << "Quantidade: " << estoque.vacina[i].insumo.quantidade << endl;
+        if(vacina.insumo.quantidade > 0) {
+
+            cout << "Vacina: " << vacina.insumo.nome << endl;
+            cout << "Quantidade: " << vacina.insumo.quantidade << endl;
             
         }
     }
 
     cout << endl;
 
-    for(int i = 0; i < estoque.medicamento.size(); i++) {
+    for(tMedicamento medicamento : estoque.medicamento) {
         
-        if(estoque.medicamento[i].insumo.quantidade > 0) {
+        if(medicamento.insumo.quantidade > 0) {
 
-            cout << "Vacina: " << estoque.medicamento[i].insumo.nome << endl;
-            cout << "Quantidade: " << estoque.medicamento[i].insumo.quantidade << endl;
+            cout << "Medicamento: " << medicamento.insumo.nome << endl;
+            cout << "Quantidade: " << medicamento.insumo.quantidade << endl;
 
         }
     }
 
     cout << endl;
 
-    for(int i = 0; i < estoque.epi.size(); i++) {
+    for(tEpi epi : estoque.epi) {
         
-        if(estoque.epi[i].insumo.quantidade > 0) {
+        if(epi.insumo.quantidade > 0) {
 
-            cout << "Vacina: " << estoque.epi[i].insumo.nome << endl;
-            cout << "Quantidade: " << estoque.epi[i].insumo.quantidade << endl;
+            cout << "Epi: " << epi.insumo.nome << endl;
+            cout << "Quantidade: " << epi.insumo.quantidade << endl;
 
         }
     }
@@ -217,7 +292,7 @@ void consultarEstoque(tEstoqueMinisterio estoque) {
 
 void consultarDescricaoInsumos(tEstoqueMinisterio estoque) {
 
-    for(auto vacina : estoque.vacina) {
+    for(tVacina vacina : estoque.vacina) {
         cout << "Nome: " << vacina.insumo.nome << endl;
         printf("Preço unitário: R$ %lf", vacina.insumo.valorUnitario);
         cout << "Vencimento: " << vacina.insumo.vencimento << endl;
@@ -233,7 +308,7 @@ void consultarDescricaoInsumos(tEstoqueMinisterio estoque) {
     cout << endl;
     
 
-    for(auto medicamento : estoque.medicamento) {
+    for(tMedicamento medicamento : estoque.medicamento) {
         
         cout << "Nome: " << medicamento.insumo.nome << endl;
         printf("Preço unitário: R$ %lf", medicamento.insumo.valorUnitario);
@@ -247,7 +322,7 @@ void consultarDescricaoInsumos(tEstoqueMinisterio estoque) {
     
     cout << endl;
 
-    for(auto epi : estoque.epi) {
+    for(tEpi epi : estoque.epi) {
         
         cout << "Nome: " << epi.insumo.nome << endl;
         printf("Preço unitário: R$ %lf", epi.insumo.valorUnitario);
