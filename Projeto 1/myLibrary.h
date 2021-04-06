@@ -47,7 +47,7 @@ typedef struct {
     vector<tEpi> epi;
 } tEstoqueMinisterio;
 
-void cadastrarInsumo(vector<tVacina> &,  vector<tMedicamento> &, vector<tEpi> &);
+void cadastrarInsumo(tEstoqueMinisterio &);
 void consultarEstoque(tEstoqueMinisterio);
 void consultarDescricaoInsumos(tEstoqueMinisterio);
 void consultarInsumosDistribuidos();

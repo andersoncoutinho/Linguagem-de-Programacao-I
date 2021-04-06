@@ -11,9 +11,6 @@ using namespace std;
 int main(void) {
     // corrigir bug do enter no menu principal
     int opcao;
-    vector<tVacina> vacinas;
-    vector<tMedicamento> medicamentos;
-    vector<tEpi> epis;
     tEstoqueMinisterio estoque;
 
     do {
@@ -24,7 +21,7 @@ int main(void) {
         lerInt(opcao);
         switch(opcao) {
             case 1:
-                cadastrarInsumo(vacinas, medicamentos, epis);
+                cadastrarInsumo(estoque);
                 break;
             case 2:
                 consultarEstoque(estoque);
@@ -41,12 +38,6 @@ int main(void) {
             default: 
                 cout << "Opção Inválida" << endl;
         }
-        
-        //atualizando estoque
-        estoque.vacina = vacinas;
-        estoque.medicamento = medicamentos;
-        estoque.epi = epis;
-
     } while(opcao != 5);
 
 

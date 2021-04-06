@@ -74,7 +74,7 @@ void clear() {
     system("clear");
 }
 
-void cadastrarInsumo(vector<tVacina> &vacinas,  vector<tMedicamento> &medicamentos, vector<tEpi> &epis) {
+void cadastrarInsumo(tEstoqueMinisterio &estoque) {
     
     int opcao;
     printOpcoesInsumos();
@@ -82,13 +82,13 @@ void cadastrarInsumo(vector<tVacina> &vacinas,  vector<tMedicamento> &medicament
     switch (opcao)
     {
     case 1:
-        cadastrarVacina(vacinas);
+        cadastrarVacina(estoque.vacina);
         break;
     case 2:
-        cadastrarMedicamento(medicamentos);
+        cadastrarMedicamento(estoque.medicamento);
         break;
     case 3:
-        cadastrarEpi(epis);
+        cadastrarEpi(estoque.epi);
         break;
     default:
         cout << "Opção Inválida" << endl;
