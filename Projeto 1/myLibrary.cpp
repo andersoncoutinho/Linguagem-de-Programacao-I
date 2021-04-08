@@ -2,61 +2,15 @@
 #include <string>
 #include <stdio.h>
 #include "myLibrary.h"
+
+#define QTD_ESTADOS 27
  
 using namespace std;
-
-bool ehInt(string valor) {
-    for(int i = 0; i < valor.size(); i++) {
-        if(!isdigit(valor[i])){
-            return false;
-        }
-    }
-    return true;
-}
-
-bool ehDouble(string valor) {
-    int pontos = 0;
-    for(int i = 0; i < valor.size(); i++) {
-        if(valor[i] == '.') {
-            pontos++;
-        }
-        if((!isdigit(valor[i]) && valor[i] != '.') || pontos > 1){
-            return false;
-        }
-    }
-    return true;
-}
 
 bool insumoExiste(tDadosInsumos estoque, tDadosInsumos insumo) {
     return (!estoque.nome.compare(insumo.nome));
 }
 
-void lerInt(int &valor) {
-    
-    string dado;
-    
-    getline(cin, dado);
-    while(!ehInt(dado)) {
-        clear();
-        cout << "Valor Inválido. Digite um número decimal." << endl;
-        getline(cin, dado);
-    }
-    valor = stoi(dado);
-}
-
-void lerDouble(double &valor) {
-    
-    string dado;
-    
-    getline(cin, dado);
-    while(!ehDouble(dado)) {
-        clear();
-        cout << "Valor Inválido. Digite um número com casas decimais separadas por ponto (.)." << endl;
-        printOpcoesGerais();
-        getline(cin, dado);
-    }
-    valor = stod(dado);
-}
 
 void printOpcoesGerais(){
     cout << "Menu de Opções" << endl << endl;
@@ -66,8 +20,6 @@ void printOpcoesGerais(){
     cout << "4 - Distribuir Insumos" << endl;
     cout << "5 - Sair" << endl;
     cout << endl;
-    
-    cout << "Escolha uma opção: ";
 }
 
 void clear() {
@@ -77,6 +29,7 @@ void clear() {
 void cadastrarInsumo(tEstoqueMinisterio &estoque) {
     
     int opcao;
+    cout << "Que tipo de insumo você deseja cadastrar?" << endl;
     printOpcoesInsumos();
     lerInt(opcao);
     switch (opcao)
@@ -90,6 +43,8 @@ void cadastrarInsumo(tEstoqueMinisterio &estoque) {
     case 3:
         cadastrarEpi(estoque.epi);
         break;
+    case 4: 
+        return;
     default:
         cout << "Opção Inválida" << endl;
         break;
@@ -104,20 +59,76 @@ void consultarInsumosDistribuidos() {
 
 }
 
-void distribuirInsumo() {
+void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados) {
+    string sigla;
+    cout << "Digite a sigla do estado para o qual se deseja distribuir o insumo: ";
+    getline(cin, sigla);
+
+    for(tEstoqueEstados estado : estados) {
+        if(estado.sigla.find(sigla) != string::npos) {
+            cout << "Que tipo de insumo deseja-se distribuir?" << endl;
+            printOpcoesInsumos();
+            int opcao;
+            lerInt(opcao);
+            switch (opcao) {
+                case 1:
+                    distribuirVacina(estoque.vacina, estado.vacina);
+                    break;
+                case 2:
+                    distribuirMedicamento(estoque.medicamento, estado.medicamento);
+                    break;
+                case 3:
+                    distribuirEpi(estoque.epi, estado.epi);
+                    break;
+                case 4: 
+                    return;
+                default:
+                    cout << "Opção Inválida" << endl;
+                    break;
+            }
+        }
+    }
+}
+
+void distribuirVacina(vector<tVacina> &vacinas, vector<tVacina> &vacinasUF) {
+    
+    cout << "Digite o nome da vacina que deseja-se distribuir: " << endl;
+    string nome;
+    getline(cin, nome);
+
+    int i;
+    for(i = 0; i < vacinas.size(); i++) {
+        if(vacinas[i].insumo.nome.find(nome) != string::npos) {
+            break;
+        }
+    }
+
+    if(i > 0 && i < vacinas.size()) {
+        int qtd;
+        cout << "Digite a quantidade de vacinas que deseja-se enviar: ";
+        lerInt(qtd);
+        vacinas[i].insumo.quantidade -= qtd;
+
+    }
+
+}
+
+void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamento> &medicamentosUF) {
+
+}
+
+void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
 
 }
 
 void printOpcoesInsumos() {
-    clear();
-    cout << "Que tipo de insumo você deseja cadastrar?" << endl;
     cout << "1 - Vacina" << endl;
     cout << "2 - Medicamento" << endl;
     cout << "3 - EPI" << endl;
+    cout << "4 - Cancelar" << endl;
 }
 
 void cadastrarVacina(vector<tVacina> &vacinas) {
-    clear();
     int qtd;
     cout << "Digite quantos tipos de vacina deseja-se cadastrar" << endl;
     lerInt(qtd);
@@ -172,7 +183,7 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
 }
 
 void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
-    clear();
+    
     int qtd;
     cout << "Digite quantos tipos de medicamentos deseja-se cadastrar" << endl;
     lerInt(qtd);
@@ -229,7 +240,6 @@ void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
 
 void cadastrarEpi(vector<tEpi> &epis) {
 
-    clear();
     int qtd;
     cout << "Digite quantos tipos de EPIs deseja-se cadastrar" << endl;
     lerInt(qtd);
@@ -333,4 +343,18 @@ void consultarDescricaoInsumos(tEstoqueMinisterio estoque) {
     }
 
     cout << endl;
+}
+
+void inicializarEstados(vector<tEstoqueEstados> &estados) {
+
+    string uf[QTD_ESTADOS] = {"AC", "AL", "AP", "AM", "BA",
+                              "CE", "DF", "ES", "GO", "MA",
+                              "MT", "MS", "MG", "PA", "PB",
+                              "PR", "PE", "PI", "RJ", "RN",
+                              "RS", "RO", "RR", "SC", "SP",
+                              "SE", "TO"};
+    
+    for(int i = 0; i < QTD_ESTADOS; i++) {
+        estados[i].sigla = uf[i];
+    }
 }

@@ -6,18 +6,21 @@
 #include <locale>
 #include "myLibrary.h"
 
+#define QTD_ESTADOS 27
+
 using namespace std;
 
 int main(void) {
-    // corrigir bug do enter no menu principal
+   
     int opcao;
     tEstoqueMinisterio estoque;
+    vector<tEstoqueEstados> estados(QTD_ESTADOS);
 
     do {
 
         cout << "Sistema de Gerenciamento de Distribuição de Insumos" << endl << endl;  
         printOpcoesGerais();
-
+        cout << "Escolha uma opção: ";
         lerInt(opcao);
         switch(opcao) {
             case 1:
@@ -30,7 +33,7 @@ int main(void) {
                 consultarInsumosDistribuidos();
                 break;
             case 4:
-                distribuirInsumo();
+                distribuirInsumo(estoque, estados);
                 break;
             case 5:
                 cout << "Fechando Sistema ..." << endl;
@@ -39,7 +42,6 @@ int main(void) {
                 cout << "Opção Inválida" << endl;
         }
     } while(opcao != 5);
-
 
     return 0;
 }

@@ -53,7 +53,7 @@ void consultarDescricaoInsumos(tEstoqueMinisterio);
 void consultarInsumosDistribuidos();
 void consultarInsumosDistribuidosComInfo();
 void consultarInsumosPorEstado(int);
-void distribuirInsumo();
+void distribuirInsumo(tEstoqueMinisterio &, vector<tEstoqueEstados> &);
 void debitarInsumoEstoque();
 void printOpcoesGerais();
 void lerInt(int &);
@@ -64,7 +64,10 @@ void cadastrarMedicamento(vector<tMedicamento> &);
 void cadastrarEpi(vector<tEpi> &);
 bool ehDouble(string);
 void lerDouble(double &);
-
+tVacina getVacina();
+void distribuirVacina(vector<tVacina> &);
+void distribuirMedicamento(vector<tMedicamento> &);
+void distribuirEpi(vector<tEpi> &);
 
 
 #endif
