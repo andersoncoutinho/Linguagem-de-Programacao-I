@@ -21,7 +21,8 @@ int main(void) {
         cout << "Sistema de Gerenciamento de Distribuição de Insumos" << endl << endl;  
         printOpcoesGerais();
         cout << "Escolha uma opção: ";
-        lerInt(opcao);
+        cin >> opcao;
+        getchar();
         switch(opcao) {
             case 1:
                 cadastrarInsumo(estoque);

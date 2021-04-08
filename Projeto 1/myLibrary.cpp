@@ -22,16 +22,14 @@ void printOpcoesGerais(){
     cout << endl;
 }
 
-void clear() {
-    system("clear");
-}
 
 void cadastrarInsumo(tEstoqueMinisterio &estoque) {
     
     int opcao;
     cout << "Que tipo de insumo você deseja cadastrar?" << endl;
     printOpcoesInsumos();
-    lerInt(opcao);
+    cin >> opcao;
+    getchar();
     switch (opcao)
     {
     case 1:
@@ -60,6 +58,10 @@ void consultarInsumosDistribuidos() {
 }
 
 void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados) {
+
+}
+/*
+void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados) {
     string sigla;
     cout << "Digite a sigla do estado para o qual se deseja distribuir o insumo: ";
     getline(cin, sigla);
@@ -69,7 +71,8 @@ void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &esta
             cout << "Que tipo de insumo deseja-se distribuir?" << endl;
             printOpcoesInsumos();
             int opcao;
-            lerInt(opcao);
+            cin >> opcao;
+            getchar();
             switch (opcao) {
                 case 1:
                     distribuirVacina(estoque.vacina, estado.vacina);
@@ -106,7 +109,8 @@ void distribuirVacina(vector<tVacina> &vacinas, vector<tVacina> &vacinasUF) {
     if(i > 0 && i < vacinas.size()) {
         int qtd;
         cout << "Digite a quantidade de vacinas que deseja-se enviar: ";
-        lerInt(qtd);
+        cin >> qtd;
+        getchar();
         vacinas[i].insumo.quantidade -= qtd;
 
     }
@@ -116,12 +120,13 @@ void distribuirVacina(vector<tVacina> &vacinas, vector<tVacina> &vacinasUF) {
 void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamento> &medicamentosUF) {
 
 }
-
+*/
 void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
 
 }
 
 void printOpcoesInsumos() {
+    int a;
     cout << "1 - Vacina" << endl;
     cout << "2 - Medicamento" << endl;
     cout << "3 - EPI" << endl;
@@ -129,10 +134,11 @@ void printOpcoesInsumos() {
 }
 
 void cadastrarVacina(vector<tVacina> &vacinas) {
+
     int qtd;
     cout << "Digite quantos tipos de vacina deseja-se cadastrar" << endl;
-    lerInt(qtd);
-    
+    cin >> qtd;
+    getchar();
     for(int i = 0; i < qtd; i++) {
 
         bool vacinaExiste = false;
@@ -148,19 +154,23 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
         if(!vacinaExiste) {
 
             cout << "Informe o preço da unidade: ";
-            lerDouble(vacina.insumo.valorUnitario);
+            cin >> vacina.insumo.valorUnitario;
+            getchar();
             cout << "Informe a quantidade de unidades da vacina a se cadastrar: ";
-            lerInt(vacina.insumo.quantidade);
+            cin >> vacina.insumo.quantidade;
+            getchar();
             cout << "Informe o fabricante: ";
             getline(cin, vacina.insumo.fabricante);
 
             cout << "Informe o tipo de tecnologia: ";
             getline(cin, vacina.tecnologia);
             cout << "Informe a quantidade de doses necessárias: ";
-            lerInt(vacina.dosesNecessarias);
+            cin >> vacina.dosesNecessarias;
+            getchar();
             if(vacina.dosesNecessarias > 1) {
                 cout << "Informe o intervalo de dias entre as doses: ";
-                lerInt(vacina.intervaloDeDias);
+                cin >> vacina.intervaloDeDias;
+                getchar();
             } else {
                 vacina.intervaloDeDias = 0;
             }
@@ -175,7 +185,8 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
             if(tolower(opcao) == 'y') {
                 cout << "Informe a quantidade de unidades da vacina a se adicionar: ";
                 int qtd;
-                lerInt(qtd);
+                cin >> qtd;
+                getchar();
                 vacina.insumo.quantidade += qtd;
             }
         }       
@@ -186,7 +197,8 @@ void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
     
     int qtd;
     cout << "Digite quantos tipos de medicamentos deseja-se cadastrar" << endl;
-    lerInt(qtd);
+    cin >> qtd;
+    getchar();
     
     for(int i = 0; i < qtd; i++) {
         
@@ -203,14 +215,18 @@ void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
 
         if(!medicamentoExiste) {
             cout << "Informe o preço da unidade: ";
-            lerDouble(medicamento.insumo.valorUnitario);
+            cin >> medicamento.insumo.valorUnitario;
+            getchar();
             cout << "Informe a quantidade de unidades do medicamento a se cadastrar: ";
-            lerInt(medicamento.insumo.quantidade);
+            cin >> medicamento.insumo.quantidade;
+            getchar();
             cout << "Informe o fabricante: ";
-            getline(cin, medicamento.insumo.fabricante);
+            cin >> medicamento.insumo.fabricante;
+            getchar();
 
             cout << "Informe a dosagem: ";
-            lerDouble(medicamento.dosagem);
+            cin >> medicamento.dosagem;
+            getchar();
             cout << "Informe a via de administração: ";
             // as vias de administração são limitadas, ajeite isso
             getline(cin, medicamento.viaDeAdministracao);
@@ -229,7 +245,8 @@ void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
                 getchar();
                 cout << "Informe a quantidade de unidades a se adicionar: ";
                 int qtd;
-                lerInt(qtd);
+                cin >> qtd;
+                getchar();
                 medicamentos[indice].insumo.quantidade += qtd;
             } else if(tolower(opcao) == 'n') {
                 getchar();
@@ -242,7 +259,8 @@ void cadastrarEpi(vector<tEpi> &epis) {
 
     int qtd;
     cout << "Digite quantos tipos de EPIs deseja-se cadastrar" << endl;
-    lerInt(qtd);
+    cin >> qtd;
+    getchar();
     
     for(int i = 0; i < qtd; i++) {
         
@@ -251,9 +269,11 @@ void cadastrarEpi(vector<tEpi> &epis) {
         getline(cin, epi.insumo.nome);
         // verificar se o medicamento já está cadastrada
         cout << "Informe o preço da unidade: ";
-        lerDouble(epi.insumo.valorUnitario);
+        cin >> epi.insumo.valorUnitario;
+        getchar();
         cout << "Informe a quantidade de unidades da vacina a se cadastrar: ";
-        lerInt(epi.insumo.quantidade);
+        cin >> epi.insumo.quantidade;
+        getchar();
         cout << "Informe o fabricante: ";
         getline(cin, epi.insumo.fabricante);
 
