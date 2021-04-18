@@ -75,6 +75,7 @@ void consultarInsumosDistribuidos(vector<tEstoqueEstados> estados) {
     cout << "Quantidade de EPIs distribuídos: " << qtdEpi << endl;
 }
 
+
 void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados) {
     
     string sigla;
@@ -166,7 +167,57 @@ void distribuirVacina(vector<tVacina> &vacinas, vector<tVacina> &vacinasUF) {
 
 void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamento> &medicamentosUF) {
 
+    cout << "Digite o nome do medicamento que deseja-se distribuir: " << endl;
+    string nome;
+    bool medicamentoExiste = false;
+    getline(cin, nome);
+
+    int i;
+    for(i = 0; i < medicamentos.size(); i++) {
+        if(medicamentos[i].insumo.nome.find(nome) != string::npos) {
+            medicamentoExiste = true;
+            break;
+        }
+    }
+
+    if(medicamentoExiste) {
+        int qtd;
+        bool medicamentoExisteUF = false;
+        cout << "Digite a quantidade de vacinas que deseja-se enviar: ";
+        cin >> qtd;
+        getchar();
+
+        if(medicamentos[i].insumo.quantidade >= qtd) {
+            
+            medicamentos[i].insumo.quantidade -= qtd;
+
+            int indice;
+            for(indice = 0; indice < medicamentosUF.size(); indice++) {
+                if(medicamentosUF[indice].insumo.nome.find(medicamentos[i].insumo.nome) != string::npos) {
+                    medicamentoExisteUF = true;
+                    break;
+                }
+            }
+
+            if(medicamentoExisteUF) {
+                medicamentosUF[indice].insumo.quantidade += qtd;
+            } else {
+                medicamentosUF.push_back(medicamentos[i]);
+                medicamentosUF[medicamentosUF.size()-1].insumo.quantidade = qtd;
+            }
+
+            cout << "Estoque de medicamentos atualizado com sucesso!" << endl;
+
+        } else {
+            cout << "Quantidade de medicamentos insuficiente" << endl;
+        }
+
+    } else {
+        cout << "O medicamento solicitado não existe em estoque" << endl;
+    }
+
 }
+
 
 void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
 
