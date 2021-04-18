@@ -221,7 +221,57 @@ void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamen
 
 void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
 
+    cout << "Digite o nome do EPI que deseja-se distribuir: " << endl;
+    string nome;
+    bool epiExiste = false;
+    getline(cin, nome);
+
+    int i;
+    for(i = 0; i < epis.size(); i++) {
+        if(epis[i].insumo.nome.find(nome) != string::npos) {
+            epiExiste = true;
+            break;
+        }
+    }
+
+    if(epiExiste) {
+        int qtd;
+        bool epiExisteUF = false;
+        cout << "Digite a quantidade de vacinas que deseja-se enviar: ";
+        cin >> qtd;
+        getchar();
+
+        if(epis[i].insumo.quantidade >= qtd) {
+            
+            epis[i].insumo.quantidade -= qtd;
+
+            int indice;
+            for(indice = 0; indice < episUF.size(); indice++) {
+                if(episUF[indice].insumo.nome.find(epis[i].insumo.nome) != string::npos) {
+                    epiExisteUF = true;
+                    break;
+                }
+            }
+
+            if(epiExisteUF) {
+                episUF[indice].insumo.quantidade += qtd;
+            } else {
+                episUF.push_back(epis[i]);
+                episUF[episUF.size()-1].insumo.quantidade = qtd;
+            }
+
+            cout << "Estoque de EPIs atualizado com sucesso!" << endl;
+
+        } else {
+            cout << "Quantidade de EPIs insuficiente" << endl;
+        }
+
+    } else {
+        cout << "O EPI solicitado não existe em estoque" << endl;
+    }
+
 }
+
 
 void printOpcoesInsumos() {
     int a;
