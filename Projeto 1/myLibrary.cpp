@@ -237,7 +237,7 @@ void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
     if(epiExiste) {
         int qtd;
         bool epiExisteUF = false;
-        cout << "Digite a quantidade de vacinas que deseja-se enviar: ";
+        cout << "Digite a quantidade de Epis que deseja-se enviar: ";
         cin >> qtd;
         getchar();
 
@@ -267,7 +267,7 @@ void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
         }
 
     } else {
-        cout << "O EPI solicitado não existe em estoque" << endl;
+        cout << "O EPIs solicitado não existe em estoque" << endl;
     }
 
 }
@@ -416,13 +416,12 @@ void cadastrarEpi(vector<tEpi> &epis) {
     for(int i = 0; i < qtd; i++) {
         
         tEpi epi;
-        cout << "Informe o nome do medicamento: ";
+        cout << "Informe o nome do EPI: ";
         getline(cin, epi.insumo.nome);
-        // verificar se o medicamento já está cadastrada
         cout << "Informe o preço da unidade: ";
         cin >> epi.insumo.valorUnitario;
         getchar();
-        cout << "Informe a quantidade de unidades da vacina a se cadastrar: ";
+        cout << "Informe a quantidade de unidades do EPI a se cadastrar: ";
         cin >> epi.insumo.quantidade;
         getchar();
         cout << "Informe o fabricante: ";
@@ -433,7 +432,7 @@ void cadastrarEpi(vector<tEpi> &epis) {
 }
 
 void consultarEstoque(tEstoqueMinisterio estoque) {
-
+    
     for(tVacina vacina : estoque.vacina) {
 
         if(vacina.insumo.quantidade > 0) {
