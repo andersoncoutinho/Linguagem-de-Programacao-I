@@ -14,7 +14,9 @@ int main(void) {
    
     int opcao;
     tEstoqueMinisterio estoque;
+
     vector<tEstoqueEstados> estados(QTD_ESTADOS);
+    inicializarEstados(estados);
 
     do {
 
@@ -31,7 +33,7 @@ int main(void) {
                 consultarEstoque(estoque);
                 break;
             case 3:
-                consultarInsumosDistribuidos();
+                consultarInsumosDistribuidos(estados);
                 break;
             case 4:
                 distribuirInsumo(estoque, estados);

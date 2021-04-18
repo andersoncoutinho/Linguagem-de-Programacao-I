@@ -11,7 +11,6 @@ bool insumoExiste(tDadosInsumos estoque, tDadosInsumos insumo) {
     return (!estoque.nome.compare(insumo.nome));
 }
 
-
 void printOpcoesGerais(){
     cout << "Menu de Opções" << endl << endl;
     cout << "1 - Cadastrar Insumo" << endl;
@@ -22,16 +21,16 @@ void printOpcoesGerais(){
     cout << endl;
 }
 
-
 void cadastrarInsumo(tEstoqueMinisterio &estoque) {
     
     int opcao;
     cout << "Que tipo de insumo você deseja cadastrar?" << endl;
     printOpcoesInsumos();
+    cout << "Escolha uma opção: ";
     cin >> opcao;
     getchar();
-    switch (opcao)
-    {
+
+    switch (opcao) {
     case 1:
         cadastrarVacina(estoque.vacina);
         break;
@@ -53,35 +52,53 @@ void consultarEstoque() {
 
 }
 
-void consultarInsumosDistribuidos() {
+void consultarInsumosDistribuidos(vector<tEstoqueEstados> estados) {
 
+    int qtdVacina = 0;
+    int qtdMedicamento = 0;
+    int qtdEpi = 0;
+
+    for(tEstoqueEstados estado : estados) {
+        for(tVacina vacinas : estado.vacina) {
+            qtdVacina += vacinas.insumo.quantidade;
+        }
+        for(tMedicamento medicamento : estado.medicamento) {
+            qtdMedicamento += medicamento.insumo.quantidade;
+        }
+        for(tEpi epi : estado.epi) {
+            qtdEpi += epi.insumo.quantidade;
+        }
+    }
+
+    cout << "Quantidade de vacinas distribuídas: " << qtdVacina << endl;
+    cout << "Quantidade de medicamentos distribuídos: " << qtdMedicamento << endl;
+    cout << "Quantidade de EPIs distribuídos: " << qtdEpi << endl;
 }
 
 void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados) {
-
-}
-/*
-void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados) {
+    
     string sigla;
+    int indice;
     cout << "Digite a sigla do estado para o qual se deseja distribuir o insumo: ";
     getline(cin, sigla);
 
-    for(tEstoqueEstados estado : estados) {
-        if(estado.sigla.find(sigla) != string::npos) {
+    for(indice = 0; indice < QTD_ESTADOS; indice++) {
+        if(estados[indice].sigla.find(sigla) != string::npos) {
             cout << "Que tipo de insumo deseja-se distribuir?" << endl;
             printOpcoesInsumos();
+            cout << "Escolha uma opção: ";
             int opcao;
             cin >> opcao;
             getchar();
             switch (opcao) {
                 case 1:
-                    distribuirVacina(estoque.vacina, estado.vacina);
+                    distribuirVacina(estoque.vacina, estados[indice].vacina);
                     break;
                 case 2:
-                    distribuirMedicamento(estoque.medicamento, estado.medicamento);
+                    distribuirMedicamento(estoque.medicamento, estados[indice].medicamento);
                     break;
                 case 3:
-                    distribuirEpi(estoque.epi, estado.epi);
+                    distribuirEpi(estoque.epi, estados[indice].epi);
                     break;
                 case 4: 
                     return;
@@ -97,22 +114,52 @@ void distribuirVacina(vector<tVacina> &vacinas, vector<tVacina> &vacinasUF) {
     
     cout << "Digite o nome da vacina que deseja-se distribuir: " << endl;
     string nome;
+    bool vacinaExiste = false;
     getline(cin, nome);
 
     int i;
     for(i = 0; i < vacinas.size(); i++) {
         if(vacinas[i].insumo.nome.find(nome) != string::npos) {
+            vacinaExiste = true;
             break;
         }
     }
 
-    if(i > 0 && i < vacinas.size()) {
+    if(vacinaExiste) {
         int qtd;
+        bool vacinaExisteUF = false;
         cout << "Digite a quantidade de vacinas que deseja-se enviar: ";
         cin >> qtd;
         getchar();
-        vacinas[i].insumo.quantidade -= qtd;
 
+        if(vacinas[i].insumo.quantidade >= qtd) {
+            
+            vacinas[i].insumo.quantidade -= qtd;
+
+            int indice;
+            for(indice = 0; indice < vacinasUF.size(); indice++) {
+                if(vacinasUF[indice].insumo.nome.find(vacinas[i].insumo.nome) != string::npos) {
+                    vacinaExisteUF = true;
+                    break;
+                }
+            }
+
+            if(vacinaExisteUF) {
+                vacinasUF[indice].insumo.quantidade += qtd;
+            } else {
+                vacinasUF.push_back(vacinas[i]);
+                vacinasUF[vacinasUF.size()-1].insumo.quantidade = qtd;
+            }
+
+            cout << "Estoque de vacinas atualizado com sucesso!" << endl;
+
+
+        } else {
+            cout << "Quantidade de vacinas insuficiente" << endl;
+        }
+
+    } else {
+        cout << "A vacina solicitada não existe em estoque" << endl;
     }
 
 }
@@ -120,7 +167,7 @@ void distribuirVacina(vector<tVacina> &vacinas, vector<tVacina> &vacinasUF) {
 void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamento> &medicamentosUF) {
 
 }
-*/
+
 void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
 
 }
@@ -135,8 +182,8 @@ void printOpcoesInsumos() {
 
 void cadastrarVacina(vector<tVacina> &vacinas) {
 
-    int qtd;
-    cout << "Digite quantos tipos de vacina deseja-se cadastrar" << endl;
+    int qtd, indice;
+    cout << "Digite quantos tipos de vacina deseja-se cadastrar: ";
     cin >> qtd;
     getchar();
     for(int i = 0; i < qtd; i++) {
@@ -146,9 +193,12 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
         cout << "Informe o nome da vacina: ";
         getline(cin, vacina.insumo.nome);
 
-        for(tVacina estoque : vacinas) {
-            vacinaExiste = insumoExiste(estoque.insumo, vacina.insumo);
-            break;
+        for(indice = 0; indice < vacinas.size() ; indice++) {
+            
+            if(vacinas[i].insumo.nome.find(vacina.insumo.nome) != string::npos) {
+                vacinaExiste = true;
+                break;
+            }
         }
 
         if(!vacinaExiste) {
@@ -187,7 +237,7 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
                 int qtd;
                 cin >> qtd;
                 getchar();
-                vacina.insumo.quantidade += qtd;
+                vacinas[indice].insumo.quantidade += qtd;
             }
         }       
     }

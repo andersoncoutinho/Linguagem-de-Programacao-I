@@ -50,7 +50,7 @@ typedef struct {
 void cadastrarInsumo(tEstoqueMinisterio &);
 void consultarEstoque(tEstoqueMinisterio);
 void consultarDescricaoInsumos(tEstoqueMinisterio);
-void consultarInsumosDistribuidos();
+void consultarInsumosDistribuidos(vector<tEstoqueEstados>);
 void consultarInsumosDistribuidosComInfo();
 void consultarInsumosPorEstado(int);
 void distribuirInsumo(tEstoqueMinisterio &, vector<tEstoqueEstados> &);
@@ -60,9 +60,10 @@ void printOpcoesInsumos();
 void cadastrarVacina(vector<tVacina> &);
 void cadastrarMedicamento(vector<tMedicamento> &);
 void cadastrarEpi(vector<tEpi> &);
-void distribuirVacina(vector<tVacina> &);
-void distribuirMedicamento(vector<tMedicamento> &);
-void distribuirEpi(vector<tEpi> &);
+void distribuirVacina(vector<tVacina> &, vector<tVacina> &);
+void distribuirMedicamento(vector<tMedicamento> &, vector<tMedicamento> &);
+void distribuirEpi(vector<tEpi> &, vector<tEpi> &);
+void inicializarEstados(vector<tEstoqueEstados> &);
 
 
 #endif
