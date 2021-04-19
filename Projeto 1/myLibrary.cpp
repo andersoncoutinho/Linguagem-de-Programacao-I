@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <stdio.h>
 #include "myLibrary.h"
@@ -19,6 +20,14 @@ void printOpcoesGerais(){
     cout << "4 - Distribuir Insumos" << endl;
     cout << "5 - Sair" << endl;
     cout << endl;
+}
+
+void printOpcoesInsumos() {
+    int a;
+    cout << "1 - Vacina" << endl;
+    cout << "2 - Medicamento" << endl;
+    cout << "3 - EPI" << endl;
+    cout << "4 - Cancelar" << endl;
 }
 
 void cadastrarInsumo(tEstoqueMinisterio &estoque) {
@@ -46,10 +55,6 @@ void cadastrarInsumo(tEstoqueMinisterio &estoque) {
         cout << "Opção Inválida" << endl;
         break;
     }
-
-}
-void consultarEstoque() {
-
 }
 
 void consultarInsumosDistribuidos(vector<tEstoqueEstados> estados) {
@@ -74,7 +79,6 @@ void consultarInsumosDistribuidos(vector<tEstoqueEstados> estados) {
     cout << "Quantidade de medicamentos distribuídos: " << qtdMedicamento << endl;
     cout << "Quantidade de EPIs distribuídos: " << qtdEpi << endl;
 }
-
 
 void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados) {
     
@@ -183,7 +187,7 @@ void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamen
     if(medicamentoExiste) {
         int qtd;
         bool medicamentoExisteUF = false;
-        cout << "Digite a quantidade de vacinas que deseja-se enviar: ";
+        cout << "Digite a quantidade de medicamentos que deseja-se enviar: ";
         cin >> qtd;
         getchar();
 
@@ -218,7 +222,6 @@ void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamen
 
 }
 
-
 void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
 
     cout << "Digite o nome do EPI que deseja-se distribuir: " << endl;
@@ -237,7 +240,7 @@ void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
     if(epiExiste) {
         int qtd;
         bool epiExisteUF = false;
-        cout << "Digite a quantidade de Epis que deseja-se enviar: ";
+        cout << "Digite a quantidade de EPIs que deseja-se enviar: ";
         cin >> qtd;
         getchar();
 
@@ -267,18 +270,8 @@ void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
         }
 
     } else {
-        cout << "O EPIs solicitado não existe em estoque" << endl;
+        cout << "O EPI solicitado não existe em estoque" << endl;
     }
-
-}
-
-
-void printOpcoesInsumos() {
-    int a;
-    cout << "1 - Vacina" << endl;
-    cout << "2 - Medicamento" << endl;
-    cout << "3 - EPI" << endl;
-    cout << "4 - Cancelar" << endl;
 }
 
 void cadastrarVacina(vector<tVacina> &vacinas) {
@@ -296,7 +289,7 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
 
         for(indice = 0; indice < vacinas.size() ; indice++) {
             
-            if(vacinas[i].insumo.nome.find(vacina.insumo.nome) != string::npos) {
+            if(vacinas[indice].insumo.nome.find(vacina.insumo.nome) != string::npos) {
                 vacinaExiste = true;
                 break;
             }
@@ -310,9 +303,10 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
             cout << "Informe a quantidade de unidades da vacina a se cadastrar: ";
             cin >> vacina.insumo.quantidade;
             getchar();
+            cout << "Informe a data de vencimento: ";
+            getline(cin, vacina.insumo.vencimento);
             cout << "Informe o fabricante: ";
             getline(cin, vacina.insumo.fabricante);
-
             cout << "Informe o tipo de tecnologia: ";
             getline(cin, vacina.tecnologia);
             cout << "Informe a quantidade de doses necessárias: ";
@@ -360,8 +354,10 @@ void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
         getline(cin, medicamento.insumo.nome);
 
         for(indice = 0; indice < medicamentos.size(); indice++) {
-            medicamentoExiste = insumoExiste(medicamentos[indice].insumo, medicamento.insumo);
-            break;
+            if(medicamentos[indice].insumo.nome.find(medicamento.insumo.nome) != string::npos) {
+                medicamentoExiste = true;
+                break;
+            }
         }
 
         if(!medicamentoExiste) {
@@ -374,15 +370,15 @@ void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
             cout << "Informe o fabricante: ";
             cin >> medicamento.insumo.fabricante;
             getchar();
+            cout << "Informe a data de vencimento: ";
+            getline(cin, medicamento.insumo.vencimento);
 
             cout << "Informe a dosagem: ";
             cin >> medicamento.dosagem;
             getchar();
             cout << "Informe a via de administração: ";
-            // as vias de administração são limitadas, ajeite isso
             getline(cin, medicamento.viaDeAdministracao);
             cout << "Informe a forma de disponibilização: ";
-            // as vias de administração são limitadas, ajeite isso
             getline(cin, medicamento.formaDeDisponibilizacao);
             medicamentos.push_back(medicamento);
         } else {
@@ -432,41 +428,28 @@ void cadastrarEpi(vector<tEpi> &epis) {
 }
 
 void consultarEstoque(tEstoqueMinisterio estoque) {
-    
     for(tVacina vacina : estoque.vacina) {
-
         if(vacina.insumo.quantidade > 0) {
-
             cout << "Vacina: " << vacina.insumo.nome << endl;
             cout << "Quantidade: " << vacina.insumo.quantidade << endl;
-            
         }
     }
-
     cout << endl;
 
-    for(tMedicamento medicamento : estoque.medicamento) {
-        
+    for(tMedicamento medicamento : estoque.medicamento) {   
         if(medicamento.insumo.quantidade > 0) {
-
             cout << "Medicamento: " << medicamento.insumo.nome << endl;
             cout << "Quantidade: " << medicamento.insumo.quantidade << endl;
-
         }
     }
-
     cout << endl;
 
-    for(tEpi epi : estoque.epi) {
-        
+    for(tEpi epi : estoque.epi) {   
         if(epi.insumo.quantidade > 0) {
-
             cout << "Epi: " << epi.insumo.nome << endl;
             cout << "Quantidade: " << epi.insumo.quantidade << endl;
-
         }
     }
-
     cout << endl;
 }
 
@@ -517,6 +500,7 @@ void consultarDescricaoInsumos(tEstoqueMinisterio estoque) {
 
 void inicializarEstados(vector<tEstoqueEstados> &estados) {
 
+
     string uf[QTD_ESTADOS] = {"AC", "AL", "AP", "AM", "BA",
                               "CE", "DF", "ES", "GO", "MA",
                               "MT", "MS", "MG", "PA", "PB",
@@ -527,4 +511,103 @@ void inicializarEstados(vector<tEstoqueEstados> &estados) {
     for(int i = 0; i < QTD_ESTADOS; i++) {
         estados[i].sigla = uf[i];
     }
+}
+
+void salvar(tEstoqueMinisterio estoque, vector<tEstoqueEstados> estados) {
+    
+    ofstream arquivo;    
+
+    arquivo.open("estoqueVacinas.csv");
+    for(tVacina vacina : estoque.vacina) {
+        arquivo << vacina.insumo.nome << ","
+            << vacina.insumo.valorUnitario << ","
+            << vacina.insumo.quantidade << ","
+            << vacina.insumo.vencimento << ","
+            << vacina.insumo.fabricante << ","
+            << vacina.tecnologia << ","
+            << vacina.dosesNecessarias << ","
+            << vacina.intervaloDeDias << endl;
+    }
+    arquivo.close();
+
+    arquivo.open("estoqueMedicamentos.csv");
+    for(tMedicamento medicameto : estoque.medicamento) {
+        arquivo << medicameto.insumo.nome << ","
+            << medicameto.insumo.valorUnitario << ","
+            << medicameto.insumo.quantidade << ","
+            << medicameto.insumo.vencimento << ","
+            << medicameto.insumo.fabricante << ","
+            << medicameto.dosagem << ","
+            << medicameto.viaDeAdministracao << ","
+            << medicameto.formaDeDisponibilizacao << endl;
+
+    }
+    arquivo.close();
+
+    arquivo.open("estoqueEpis.csv");
+    for(tEpi epi : estoque.epi) {
+        arquivo << epi.insumo.nome << ","
+            << epi.insumo.valorUnitario << ","
+            << epi.insumo.quantidade << ","
+            << epi.insumo.vencimento << ","
+            << epi.insumo.fabricante << ","
+            << epi.tipo << endl;
+    }
+    arquivo.close();
+}
+
+void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados) {
+    
+    ifstream arquivo;
+    string linha, dado;
+    int posicao;
+    tVacina vacina;
+
+    arquivo.open("estoqueVacinas.csv");
+    if(arquivo.is_open()) {
+        cout << "Aberto com sucesso!" << endl;
+        while(getline(arquivo, linha)) {
+            posicao = 0;
+            for(int i = 0; i <= linha.size(); i++) {
+
+                if(linha[i] != ',' && i < linha.size()) {
+                    dado.push_back(linha[i]);
+
+                } else {
+                    dado.push_back('\0');
+                    posicao++;
+                    switch(posicao) {
+                        case 1:
+                            vacina.insumo.nome = dado;
+                            break;
+                        case 2:
+                            vacina.insumo.valorUnitario = stod(dado);
+                            break;
+                        case 3:
+                            vacina.insumo.quantidade = stoi(dado);
+                        case 4:
+                            vacina.insumo.vencimento = dado;
+                            break;
+                        case 5:
+                            vacina.insumo.fabricante = dado;
+                            break;
+                        case 6:
+                            vacina.tecnologia = dado;
+                            break;
+                        case 7:
+                            vacina.dosesNecessarias = stoi(dado);
+                            break;
+                        case 8:
+                            vacina.intervaloDeDias = stoi(dado);
+                            break;
+                    }
+                    dado = "";
+                }
+            }
+            estoque.vacina.push_back(vacina);
+        }
+    }
+    arquivo.close();
+    
+
 }

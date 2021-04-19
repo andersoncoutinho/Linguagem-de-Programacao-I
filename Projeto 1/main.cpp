@@ -2,8 +2,9 @@
 
 */
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 #include <vector>
-#include <locale>
 #include "myLibrary.h"
 
 #define QTD_ESTADOS 27
@@ -11,12 +12,15 @@
 using namespace std;
 
 int main(void) {
-   
+
+
+    
     int opcao;
     tEstoqueMinisterio estoque;
 
     vector<tEstoqueEstados> estados(QTD_ESTADOS);
     inicializarEstados(estados);
+    carregarDados(estoque, estados);
 
     do {
 
@@ -28,6 +32,7 @@ int main(void) {
         switch(opcao) {
             case 1:
                 cadastrarInsumo(estoque);
+                salvar(estoque, estados);
                 break;
             case 2:
                 consultarEstoque(estoque);
@@ -37,9 +42,11 @@ int main(void) {
                 break;
             case 4:
                 distribuirInsumo(estoque, estados);
+                salvar(estoque, estados);
                 break;
             case 5:
                 cout << "Fechando Sistema ..." << endl;
+                salvar(estoque, estados);
                 break;
             default: 
                 cout << "Opção Inválida" << endl;

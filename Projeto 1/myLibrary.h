@@ -64,7 +64,8 @@ void distribuirVacina(vector<tVacina> &, vector<tVacina> &);
 void distribuirMedicamento(vector<tMedicamento> &, vector<tMedicamento> &);
 void distribuirEpi(vector<tEpi> &, vector<tEpi> &);
 void inicializarEstados(vector<tEstoqueEstados> &);
-
+void salvar(tEstoqueMinisterio, vector<tEstoqueEstados>);
+void carregarDados(tEstoqueMinisterio &, vector<tEstoqueEstados> &);
 
 #endif
 
