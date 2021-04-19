@@ -66,6 +66,7 @@ void distribuirEpi(vector<tEpi> &, vector<tEpi> &);
 void inicializarEstados(vector<tEstoqueEstados> &);
 void salvar(tEstoqueMinisterio, vector<tEstoqueEstados>);
 void carregarDados(tEstoqueMinisterio &, vector<tEstoqueEstados> &);
+void esperar();
 
 #endif
 

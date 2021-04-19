@@ -5,7 +5,13 @@
 #include "myLibrary.h"
 
 #define QTD_ESTADOS 27
- 
+string uf[QTD_ESTADOS] = {"AC", "AL", "AP", "AM", "BA",
+                              "CE", "DF", "ES", "GO", "MA",
+                              "MT", "MS", "MG", "PA", "PB",
+                              "PR", "PE", "PI", "RJ", "RN",
+                              "RS", "RO", "RR", "SC", "SP",
+                              "SE", "TO"};
+    
 using namespace std;
 
 bool insumoExiste(tDadosInsumos estoque, tDadosInsumos insumo) {
@@ -117,7 +123,7 @@ void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &esta
 
 void distribuirVacina(vector<tVacina> &vacinas, vector<tVacina> &vacinasUF) {
     
-    cout << "Digite o nome da vacina que deseja-se distribuir: " << endl;
+    cout << "Digite o nome da vacina que deseja-se distribuir: ";
     string nome;
     bool vacinaExiste = false;
     getline(cin, nome);
@@ -171,7 +177,7 @@ void distribuirVacina(vector<tVacina> &vacinas, vector<tVacina> &vacinasUF) {
 
 void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamento> &medicamentosUF) {
 
-    cout << "Digite o nome do medicamento que deseja-se distribuir: " << endl;
+    cout << "Digite o nome do medicamento que deseja-se distribuir: ";
     string nome;
     bool medicamentoExiste = false;
     getline(cin, nome);
@@ -224,7 +230,7 @@ void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamen
 
 void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
 
-    cout << "Digite o nome do EPI que deseja-se distribuir: " << endl;
+    cout << "Digite o nome do EPI que deseja-se distribuir: ";
     string nome;
     bool epiExiste = false;
     getline(cin, nome);
@@ -284,7 +290,7 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
 
         bool vacinaExiste = false;
         tVacina vacina;
-        cout << "Informe o nome da vacina: ";
+        cout << "Informe o nome da vacina " << i+1 << ": ";
         getline(cin, vacina.insumo.nome);
 
         for(indice = 0; indice < vacinas.size() ; indice++) {
@@ -320,6 +326,7 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
                 vacina.intervaloDeDias = 0;
             }
             vacinas.push_back(vacina);
+            cout << endl << "Vacina " << i+1 << " cadastrada com sucesso!" << endl << endl;
         } else {
 
             cout << "A vacina já existe no estoque. Deseja adicionar mais unidades?[y/N]" << endl;
@@ -333,6 +340,8 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
                 cin >> qtd;
                 getchar();
                 vacinas[indice].insumo.quantidade += qtd;
+                cout << endl << "Quantidade atualizada com sucesso!" << endl << endl;
+                esperar();
             }
         }       
     }
@@ -341,7 +350,7 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
 void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
     
     int qtd;
-    cout << "Digite quantos tipos de medicamentos deseja-se cadastrar" << endl;
+    cout << "Digite quantos tipos de medicamentos deseja-se cadastrar: ";
     cin >> qtd;
     getchar();
     
@@ -405,7 +414,7 @@ void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
 void cadastrarEpi(vector<tEpi> &epis) {
 
     int qtd;
-    cout << "Digite quantos tipos de EPIs deseja-se cadastrar" << endl;
+    cout << "Digite quantos tipos de EPIs deseja-se cadastrar: ";
     cin >> qtd;
     getchar();
     
@@ -428,6 +437,8 @@ void cadastrarEpi(vector<tEpi> &epis) {
 }
 
 void consultarEstoque(tEstoqueMinisterio estoque) {
+
+    cout << endl << "VACINAS" << endl << endl;
     for(tVacina vacina : estoque.vacina) {
         if(vacina.insumo.quantidade > 0) {
             cout << "Vacina: " << vacina.insumo.nome << endl;
@@ -436,6 +447,7 @@ void consultarEstoque(tEstoqueMinisterio estoque) {
     }
     cout << endl;
 
+    cout << "MEDICAMENTOS" << endl << endl;
     for(tMedicamento medicamento : estoque.medicamento) {   
         if(medicamento.insumo.quantidade > 0) {
             cout << "Medicamento: " << medicamento.insumo.nome << endl;
@@ -444,6 +456,7 @@ void consultarEstoque(tEstoqueMinisterio estoque) {
     }
     cout << endl;
 
+    cout << "EPIs" << endl << endl;
     for(tEpi epi : estoque.epi) {   
         if(epi.insumo.quantidade > 0) {
             cout << "Epi: " << epi.insumo.nome << endl;
@@ -451,6 +464,8 @@ void consultarEstoque(tEstoqueMinisterio estoque) {
         }
     }
     cout << endl;
+
+    esperar();
 }
 
 void consultarDescricaoInsumos(tEstoqueMinisterio estoque) {
@@ -500,14 +515,6 @@ void consultarDescricaoInsumos(tEstoqueMinisterio estoque) {
 
 void inicializarEstados(vector<tEstoqueEstados> &estados) {
 
-
-    string uf[QTD_ESTADOS] = {"AC", "AL", "AP", "AM", "BA",
-                              "CE", "DF", "ES", "GO", "MA",
-                              "MT", "MS", "MG", "PA", "PB",
-                              "PR", "PE", "PI", "RJ", "RN",
-                              "RS", "RO", "RR", "SC", "SP",
-                              "SE", "TO"};
-    
     for(int i = 0; i < QTD_ESTADOS; i++) {
         estados[i].sigla = uf[i];
     }
@@ -531,15 +538,15 @@ void salvar(tEstoqueMinisterio estoque, vector<tEstoqueEstados> estados) {
     arquivo.close();
 
     arquivo.open("estoqueMedicamentos.csv");
-    for(tMedicamento medicameto : estoque.medicamento) {
-        arquivo << medicameto.insumo.nome << ","
-            << medicameto.insumo.valorUnitario << ","
-            << medicameto.insumo.quantidade << ","
-            << medicameto.insumo.vencimento << ","
-            << medicameto.insumo.fabricante << ","
-            << medicameto.dosagem << ","
-            << medicameto.viaDeAdministracao << ","
-            << medicameto.formaDeDisponibilizacao << endl;
+    for(tMedicamento medicamento : estoque.medicamento) {
+        arquivo << medicamento.insumo.nome << ","
+            << medicamento.insumo.valorUnitario << ","
+            << medicamento.insumo.quantidade << ","
+            << medicamento.insumo.vencimento << ","
+            << medicamento.insumo.fabricante << ","
+            << medicamento.dosagem << ","
+            << medicamento.viaDeAdministracao << ","
+            << medicamento.formaDeDisponibilizacao << endl;
 
     }
     arquivo.close();
@@ -554,6 +561,64 @@ void salvar(tEstoqueMinisterio estoque, vector<tEstoqueEstados> estados) {
             << epi.tipo << endl;
     }
     arquivo.close();
+
+    arquivo.open("estoqueVacinaUF.csv");
+    for(int i = 0; i < QTD_ESTADOS; i++) {
+        int j;
+        for(j = 0; j < estados[i].vacina.size(); j++) {
+            arquivo << estados[i].vacina[j].insumo.nome << ","
+                << estados[i].vacina[j].insumo.valorUnitario << ","
+                << estados[i].vacina[j].insumo.quantidade << ","
+                << estados[i].vacina[j].insumo.vencimento << ","
+                << estados[i].vacina[j].insumo.fabricante << ","
+                << estados[i].vacina[j].tecnologia << ","
+                << estados[i].vacina[j].dosesNecessarias << ","
+                << estados[i].vacina[j].intervaloDeDias;
+            if(j < estados[i].vacina.size()-1) {
+                arquivo << ",";
+            }
+        }
+        arquivo << "\n";
+    }
+    arquivo.close();
+
+    arquivo.open("estoqueMedicamentosUF.csv");
+    for(int i = 0; i < QTD_ESTADOS; i++) {
+        int j;
+        for(j = 0; j < estados[i].medicamento.size(); j++) {
+            arquivo << estados[i].medicamento[j].insumo.nome << ","
+                << estados[i].medicamento[j].insumo.valorUnitario << ","
+                << estados[i].medicamento[j].insumo.quantidade << ","
+                << estados[i].medicamento[j].insumo.vencimento << ","
+                << estados[i].medicamento[j].insumo.fabricante << ","
+                << estados[i].medicamento[j].dosagem << ","
+                << estados[i].medicamento[j].viaDeAdministracao << ","
+                << estados[i].medicamento[j].formaDeDisponibilizacao;
+            if(j < estados[i].medicamento.size()-1) {
+                arquivo << ",";
+            }
+        }
+        arquivo << "\n";
+    }
+    arquivo.close();
+
+    arquivo.open("estoqueEpisUF.csv");
+    for(int i = 0; i < QTD_ESTADOS; i++) {
+        int j;
+        for(j = 0; j < estados[i].epi.size(); j++) {
+            arquivo << estados[i].epi[j].insumo.nome << ","
+                << estados[i].epi[j].insumo.valorUnitario << ","
+                << estados[i].epi[j].insumo.quantidade << ","
+                << estados[i].epi[j].insumo.vencimento << ","
+                << estados[i].epi[j].insumo.fabricante << ","
+                << estados[i].epi[j].tipo;
+
+            if(j < estados[i].medicamento.size()-1) {
+                arquivo << ",";
+            }
+        }
+        arquivo << "\n";
+    }
 }
 
 void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados) {
@@ -562,17 +627,16 @@ void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados
     string linha, dado;
     int posicao;
     tVacina vacina;
+    tMedicamento medicamento;
+    tEpi epi;
 
     arquivo.open("estoqueVacinas.csv");
     if(arquivo.is_open()) {
-        cout << "Aberto com sucesso!" << endl;
         while(getline(arquivo, linha)) {
             posicao = 0;
             for(int i = 0; i <= linha.size(); i++) {
-
                 if(linha[i] != ',' && i < linha.size()) {
                     dado.push_back(linha[i]);
-
                 } else {
                     dado.push_back('\0');
                     posicao++;
@@ -608,6 +672,216 @@ void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados
         }
     }
     arquivo.close();
-    
 
+    arquivo.open("estoqueMedicamentos.csv");
+    if(arquivo.is_open()) {
+        while(getline(arquivo, linha)) {
+            posicao = 0;
+            for(int i = 0; i <= linha.size(); i++) {
+                if(linha[i] != ',' && i < linha.size()) {
+                    dado.push_back(linha[i]);
+                } else {
+                    dado.push_back('\0');
+                    posicao++;
+                    switch(posicao) {
+                        case 1:
+                            medicamento.insumo.nome = dado;
+                            break;
+                        case 2:
+                            medicamento.insumo.valorUnitario = stod(dado);
+                            break;
+                        case 3:
+                            medicamento.insumo.quantidade = stoi(dado);
+                        case 4:
+                            medicamento.insumo.vencimento = dado;
+                            break;
+                        case 5:
+                            medicamento.insumo.fabricante = dado;
+                            break;
+                        case 6:
+                            medicamento.dosagem = stod(dado);
+                            break;
+                        case 7:
+                            medicamento.viaDeAdministracao = dado;
+                            break;
+                        case 8:
+                            medicamento.formaDeDisponibilizacao = dado;
+                            break;
+                    }
+                    dado = "";
+                }
+            }
+            estoque.medicamento.push_back(medicamento);
+        }
+    }
+    arquivo.close();
+
+    arquivo.open("estoqueEpis.csv");
+    if(arquivo.is_open()) {
+        while(getline(arquivo, linha)) {
+            posicao = 0;
+            for(int i = 0; i <= linha.size(); i++) {
+                if(linha[i] != ',' && i < linha.size()) {
+                    dado.push_back(linha[i]);
+                } else {
+                    dado.push_back('\0');
+                    posicao++;
+                    switch(posicao) {
+                        case 1:
+                            epi.insumo.nome = dado;
+                            break;
+                        case 2:
+                            epi.insumo.valorUnitario = stod(dado);
+                            break;
+                        case 3:
+                            epi.insumo.quantidade = stoi(dado);
+                        case 4:
+                            epi.insumo.vencimento = dado;
+                            break;
+                        case 5:
+                            epi.insumo.fabricante = dado;
+                            break;
+                        case 6:
+                            epi.tipo = dado;
+                    }
+                    dado = "";
+                }
+            }
+            estoque.epi.push_back(epi);
+        }
+    }
+    arquivo.close();
+
+    arquivo.open("estoqueVacinaUF.csv");
+    if(arquivo.is_open()) {
+        for(int estado = 0; getline(arquivo, linha); estado++) {
+            posicao = 0;
+            for(int i = 0; i <= linha.size(); i++) {
+                if(linha[i] != ',' && i < linha.size()) {
+                    dado.push_back(linha[i]);
+                } else {
+                    dado.push_back('\0');
+                    posicao++;
+                    switch(posicao) {
+                        case 1:
+                            vacina.insumo.nome = dado;
+                            break;
+                        case 2:
+                            vacina.insumo.valorUnitario = stod(dado);
+                            break;
+                        case 3:
+                            vacina.insumo.quantidade = stoi(dado);
+                            break;
+                        case 4:
+                            vacina.insumo.vencimento = dado;
+                            break;
+                        case 5:
+                            vacina.insumo.fabricante = dado;
+                            break;
+                        case 6:
+                            vacina.tecnologia = dado;
+                            break;
+                        case 7:
+                            vacina.dosesNecessarias = stoi(dado);
+                            break;
+                        case 8:
+                            vacina.intervaloDeDias = stoi(dado);
+                            posicao = 0;
+                            estados[estado].vacina.push_back(vacina);
+                            break;
+                    }
+                    dado = "";
+                }
+            }
+        }
+    }
+    arquivo.close();
+
+    arquivo.open("estoqueMedicamentosUF.csv");
+    if(arquivo.is_open()) {
+        for(int estado = 0; getline(arquivo, linha); estado++) {
+            posicao = 0;
+            for(int i = 0; i <= linha.size(); i++) {
+                if(linha[i] != ',' && i < linha.size()) {
+                    dado.push_back(linha[i]);
+                } else {
+                    dado.push_back('\0');
+                    posicao++;
+                    switch(posicao) {
+                        case 1:
+                            medicamento.insumo.nome = dado;
+                            break;
+                        case 2:
+                            medicamento.insumo.valorUnitario = stod(dado);
+                            break;
+                        case 3:
+                            medicamento.insumo.quantidade = stoi(dado);
+                        case 4:
+                            medicamento.insumo.vencimento = dado;
+                            break;
+                        case 5:
+                            medicamento.insumo.fabricante = dado;
+                            break;
+                        case 6:
+                            medicamento.dosagem = stod(dado);
+                            break;
+                        case 7:
+                            medicamento.viaDeAdministracao = dado;
+                            break;
+                        case 8:
+                            medicamento.formaDeDisponibilizacao = dado;
+                            posicao = 0;
+                            estados[estado].medicamento.push_back(medicamento);
+                            break;
+                    }
+                    dado = "";
+                }
+            }
+        }
+    }
+    arquivo.close();
+
+    arquivo.open("estoqueEpisUF.csv");
+    if(arquivo.is_open()) {
+        for(int estado = 0; getline(arquivo, linha); estado++) {
+            posicao = 0;
+            for(int i = 0; i <= linha.size(); i++) {
+                if(linha[i] != ',' && i < linha.size()) {
+                    dado.push_back(linha[i]);
+                } else {
+                    dado.push_back('\0');
+                    posicao++;
+                    switch(posicao) {
+                        case 1:
+                            epi.insumo.nome = dado;
+                            break;
+                        case 2:
+                            epi.insumo.valorUnitario = stod(dado);
+                            break;
+                        case 3:
+                            epi.insumo.quantidade = stoi(dado);
+                            break;
+                        case 4:
+                            epi.insumo.vencimento = dado;
+                            break;
+                        case 5:
+                            epi.insumo.fabricante = dado;
+                            break;
+                        case 6:
+                            epi.tipo = dado;
+                            posicao = 0;
+                            estados[estado].epi.push_back(epi);
+                    }
+                    dado = "";
+                }
+            }
+        }
+    }
+    arquivo.close();
+}
+
+void esperar() {
+    cout << "Prese ENTER para continuar..." << endl;
+
+    while(getchar() != '\n');
 }

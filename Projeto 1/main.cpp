@@ -12,8 +12,6 @@
 using namespace std;
 
 int main(void) {
-
-
     
     int opcao;
     tEstoqueMinisterio estoque;
