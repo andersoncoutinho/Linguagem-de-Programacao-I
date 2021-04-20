@@ -28,10 +28,10 @@ typedef struct {
     std::string formaDeDisponibilizacao;
 }tMedicamento;
 
-//Adicionar outros atributos
 typedef struct {
     tDadosInsumos insumo;
     std::string tipo;
+    std::string descricao;
 }tEpi;
 
 typedef struct {
@@ -64,6 +64,7 @@ void carregarDados(tEstoqueMinisterio &, std::vector<tEstoqueEstados> &);
 void consultarVacinas(std::vector<tVacina>);
 void consultarMedicamentos(std::vector<tMedicamento>);
 void consultarEpis(std::vector<tEpi>);
+void consultarDescricaoInsumosPorUF(std::vector<tEstoqueEstados>);
 void consultarDescricaoInsumosUF(std::vector<tEstoqueEstados>);
 int encontrarEstado(std::string);
 void printInsumosDistribuidos(int, int, int);

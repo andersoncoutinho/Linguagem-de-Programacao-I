@@ -39,12 +39,15 @@ int main(void) {
                 consultarDescricaoInsumosUF(estados);
                 break;
             case 7:
+                consultarDescricaoInsumosPorUF(estados);
+                break;
+            case 8:
                 cout << "Fechando Sistema ..." << endl;
                 break;
             default: 
                 cout << "Opção Inválida" << endl;
         }
-    } while(opcao != 7);
+    } while(opcao != 8);
 
     return 0;
 }

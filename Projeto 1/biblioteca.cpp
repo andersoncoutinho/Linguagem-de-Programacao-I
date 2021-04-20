@@ -207,7 +207,8 @@ void cadastrarEpi(vector<tEpi> &epis) {
 
             cout << "Informe o tipo: ";
             getline(cin, epi.tipo);
-            cout << "Informe a via de administração: ";
+            cout << "Informe a descrição: ";
+            getline(cin, epi.descricao);
             
             epis.push_back(epi);
             cout << endl << "EPI " << i+1 << " cadastrado com sucesso!" << endl << endl;
@@ -565,12 +566,13 @@ void consultarEpis(vector<tEpi> epis) {
         cout << "Fabricante: " << epi.insumo.fabricante << endl;
         cout << "Quantidade: " << epi.insumo.quantidade << endl;
         cout << "Tipo: " << epi.tipo << endl;
+        cout << "Descrição: " << epi.descricao << endl;
         cout << endl;
     }
     cout << endl;
 }
 
-void consultarDescricaoInsumosUF(vector<tEstoqueEstados> estados) {
+void consultarDescricaoInsumosPorUF(vector<tEstoqueEstados> estados) {
     limparTerminal();
     string estado;
     cout << "Digite a sigla do estado: ";
@@ -606,6 +608,26 @@ void consultarDescricaoInsumosUF(vector<tEstoqueEstados> estados) {
         cout << "Estado não encontrado" << endl;
     }
     esperar();
+}
+
+void consultarDescricaoInsumosUF(vector<tEstoqueEstados> estados) {
+
+    for(int i = 0; i < QTD_ESTADOS; i++) {
+        limparTerminal();
+
+        cout << "INSUMOS DISTRIBUÍDOS PARA " << uf[i] << endl << endl;
+
+        cout << "VACINAS" << endl << endl;
+        consultarVacinas(estados[i].vacina);
+
+        cout << "MEDICAMENTOS" << endl << endl;
+        consultarMedicamentos(estados[i].medicamento);
+
+        cout << "EPIS" << endl << endl;
+        consultarEpis(estados[i].epi);
+
+        esperar();
+    }
 }
 
 void inicializarEstados(vector<tEstoqueEstados> &estados) {
@@ -652,7 +674,8 @@ void salvar(tEstoqueMinisterio estoque, vector<tEstoqueEstados> estados) {
             << epi.insumo.quantidade << ","
             << epi.insumo.vencimento << ","
             << epi.insumo.fabricante << ","
-            << epi.tipo << endl;
+            << epi.tipo << ","
+            << epi.descricao << endl;
     }
     arquivo.close();
 
@@ -705,7 +728,8 @@ void salvar(tEstoqueMinisterio estoque, vector<tEstoqueEstados> estados) {
                 << estados[i].epi[j].insumo.quantidade << ","
                 << estados[i].epi[j].insumo.vencimento << ","
                 << estados[i].epi[j].insumo.fabricante << ","
-                << estados[i].epi[j].tipo;
+                << estados[i].epi[j].tipo << ","
+                << estados[i].epi[j].descricao;
 
             if(j < estados[i].medicamento.size()-1) {
                 arquivo << ",";
@@ -743,6 +767,7 @@ void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados
                             break;
                         case 3:
                             vacina.insumo.quantidade = stoi(dado);
+                            break;
                         case 4:
                             vacina.insumo.vencimento = dado;
                             break;
@@ -786,6 +811,7 @@ void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados
                             break;
                         case 3:
                             medicamento.insumo.quantidade = stoi(dado);
+                            break;
                         case 4:
                             medicamento.insumo.vencimento = dado;
                             break;
@@ -829,6 +855,7 @@ void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados
                             break;
                         case 3:
                             epi.insumo.quantidade = stoi(dado);
+                            break;
                         case 4:
                             epi.insumo.vencimento = dado;
                             break;
@@ -837,6 +864,10 @@ void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados
                             break;
                         case 6:
                             epi.tipo = dado;
+                            break;
+                        case 7:
+                            epi.descricao = dado;
+                            break;
                     }
                     dado = "";
                 }
@@ -910,6 +941,7 @@ void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados
                             break;
                         case 3:
                             medicamento.insumo.quantidade = stoi(dado);
+                            break;
                         case 4:
                             medicamento.insumo.vencimento = dado;
                             break;
@@ -963,8 +995,12 @@ void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados
                             break;
                         case 6:
                             epi.tipo = dado;
+                            break;
+                        case 7:
+                            epi.descricao = dado;
                             posicao = 0;
                             estados[estado].epi.push_back(epi);
+                            break;
                     }
                     dado = "";
                 }
@@ -1000,8 +1036,8 @@ void printOpcoesGerais(){
         << "4 - Consultar Insumos Distribuídos" << endl
         << "5 - Consultar Descrição dos Insumos no Estoque" << endl
         << "6 - Consultar Descrição dos Insumos Distribuídos" << endl
-        << "7 - Sair" << endl;
-    cout << endl;
+        << "7 - Consultar Descrição dos Insumos Distribuídos Para um Estado" << endl
+        << "8 - Sair" << endl << endl;
 }
 
 void printOpcoesInsumos() {
@@ -1019,4 +1055,3 @@ int lerOpcao() {
     getchar();
     return opcao;
 }
-
