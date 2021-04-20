@@ -2,7 +2,7 @@
 #include <fstream>
 #include <stdio.h>
 #include "biblioteca.h"
-    
+
 using namespace std;
 
 string uf[QTD_ESTADOS] = {"AC", "AL", "AP", "AM", "BA",
@@ -84,10 +84,10 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
             }
             vacinas.push_back(vacina);
             cout << endl << "Vacina " << i+1 << " cadastrada com sucesso!" << endl << endl;
+            esperar();
         } else {
 
-            cout << "A vacina já existe no estoque. Deseja adicionar mais unidades? [y/N] " << endl;
-
+            cout << "A vacina já existe no estoque. Deseja adicionar mais unidades? [y/N] ";
             char opcao;
             opcao = getchar();
             
@@ -134,8 +134,7 @@ void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
             cin >> medicamento.insumo.quantidade;
             getchar();
             cout << "Informe o fabricante: ";
-            cin >> medicamento.insumo.fabricante;
-            getchar();
+            getline(cin, medicamento.insumo.fabricante);
             cout << "Informe a data de vencimento: ";
             getline(cin, medicamento.insumo.vencimento);
 
@@ -145,8 +144,10 @@ void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
             getline(cin, medicamento.viaDeAdministracao);
             cout << "Informe a forma de disponibilização: ";
             getline(cin, medicamento.formaDeDisponibilizacao);
+
             medicamentos.push_back(medicamento);
             cout << endl << "Medicamento " << i+1 << " cadastrado com sucesso!" << endl << endl;
+            esperar();
         } else {
 
             cout << "O medicamento já existe no estoque. Deseja adicionar mais unidades? [y/N] ";
@@ -200,8 +201,7 @@ void cadastrarEpi(vector<tEpi> &epis) {
             cin >> epi.insumo.quantidade;
             getchar();
             cout << "Informe o fabricante: ";
-            cin >> epi.insumo.fabricante;
-            getchar();
+            getline(cin, epi.insumo.fabricante);
             cout << "Informe a data de vencimento: ";
             getline(cin, epi.insumo.vencimento);
 
@@ -209,11 +209,12 @@ void cadastrarEpi(vector<tEpi> &epis) {
             getline(cin, epi.tipo);
             cout << "Informe a via de administração: ";
             
+            epis.push_back(epi);
             cout << endl << "EPI " << i+1 << " cadastrado com sucesso!" << endl << endl;
+            esperar();
         } else {
 
             cout << "O EPI já existe no estoque. Deseja adicionar mais unidades? [y/N] ";
-
             char opcao;
             opcao = getchar();
             
@@ -995,8 +996,8 @@ void printOpcoesGerais(){
     cout << "Menu de Opções" << endl << endl
         << "1 - Cadastrar Insumo" << endl
         << "2 - Consultar Estoque de Insumos" << endl
-        << "3 - Consultar Insumos Distribuídos" << endl
-        << "4 - Distribuir Insumos" << endl
+        << "3 - Distribuir Insumos" << endl
+        << "4 - Consultar Insumos Distribuídos" << endl
         << "5 - Consultar Descrição dos Insumos no Estoque" << endl
         << "6 - Consultar Descrição dos Insumos Distribuídos" << endl
         << "7 - Sair" << endl;

@@ -26,11 +26,11 @@ int main(void) {
                 consultarEstoque(estoque);
                 break;
             case 3:
-                consultarInsumosDistribuidos(estados);
-                break;
-            case 4:
                 distribuirInsumo(estoque, estados);
                 salvar(estoque, estados);
+                break;
+            case 4:
+                consultarInsumosDistribuidos(estados);
                 break;
             case 5:
                 consultarDescricaoInsumos(estoque);
