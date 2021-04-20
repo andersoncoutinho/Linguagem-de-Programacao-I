@@ -1,33 +1,22 @@
-/*
-
-*/
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
 #include <vector>
-#include "myLibrary.h"
-
-#define QTD_ESTADOS 27
+#include "biblioteca.h"
 
 using namespace std;
 
 int main(void) {
-    
-    int opcao;
-    tEstoqueMinisterio estoque;
 
+    tEstoqueMinisterio estoque;
     vector<tEstoqueEstados> estados(QTD_ESTADOS);
     inicializarEstados(estados);
-
     carregarDados(estoque, estados);
-
+    
+    int opcao;
     do {
-
-        cout << "Sistema de Gerenciamento de Distribuição de Insumos" << endl << endl;  
+        limparTerminal();
+        cout << endl << "SISTEMA DE GERENCIAMENTO DE DISTRIBUIÇÃO DE INSUMOS" << endl << endl;  
         printOpcoesGerais();
-        cout << "Escolha uma opção: ";
-        cin >> opcao;
-        getchar();
+        opcao = lerOpcao();
         switch(opcao) {
             case 1:
                 cadastrarInsumo(estoque);
@@ -35,7 +24,6 @@ int main(void) {
                 break;
             case 2:
                 consultarEstoque(estoque);
-                //consultarDescricaoInsumos(estoque);
                 break;
             case 3:
                 consultarInsumosDistribuidos(estados);
