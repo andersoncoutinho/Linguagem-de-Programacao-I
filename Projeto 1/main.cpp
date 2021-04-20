@@ -18,6 +18,7 @@ int main(void) {
 
     vector<tEstoqueEstados> estados(QTD_ESTADOS);
     inicializarEstados(estados);
+
     carregarDados(estoque, estados);
 
     do {
@@ -34,6 +35,7 @@ int main(void) {
                 break;
             case 2:
                 consultarEstoque(estoque);
+                //consultarDescricaoInsumos(estoque);
                 break;
             case 3:
                 consultarInsumosDistribuidos(estados);
@@ -43,13 +45,18 @@ int main(void) {
                 salvar(estoque, estados);
                 break;
             case 5:
+                consultarDescricaoInsumos(estoque);
+                break;
+            case 6:
+                consultarDescricaoInsumosUF(estados);
+                break;
+            case 7:
                 cout << "Fechando Sistema ..." << endl;
-                salvar(estoque, estados);
                 break;
             default: 
                 cout << "Opção Inválida" << endl;
         }
-    } while(opcao != 5);
+    } while(opcao != 7);
 
     return 0;
 }

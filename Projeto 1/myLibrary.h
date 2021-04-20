@@ -66,6 +66,12 @@ void distribuirEpi(vector<tEpi> &, vector<tEpi> &);
 void inicializarEstados(vector<tEstoqueEstados> &);
 void salvar(tEstoqueMinisterio, vector<tEstoqueEstados>);
 void carregarDados(tEstoqueMinisterio &, vector<tEstoqueEstados> &);
+void consultarVacinas(vector<tVacina>);
+void consultarMedicamentos(vector<tMedicamento>);
+void consultarEpis(vector<tEpi>);
+tEstoqueMinisterio obterInsumo(tEstoqueMinisterio);
+void consultarDescricaoInsumosUF(vector<tEstoqueEstados>);
+int encontrarEstado(string);
 void esperar();
 
 #endif

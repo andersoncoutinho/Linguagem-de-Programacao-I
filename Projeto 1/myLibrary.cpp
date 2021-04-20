@@ -6,11 +6,11 @@
 
 #define QTD_ESTADOS 27
 string uf[QTD_ESTADOS] = {"AC", "AL", "AP", "AM", "BA",
-                              "CE", "DF", "ES", "GO", "MA",
-                              "MT", "MS", "MG", "PA", "PB",
-                              "PR", "PE", "PI", "RJ", "RN",
-                              "RS", "RO", "RR", "SC", "SP",
-                              "SE", "TO"};
+                          "CE", "DF", "ES", "GO", "MA",
+                          "MT", "MS", "MG", "PA", "PB",
+                          "PR", "PE", "PI", "RJ", "RN",
+                          "RS", "RO", "RR", "SC", "SP",
+                          "SE", "TO"};
     
 using namespace std;
 
@@ -19,21 +19,23 @@ bool insumoExiste(tDadosInsumos estoque, tDadosInsumos insumo) {
 }
 
 void printOpcoesGerais(){
-    cout << "Menu de Opções" << endl << endl;
-    cout << "1 - Cadastrar Insumo" << endl;
-    cout << "2 - Consultar Estoque de Insumos" << endl;
-    cout << "3 - Consultar Insumos Distribuídos" << endl;
-    cout << "4 - Distribuir Insumos" << endl;
-    cout << "5 - Sair" << endl;
+    cout << "Menu de Opções" << endl << endl
+        << "1 - Cadastrar Insumo" << endl
+        << "2 - Consultar Estoque de Insumos" << endl
+        << "3 - Consultar Insumos Distribuídos" << endl
+        << "4 - Distribuir Insumos" << endl
+        << "5 - Consultar Descrição dos Insumos no Estoque" << endl
+        << "6 - Consultar Descrição dos Insumos Distribuídos" << endl
+        << "7 - Sair" << endl;
     cout << endl;
 }
 
 void printOpcoesInsumos() {
-    int a;
     cout << "1 - Vacina" << endl;
     cout << "2 - Medicamento" << endl;
     cout << "3 - EPI" << endl;
     cout << "4 - Cancelar" << endl;
+    cout << endl;
 }
 
 void cadastrarInsumo(tEstoqueMinisterio &estoque) {
@@ -469,52 +471,86 @@ void consultarEstoque(tEstoqueMinisterio estoque) {
 }
 
 void consultarDescricaoInsumos(tEstoqueMinisterio estoque) {
+    int opcao;
+    cout << "Que tipo de insumo você deseja consultar?" << endl;
+    printOpcoesInsumos();
+    cout << "Escolha uma opção: ";
+    cin >> opcao;
+    getchar();
 
-    for(tVacina vacina : estoque.vacina) {
+    switch (opcao) {
+        case 1:
+            cout << endl << "VACINAS NO ESTOQUE" << endl << endl;
+            consultarVacinas(estoque.vacina);
+            break;
+        case 2:
+            cout << endl << "MEDICAMENTOS NO ESTOQUE" << endl << endl;
+            consultarMedicamentos(estoque.medicamento);
+            break;
+        case 3:
+            cout << endl << "EPIS NO ESTOQUE" << endl << endl;
+            consultarEpis(estoque.epi);
+            break;
+        case 4: 
+            return;
+        default:
+            cout << "Opção Inválida" << endl;
+            break;
+    }
+    esperar();
+}
+
+void consultarVacinas(vector<tVacina> vacinas) {
+
+    for(tVacina vacina : vacinas) {
         cout << "Nome: " << vacina.insumo.nome << endl;
-        printf("Preço unitário: R$ %lf", vacina.insumo.valorUnitario);
+        printf("Preço unitário: R$ %.2lf\n", vacina.insumo.valorUnitario);
         cout << "Vencimento: " << vacina.insumo.vencimento << endl;
-        cout << "Fabricante " << vacina.insumo.fabricante << endl;
+        cout << "Quantidade: " << vacina.insumo.quantidade << endl;
+        cout << "Fabricante: " << vacina.insumo.fabricante << endl;
 
-        cout << "Tecnologia"  << vacina.tecnologia << endl;
+        cout << "Tecnologia: "  << vacina.tecnologia << endl;
         cout << "Doses Necessárias: " << vacina.dosesNecessarias << endl;
         if(vacina.dosesNecessarias > 1) {
             cout << "Intervalo de dias entre as doses: " << vacina.intervaloDeDias << endl;
         }
+        cout << endl;
     }
-
     cout << endl;
-    
+}
 
-    for(tMedicamento medicamento : estoque.medicamento) {
+void consultarMedicamentos(vector<tMedicamento> medicamentos) {
+
+    for(tMedicamento medicamento : medicamentos) {
         
         cout << "Nome: " << medicamento.insumo.nome << endl;
-        printf("Preço unitário: R$ %lf", medicamento.insumo.valorUnitario);
+        printf("Preço unitário: R$ %.2lf\n", medicamento.insumo.valorUnitario);
         cout << "Vencimento: " << medicamento.insumo.vencimento << endl;
         cout << "Fabricante: " << medicamento.insumo.fabricante << endl;
-        
-        cout << "Dosagem: " << medicamento.dosagem << "mg" << endl;
+        cout << "Quantidade: " << medicamento.insumo.quantidade << endl;
+        cout << "Dosagem: " << medicamento.dosagem << endl;
         cout << "Via de administração: " << medicamento.viaDeAdministracao << endl;
-        cout << "Forma de disponibilização" << medicamento.formaDeDisponibilizacao << endl;
-    }
-    
+        cout << "Forma de disponibilização: " << medicamento.formaDeDisponibilizacao << endl;
+        cout << endl;
+    } 
     cout << endl;
+}
 
-    for(tEpi epi : estoque.epi) {
-        
+void consultarEpis(vector<tEpi> epis) {
+
+    for(tEpi epi : epis) {
         cout << "Nome: " << epi.insumo.nome << endl;
-        printf("Preço unitário: R$ %lf", epi.insumo.valorUnitario);
+        printf("Preço unitário: R$ %.2lf\n", epi.insumo.valorUnitario);
         cout << "Vencimento: " << epi.insumo.vencimento << endl;
         cout << "Fabricante: " << epi.insumo.fabricante << endl;
-        
+        cout << "Quantidade: " << epi.insumo.quantidade << endl;
         cout << "Tipo: " << epi.tipo << endl;
+        cout << endl;
     }
-
     cout << endl;
 }
 
 void inicializarEstados(vector<tEstoqueEstados> &estados) {
-
     for(int i = 0; i < QTD_ESTADOS; i++) {
         estados[i].sigla = uf[i];
     }
@@ -880,8 +916,62 @@ void carregarDados(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados
     arquivo.close();
 }
 
-void esperar() {
-    cout << "Prese ENTER para continuar..." << endl;
+tEstoqueMinisterio obterInsumo(tEstoqueMinisterio estoque) {
+    return estoque;
+}
 
+void consultarDescricaoInsumosUF(vector<tEstoqueEstados> estados) {
+    
+    string estado;
+    cout << "Digite a sigla do estado: ";
+    getline(cin, estado);
+    
+    int indiceEstado = encontrarEstado(estado);
+
+    if(indiceEstado != -1) {
+        int opcao;
+        cout << "Que tipo de insumo você deseja consultar?" << endl;
+        printOpcoesInsumos();
+        cout << "Escolha uma opção: ";
+        cin >> opcao;
+        getchar();
+        
+        switch (opcao) {
+            case 1:
+                cout << "Vacinas enviadas para " << estado << endl;
+                consultarVacinas(estados[indiceEstado].vacina);
+                break;
+            case 2:
+                cout << "Medicamentos enviados para " << estado << endl;
+                consultarMedicamentos(estados[indiceEstado].medicamento);
+                break;
+            case 3:
+                cout << "EPIs enviados para " << estado << endl;
+                consultarEpis(estados[indiceEstado].epi);
+                break;
+            case 4: 
+                return;
+            default:
+                cout << "Opção Inválida" << endl;
+                break;
+        }
+    } else {
+        cout << "Estado não encontrado" << endl;
+    }
+    esperar();
+}
+
+int encontrarEstado(string estado) {
+    for(int i = 0; i < QTD_ESTADOS; i++) {
+        if(uf[i] == estado) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+void esperar() {
+    cout << "Pressione ENTER para continuar...";
     while(getchar() != '\n');
 }
