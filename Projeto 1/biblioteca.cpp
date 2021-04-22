@@ -5,20 +5,26 @@
 
 using namespace std;
 
-string uf[QTD_ESTADOS] = {"AC", "AL", "AP", "AM", "BA",
+static string uf[QTD_ESTADOS] = {"AC", "AL", "AP", "AM", "BA",
                           "CE", "DF", "ES", "GO", "MA",
                           "MT", "MS", "MG", "PA", "PB",
                           "PR", "PE", "PI", "RJ", "RN",
                           "RS", "RO", "RR", "SC", "SP",
                           "SE", "TO"};
 
+void inicializarEstados(vector<tEstoqueEstados> &estados) {
+    for(int i = 0; i < QTD_ESTADOS; i++) {
+        estados[i].sigla = uf[i];
+    }
+}
+
 void cadastrarInsumo(tEstoqueMinisterio &estoque) {
+
     limparTerminal();
     cout << "CADASTRO DE INSUMOS" << endl << endl
         << "Que tipo de insumo deseja-se cadastrar?" << endl;
     printOpcoesInsumos();
     int opcao = lerOpcao();
-    limparTerminal();
     switch (opcao) {
         case 1:
             cadastrarVacina(estoque.vacina);
@@ -39,8 +45,10 @@ void cadastrarInsumo(tEstoqueMinisterio &estoque) {
 
 void cadastrarVacina(vector<tVacina> &vacinas) {
 
+    limparTerminal();
     int qtd, indice;
-    cout << "Digite quantos tipos de vacina deseja-se cadastrar: ";
+    cout << "CADASTRO DE VACINAS" << endl << endl
+        << "Digite quantos tipos de vacina deseja-se cadastrar: ";
     cin >> qtd;
     getchar();
     for(int i = 0; i < qtd; i++) {
@@ -51,7 +59,6 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
         getline(cin, vacina.insumo.nome);
 
         for(indice = 0; indice < vacinas.size() ; indice++) {
-            
             if(vacinas[indice].insumo.nome.find(vacina.insumo.nome) != string::npos) {
                 vacinaExiste = true;
                 break;
@@ -106,8 +113,10 @@ void cadastrarVacina(vector<tVacina> &vacinas) {
 
 void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
     
+    limparTerminal();
     int qtd;
-    cout << "Digite quantos tipos de medicamentos deseja-se cadastrar: ";
+    cout << "CADASTRO DE MEDICAMENTOS" << endl << endl
+        << "Digite quantos tipos de medicamentos deseja-se cadastrar: ";
     cin >> qtd;
     getchar();
     
@@ -173,8 +182,10 @@ void cadastrarMedicamento(vector<tMedicamento> &medicamentos) {
 
 void cadastrarEpi(vector<tEpi> &epis) {
 
+    limparTerminal();
     int qtd;
-    cout << "Digite quantos tipos de EPIs deseja-se cadastrar: ";
+    cout << "CADASTRO DE EPIS" << endl << endl
+        << "Digite quantos tipos de EPIs deseja-se cadastrar: ";
     cin >> qtd;
     getchar();
     
@@ -235,41 +246,48 @@ void cadastrarEpi(vector<tEpi> &epis) {
     }
 }
 
-void consultarInsumosDistribuidos(vector<tEstoqueEstados> estados) {
-    
-    int qtdVacina = 0;
-    int qtdMedicamento = 0;
-    int qtdEpi = 0;
+void consultarEstoque(tEstoqueMinisterio estoque) {
 
-    for(tEstoqueEstados estado : estados) {
-        for(tVacina vacinas : estado.vacina) {
-            qtdVacina += vacinas.insumo.quantidade;
-        }
-        for(tMedicamento medicamento : estado.medicamento) {
-            qtdMedicamento += medicamento.insumo.quantidade;
-        }
-        for(tEpi epi : estado.epi) {
-            qtdEpi += epi.insumo.quantidade;
+    limparTerminal();
+    cout << "ESTOQUE DE INSUMOS DO MINISTÉRIO DA SAÚDE" << endl;
+
+    cout << endl << "VACINAS" << endl << endl;
+    for(tVacina vacina : estoque.vacina) {
+        if(vacina.insumo.quantidade > 0) {
+            cout << "Vacina: " << vacina.insumo.nome << endl;
+            cout << "Quantidade: " << vacina.insumo.quantidade << endl;
         }
     }
-    limparTerminal();
-    printInsumosDistribuidos(qtdVacina, qtdMedicamento, qtdEpi);
+    cout << endl;
+
+    cout << "MEDICAMENTOS" << endl << endl;
+    for(tMedicamento medicamento : estoque.medicamento) {   
+        if(medicamento.insumo.quantidade > 0) {
+            cout << "Medicamento: " << medicamento.insumo.nome << endl;
+            cout << "Quantidade: " << medicamento.insumo.quantidade << endl;
+        }
+    }
+    cout << endl;
+
+    cout << "EPIs" << endl << endl;
+    for(tEpi epi : estoque.epi) {   
+        if(epi.insumo.quantidade > 0) {
+            cout << "Epi: " << epi.insumo.nome << endl;
+            cout << "Quantidade: " << epi.insumo.quantidade << endl;
+        }
+    }
+    cout << endl;
+
     esperar();
 }
 
-void printInsumosDistribuidos(int qtdVacina, int qtdMedicamento, int qtdEpi) {
-    cout << endl << "INSUMOS DISTRIBUÍDOS" << endl << endl
-        << "Quantidade de vacinas distribuídas: " << qtdVacina << endl
-        << "Quantidade de medicamentos distribuídos: " << qtdMedicamento << endl
-        << "Quantidade de EPIs distribuídos: " << qtdEpi << endl
-        << endl;
-}
-
 void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &estados) {
-    
+
+    limparTerminal();  
     string sigla;
     int indice;
-    cout << "Digite a sigla do estado para o qual se deseja distribuir o insumo: ";
+    cout << "DISTRIBUIÇÃO DE INSUMOS" << endl << endl
+        << "Digite a sigla do estado para o qual se deseja distribuir o insumo: ";
     getline(cin, sigla);
 
     indice = encontrarEstado(sigla);
@@ -292,6 +310,7 @@ void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &esta
                     return;
                 default:
                     cout << "Opção Inválida" << endl;
+                    esperar();
                     break;
             }
     } else {
@@ -302,7 +321,9 @@ void distribuirInsumo(tEstoqueMinisterio &estoque, vector<tEstoqueEstados> &esta
 
 void distribuirVacina(vector<tVacina> &vacinas, vector<tVacina> &vacinasUF) {
     
-    cout << "Digite o nome da vacina que deseja-se distribuir: ";
+    limparTerminal();
+    cout << "DISTRIBUIÇÃO DE VACINAS" << endl << endl
+        << "Digite o nome da vacina que deseja-se distribuir: ";
     string nome;
     bool vacinaExiste = false;
     getline(cin, nome);
@@ -357,7 +378,9 @@ void distribuirVacina(vector<tVacina> &vacinas, vector<tVacina> &vacinasUF) {
 
 void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamento> &medicamentosUF) {
 
-    cout << "Digite o nome do medicamento que deseja-se distribuir: ";
+    limparTerminal();
+    cout << "DISTRIBUIÇÃO DE MEDICAMENTOS" << endl << endl
+        << "Digite o nome do medicamento que deseja-se distribuir: ";
     string nome;
     bool medicamentoExiste = false;
     getline(cin, nome);
@@ -410,7 +433,9 @@ void distribuirMedicamento(vector<tMedicamento> &medicamentos, vector<tMedicamen
 
 void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
 
-    cout << "Digite o nome do EPI que deseja-se distribuir: ";
+    limparTerminal();
+    cout << "DISTRIBUIÇÃO DE EPIS" << endl << endl
+        << "Digite o nome do EPI que deseja-se distribuir: ";
     string nome;
     bool epiExiste = false;
     getline(cin, nome);
@@ -460,39 +485,34 @@ void distribuirEpi(vector<tEpi> &epis, vector<tEpi> &episUF) {
     }
 }
 
-void consultarEstoque(tEstoqueMinisterio estoque) {
+void consultarInsumosDistribuidos(vector<tEstoqueEstados> estados) {
+    
+    int qtdVacina = 0;
+    int qtdMedicamento = 0;
+    int qtdEpi = 0;
 
+    for(tEstoqueEstados estado : estados) {
+        for(tVacina vacinas : estado.vacina) {
+            qtdVacina += vacinas.insumo.quantidade;
+        }
+        for(tMedicamento medicamento : estado.medicamento) {
+            qtdMedicamento += medicamento.insumo.quantidade;
+        }
+        for(tEpi epi : estado.epi) {
+            qtdEpi += epi.insumo.quantidade;
+        }
+    }
     limparTerminal();
-    cout << endl << "ESTOQUE DE INSUMOS DO MINISTÉRIO DA SAÚDE" << endl;
-
-    cout << endl << "VACINAS" << endl << endl;
-    for(tVacina vacina : estoque.vacina) {
-        if(vacina.insumo.quantidade > 0) {
-            cout << "Vacina: " << vacina.insumo.nome << endl;
-            cout << "Quantidade: " << vacina.insumo.quantidade << endl;
-        }
-    }
-    cout << endl;
-
-    cout << "MEDICAMENTOS" << endl << endl;
-    for(tMedicamento medicamento : estoque.medicamento) {   
-        if(medicamento.insumo.quantidade > 0) {
-            cout << "Medicamento: " << medicamento.insumo.nome << endl;
-            cout << "Quantidade: " << medicamento.insumo.quantidade << endl;
-        }
-    }
-    cout << endl;
-
-    cout << "EPIs" << endl << endl;
-    for(tEpi epi : estoque.epi) {   
-        if(epi.insumo.quantidade > 0) {
-            cout << "Epi: " << epi.insumo.nome << endl;
-            cout << "Quantidade: " << epi.insumo.quantidade << endl;
-        }
-    }
-    cout << endl;
-
+    printInsumosDistribuidos(qtdVacina, qtdMedicamento, qtdEpi);
     esperar();
+}
+
+void printInsumosDistribuidos(int qtdVacina, int qtdMedicamento, int qtdEpi) {
+    cout << endl << "INSUMOS DISTRIBUÍDOS" << endl << endl
+        << "Quantidade de vacinas distribuídas: " << qtdVacina << endl
+        << "Quantidade de medicamentos distribuídos: " << qtdMedicamento << endl
+        << "Quantidade de EPIs distribuídos: " << qtdEpi << endl
+        << endl;
 }
 
 void consultarDescricaoInsumos(tEstoqueMinisterio estoque) {
@@ -573,6 +593,7 @@ void consultarEpis(vector<tEpi> epis) {
 }
 
 void consultarDescricaoInsumosPorUF(vector<tEstoqueEstados> estados) {
+    
     limparTerminal();
     string estado;
     cout << "Digite a sigla do estado: ";
@@ -627,12 +648,6 @@ void consultarDescricaoInsumosUF(vector<tEstoqueEstados> estados) {
         consultarEpis(estados[i].epi);
 
         esperar();
-    }
-}
-
-void inicializarEstados(vector<tEstoqueEstados> &estados) {
-    for(int i = 0; i < QTD_ESTADOS; i++) {
-        estados[i].sigla = uf[i];
     }
 }
 

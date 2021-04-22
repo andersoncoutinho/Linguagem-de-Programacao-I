@@ -14,9 +14,12 @@ int main(void) {
     int opcao;
     do {
         limparTerminal();
-        cout << endl << "SISTEMA DE GERENCIAMENTO DE DISTRIBUIÇÃO DE INSUMOS" << endl << endl;  
+
+        cout << endl << "SISTEMA DE GERENCIAMENTO DE DISTRIBUIÇÃO DE INSUMOS" << endl << endl;
+
         printOpcoesGerais();
         opcao = lerOpcao();
+
         switch(opcao) {
             case 1:
                 cadastrarInsumo(estoque);
@@ -46,6 +49,7 @@ int main(void) {
                 break;
             default: 
                 cout << "Opção Inválida" << endl;
+                esperar();
         }
     } while(opcao != 8);
 
