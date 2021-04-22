@@ -521,7 +521,7 @@ void consultarDescricaoInsumos(tEstoqueMinisterio estoque) {
     cout << endl << "Que tipo de insumo deseja-se consultar?" << endl;
     printOpcoesInsumos();
     int opcao = lerOpcao();
-
+    limparTerminal();
     switch (opcao) {
         case 1:
             cout << endl << "VACINAS NO ESTOQUE" << endl << endl;
