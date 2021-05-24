@@ -15,7 +15,7 @@ class Local  {
 		Local();
 		~Local();
 		std::string getInsumo();
-		std::string descricaoGeral();
+		std::string descricaoTotal();
 		void SomaTotal();
 
 };

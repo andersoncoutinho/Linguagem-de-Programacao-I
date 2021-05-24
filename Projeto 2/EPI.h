@@ -14,6 +14,7 @@ class EPI : public Insumo {
 		~EPI();
 		EPI(std::string tipo, std::string descricao);
 		std::string getDescricao();
+		std::string getTipoInsumo();
 
 };
 #endif

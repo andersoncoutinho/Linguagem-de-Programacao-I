@@ -12,7 +12,7 @@ std::string Local::getInsumo() {
 	//return insumoP->getDescricao();
 }
 
-std::string Local::descricaoGeral() {
+std::string Local::descricaoTotal() {
 	
 }
 

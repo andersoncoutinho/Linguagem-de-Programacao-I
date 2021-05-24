@@ -23,3 +23,7 @@ std::string Vacina::getDescricao() {
     "Quantidade de doses: " + std::to_string(quantDoses) + "\n" +
     "Intervalo de dia: " + std::to_string(intervalo);
 }
+
+std::string Vacina::getTipoInsumo() {
+    return "Vacina";
+}

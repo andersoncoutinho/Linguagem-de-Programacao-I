@@ -4,7 +4,6 @@
 Insumo::Insumo() {
     this->quantidade = 0;
     this->valorUnitario = 0;
-    this->tipoInsumo = 0;
     this->somaTotal = 0;
 }
 	
@@ -25,8 +24,8 @@ float Insumo::getQuantidade() {
     return quantidade;
 }
 
-int Insumo::getTipoInsumo() {
-    return tipoInsumo;
+std::string Insumo::getTipoInsumo() {
+
 }
 
 float Insumo::getSomaTotal() {

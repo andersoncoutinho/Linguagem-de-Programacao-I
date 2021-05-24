@@ -23,3 +23,7 @@ std::string Medicamento::getDescricao() {
     "Administração: " + administracao + "\n" +
     "Disponibilização: " + disponibilizacao;
 }
+
+std::string Medicamento::getTipoInsumo() {
+    return "Medicamento";
+}

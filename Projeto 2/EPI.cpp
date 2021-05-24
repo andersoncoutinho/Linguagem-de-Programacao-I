@@ -19,3 +19,7 @@ std::string EPI::getDescricao() {
     "Tipo: " + tipo + "\n" +
     "Descrição: " + descricao;
 }
+
+std::string EPI::getTipoInsumo() {
+    return "EPI";
+}

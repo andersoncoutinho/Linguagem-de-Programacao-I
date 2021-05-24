@@ -17,6 +17,7 @@ class Medicamento : public Insumo {
 		Medicamento(std::string tipo, std::string dosagem, std::string administracao, 
 		std::string disponibilizacao);
 		std::string getDescricao();
+		std::string getTipoInsumo();
 
 };
 #endif
