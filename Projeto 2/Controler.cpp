@@ -8,14 +8,14 @@ Controler::~Controler() {
 	
 }
 
-void Controler::consultarInsumos(Local) {
+void Controler::consultarInsumos(Local *local) {
 
 }
 
-void Controler::consultarDescricao(Local) {
+void Controler::consultarDescricao(Local *local) {
 
 }
 
-Insumo Controler::consultarInsumos(Local, int) {
+Insumo Controler::consultarInsumos(Local *local, int tipo) {
 
 }

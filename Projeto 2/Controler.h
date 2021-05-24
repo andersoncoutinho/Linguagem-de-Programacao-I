@@ -13,9 +13,9 @@ class Controler
 
 		Controler();
 		~Controler();
-		void consultarInsumos(Local);
-		void consultarDescricao(Local);
-		Insumo consultarInsumos(Local, int);
+		void consultarInsumos(Local *local);
+		void consultarDescricao(Local *local);
+		Insumo consultarInsumos(Local *local, int tipo);
 
 };
 #endif
