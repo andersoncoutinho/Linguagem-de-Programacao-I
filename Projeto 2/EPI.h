@@ -18,4 +18,5 @@ class EPI : public Insumo {
 		std::string getTipoInsumo();
 
 };
+
 #endif

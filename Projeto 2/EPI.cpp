@@ -1,7 +1,11 @@
 #include "EPI.h"  
 	
 EPI::EPI() {
+<<<<<<< HEAD
+	
+=======
     Insumo();
+>>>>>>> 3d316987f79006c791938d089d2923db3aa4313d
 }
 	
 EPI::~EPI() {
