@@ -14,4 +14,5 @@ class EPI : public Insumo {
 		~EPI();
 
 };
+
 #endif

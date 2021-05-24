@@ -6,7 +6,6 @@ Insumo::Insumo() {
 
 }
 	
-Insumo::~Insumo()
-{
+Insumo::~Insumo() {
 	
 }
