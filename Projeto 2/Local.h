@@ -14,8 +14,9 @@ class Local  {
 
 		Local();
 		~Local();
-		std::string getInsumo(Insumo *insumoP);
-		float getSomaTotal(Insumo *insumoP);
+		std::string getInsumo();
+		std::string descricaoGeral();
+		void SomaTotal();
 
 };
 #endif

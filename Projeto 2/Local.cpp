@@ -8,14 +8,19 @@ Local::~Local() {
 	
 }
 
-std::string Local::getInsumo(Insumo *insumoP) {
-	return insumoP->getDescricao();
+std::string Local::getInsumo() {
+	//return insumoP->getDescricao();
 }
 
-float Local::getSomaTotal(Insumo *insumoP) {
+std::string Local::descricaoGeral() {
+	
+}
+
+void Local::SomaTotal() {
 	float soma = 0;
 
-	soma += insumoP->getQuantidade();
-
-	return soma;
+	for(int i = 0 ; i < insumos.size(); i++) {
+		soma += insumos[i]->getQuantidade();
+		insumos[i]->incrementaSomaTotal(soma);
+	}
 }

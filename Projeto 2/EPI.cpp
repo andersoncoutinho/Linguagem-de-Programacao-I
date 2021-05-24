@@ -1,7 +1,6 @@
 #include "EPI.h"  
 	
 EPI::EPI() {
-	this->tipo = 0;
     Insumo();
 }
 	
@@ -9,7 +8,7 @@ EPI::~EPI() {
 	
 }
 
-EPI::EPI(int tipo, std::string descricao) {
+EPI::EPI(std::string tipo, std::string descricao) {
     this->tipo = tipo;
     this->descricao = descricao;
 }
@@ -17,5 +16,6 @@ EPI::EPI(int tipo, std::string descricao) {
 std::string EPI::getDescricao() {
     std::string desc = "EPI: \n" +
     Insumo::getDescricao() + "\n" +
+    "Tipo: " + tipo + "\n" +
     "Descrição: " + descricao;
 }
