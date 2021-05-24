@@ -4,13 +4,11 @@
 #include "Local.h"
 #include "Insumo.h"
 	
-class Controler  
-{
+class Controler {
 	private:
 		std::vector<Local> locais;
 
 	public:
-
 		Controler();
 		~Controler();
 		std::string consultarInsumos(int i);
