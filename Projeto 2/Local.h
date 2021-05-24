@@ -15,6 +15,7 @@ class Local  {
 		Local();
 		~Local();
 		std::string getInsumo(Insumo *insumoP);
+		float getSomaTotal(Insumo *insumoP);
 
 };
 #endif

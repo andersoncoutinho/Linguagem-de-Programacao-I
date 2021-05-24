@@ -13,7 +13,7 @@ class Controler
 
 		Controler();
 		~Controler();
-		std::string consultarInsumos();
+		std::string consultarInsumos(Local local);
 		std::string consultarDescricao(Local local);
 		Insumo consultarInsumos(Local local, int tipo);
 

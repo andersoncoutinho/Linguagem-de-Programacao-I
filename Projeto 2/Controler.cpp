@@ -8,7 +8,7 @@ Controler::~Controler() {
 	
 }
 
-std::string Controler::consultarInsumos() {
+std::string Controler::consultarInsumos(Local local) {
 	
 }
 

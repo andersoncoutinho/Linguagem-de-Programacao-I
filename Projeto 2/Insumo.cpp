@@ -20,6 +20,10 @@ Insumo::Insumo(std::string nome, int quantidade, int valorUnitario, std::string 
     this->tipoInsumo = tipoInsumo;
 }
 
+float Insumo::getQuantidade() {
+    return quantidade;
+}
+
 std::string Insumo::getDescricao() {
     std::string desc = "Nome: " + nome + "\n" +
     "Quantidade: " + std::to_string(quantidade) + "\n" +
