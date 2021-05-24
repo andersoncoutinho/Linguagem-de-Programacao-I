@@ -15,10 +15,11 @@ class Insumo {
         public: 
         	Insumo();
                 ~Insumo();
-                Insumo(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento, std::string nomeFabricante, int tipoInsumo);
+                Insumo(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento, std::string nomeFabricante, std::string tipoInsumo);
                 float getQuantidade();
-                std::string getTipoInsumo();
                 float getSomaTotal();
+                virtual std::string getTipoInsumo();
+                virtual std::string getConsulta();
                 virtual std::string getDescricao();
                 virtual float incrementaSomaTotal(float soma);
 

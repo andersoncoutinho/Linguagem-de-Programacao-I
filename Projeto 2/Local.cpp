@@ -9,7 +9,32 @@ Local::~Local() {
 }
 
 std::string Local::getInsumo() {
-	//return insumoP->getDescricao();
+	std::string aux;
+
+	aux = "Vacinas:\n";
+
+	for(int i = 0 ; i< insumos.size(); i++) {
+		if(insumos[i]->getTipoInsumo() == "Vacina")
+			aux += insumos[i]->getConsulta();
+	}
+
+	aux = "Medicamento:\n";
+
+	for(int i = 0 ; i< insumos.size(); i++) {
+		if(insumos[i]->getTipoInsumo() == "Medicamento")
+			aux += insumos[i]->getConsulta();
+	}
+
+	aux = "EPI:\n";
+
+	for(int i = 0 ; i< insumos.size(); i++) {
+		if(insumos[i]->getTipoInsumo() == "EPI")
+			aux += insumos[i]->getConsulta();
+	}
+
+	//Encontrar uma forma de melhorar essa implementação
+	
+	return aux;
 }
 
 std::string Local::descricaoTotal() {
