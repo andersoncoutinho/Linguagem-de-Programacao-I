@@ -8,14 +8,14 @@ Controler::~Controler() {
 	
 }
 
-void Controler::consultarInsumos(Local *local) {
+std::string Controler::consultarInsumos() {
+	
+}
+
+std::string Controler::consultarDescricao(Local local) {
 
 }
 
-void Controler::consultarDescricao(Local *local) {
-
-}
-
-Insumo Controler::consultarInsumos(Local *local, int tipo) {
+Insumo Controler::consultarInsumos(Local local, int tipo) {
 
 }

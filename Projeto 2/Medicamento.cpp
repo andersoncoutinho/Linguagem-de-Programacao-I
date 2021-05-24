@@ -14,14 +14,10 @@ Medicamento::Medicamento(std::string dosagem, std::string administracao, std::st
     this->disponibilizacao = disponibilizacao;
 }
 
-std::string Medicamento::getDosagem() {
-    return dosagem;
-}
-
-std::string Medicamento::getAdministracao() {
-    return administracao;
-}
-
-std::string Medicamento::getDisponibilizacao() {
-    return disponibilizacao;
+std::string Medicamento::getDescricao() {
+    std::string desc = "Medicamento: \n" +
+    Insumo::getDescricao() + "\n" +
+    "Dosagem: " + dosagem + "\n" +
+    "Administração: " + administracao + "\n" +
+    "Disponibilização: " + disponibilizacao;
 }

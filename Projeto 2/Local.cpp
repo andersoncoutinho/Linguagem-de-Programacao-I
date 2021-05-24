@@ -7,3 +7,7 @@ Local::Local() {
 Local::~Local() {
 	
 }
+
+std::string Local::getInsumo(Insumo *insumoP) {
+	return insumoP->getDescricao();
+}

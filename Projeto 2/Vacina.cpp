@@ -17,14 +17,9 @@ Vacina::Vacina(int tipo, int quantDoses, int intervalo) {
     this-> intervalo = intervalo;
 }
 
-int Vacina::getTipo() {
-    return tipo;
-}
-
-int Vacina::getQuantidadeDoses() {
-    return quantDoses;
-}
-
-int Vacina::getIntevalo() {
-    return intervalo;
+std::string Vacina::getDescricao() {
+    std::string desc = "Vacina: \n" +
+    Insumo::getDescricao() + "\n" +
+    "Quantidade de doses: " + std::to_string(quantDoses) + "\n" +
+    "Intervalo de dia: " + std::to_string(intervalo);
 }

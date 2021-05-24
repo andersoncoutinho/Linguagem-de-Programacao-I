@@ -13,11 +13,9 @@ EPI::EPI(int tipo, std::string descricao) {
     this->tipo = tipo;
     this->descricao = descricao;
 }
-
-int EPI::getTipo() {
-    return tipo;
-}
  
 std::string EPI::getDescricao() {
-    return descricao;
+    std::string desc = "EPI: \n" +
+    Insumo::getDescricao() + "\n" +
+    "Descrição: " + descricao;
 }

@@ -20,26 +20,12 @@ Insumo::Insumo(std::string nome, int quantidade, int valorUnitario, std::string 
     this->tipoInsumo = tipoInsumo;
 }
 
-std::string Insumo::getNome() {
-    return nome;
-}
-
-int Insumo::getQuantidade() {
-    return quantidade;
-}
-
-int Insumo::getValorUnitario() {
-    return valorUnitario;
-}
-
-std::string Insumo::getDtVencimento() {
-    return dtVencimento;
-}
-
-std::string Insumo::getNomeFabricante() {
-    return nomeFabricante;
-}
-
-int Insumo::getTipoInsumo() {
-    return tipoInsumo;
+std::string Insumo::getDescricao() {
+    std::string desc = "Nome: " + nome + "\n" +
+    "Quantidade: " + std::to_string(quantidade) + "\n" +
+    "Valor Unitário: " + std::to_string(valorUnitario) + "\n" +
+    "Data de Vencimento: " + dtVencimento + "\n" +
+    "Nome do fabricante: " + nomeFabricante + "\n";
+    
+    return desc;
 }

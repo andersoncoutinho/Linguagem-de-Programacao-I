@@ -15,12 +15,7 @@ class Insumo {
         	Insumo();
                 ~Insumo();
                 Insumo(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento, std::string nomeFabricante, int tipoInsumo);
-                std::string getNome();
-                int getQuantidade();
-                int getValorUnitario();
-                std::string getDtVencimento();
-                std::string getNomeFabricante();
-                int getTipoInsumo();
+                std::string getDescricao();
 
 };
 
