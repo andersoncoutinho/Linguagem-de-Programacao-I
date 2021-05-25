@@ -4,7 +4,6 @@
 Insumo::Insumo() {
     this->quantidade = 0;
     this->valorUnitario = 0;
-    this->somaTotal = 0;
 }
 	
 Insumo::~Insumo() {
@@ -27,10 +26,6 @@ std::string Insumo::getTipoInsumo() {
 
 }
 
-float Insumo::getSomaTotal() {
-    return somaTotal;
-}
-
 std::string Insumo::getConsulta() {
     
 }
@@ -43,8 +38,4 @@ std::string Insumo::getDescricao() {
     "Nome do fabricante: " + nomeFabricante + "\n";
     
     return desc;
-}
-
-float Insumo::incrementaSomaTotal(float soma) {
-    this->somaTotal += soma;
 }
