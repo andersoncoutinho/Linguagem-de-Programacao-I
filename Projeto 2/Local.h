@@ -4,7 +4,7 @@
 #include <vector>
 #include "Insumo.h"
 	
-class Local  {
+class Local {
 	private:
 		std::string nome;
 		int tipo;
@@ -16,6 +16,7 @@ class Local  {
 		~Local();
 		std::string getInsumo();
 		std::string descricaoTotal();
+		std::vector<Insumo*> getInsumos();
 		void SomaTotal();
 
 };

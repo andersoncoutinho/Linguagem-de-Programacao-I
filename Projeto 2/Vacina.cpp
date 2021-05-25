@@ -1,13 +1,9 @@
 #include "Vacina.h"  
 	
 Vacina::Vacina() {
-<<<<<<< HEAD
-	
-=======
     this->quantDoses = 0;
     this->intervalo = 0;
     Insumo();
->>>>>>> 3d316987f79006c791938d089d2923db3aa4313d
 }
 	
 Vacina::~Vacina() {
