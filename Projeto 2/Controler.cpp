@@ -19,4 +19,10 @@ std::string Controler::consultarDescricao(Local local) {
 
 Insumo Controler::consultarInsumos(Local local, int tipo) {
 	//retornar a descrição de insumos de acordo com o tipo
+} 
+
+bool Controler::distribuirInsumo(std::string nome, int qtd, int local) {
+
+	
+
 }

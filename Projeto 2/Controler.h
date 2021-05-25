@@ -14,6 +14,7 @@ class Controler {
 		std::string consultarInsumos(int i);
 		std::string consultarDescricao(Local local);
 		Insumo consultarInsumos(Local local, int tipo);
+		bool distribuirInsumo(std::string, int, int);
 
 };
 #endif
