@@ -6,20 +6,16 @@
 
 class Medicamento : public Insumo {
 	private:
-		std::string tipo;
 		std::string dosagem;
 		std::string administracao;
 		std::string disponibilizacao;
 	public:
-
-		Medicamento();
-		~Medicamento();
-		Medicamento(std::string tipo, std::string dosagem, std::string administracao, 
-		std::string disponibilizacao);
+		Medicamento(std::string nome, int quantidade, int valorUnitario,
+                            std::string dtVencimento, std::string nomeFabricante, int tipoInsumo,
+                            std::string dosagem, std::string administracao, std::string disponibilizacao); 
+		std::string getDisponibilizacao();
 		std::string getConsulta();
 		std::string getDescricao();
-		std::string getTipoInsumo();
-		
-
+		~Medicamento();
 };
 #endif

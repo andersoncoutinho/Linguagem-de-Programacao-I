@@ -1,5 +1,6 @@
 #include "Local.h"  
-	
+#include <iostream>
+
 Local::Local() {
 	this->tipo = 0;
 }
@@ -9,26 +10,26 @@ Local::~Local() {
 }
 
 std::string Local::getDescricaoGeralInsumo() {
-	std::string aux;
+	std::string aux, vacina, medicamento, epi;
 
 	aux = "Vacinas:\n";
 
-	for(int i = 0 ; i< insumos.size(); i++) {
-		if(insumos[i]->getTipoInsumo() == "Vacina")
+	for(int i = 0 ; i < insumos.size(); i++) {
+		if(insumos[i]->getTipoInsumo() == VACINA)
 			aux += insumos[i]->getConsulta();
+		
 	}
 
-	aux = "Medicamento:\n";
-
+	aux += "Medicamentos:\n";
 	for(int i = 0 ; i< insumos.size(); i++) {
-		if(insumos[i]->getTipoInsumo() == "Medicamento")
+		if(insumos[i]->getTipoInsumo() == MEDICAMENTO)
 			aux += insumos[i]->getConsulta();
 	}
-
-	aux = "EPI:\n";
+	
+	aux += "EPI:\n";
 
 	for(int i = 0 ; i< insumos.size(); i++) {
-		if(insumos[i]->getTipoInsumo() == "EPI")
+		if(insumos[i]->getTipoInsumo() == EPI)
 			aux += insumos[i]->getConsulta();
 	}
 
@@ -38,18 +39,17 @@ std::string Local::getDescricaoGeralInsumo() {
 }
 
 std::string Local::descricaoTotal() {
-	
+	return "";
 }
 
-void Local::SomaTotal() {
-	float soma = 0;
-
-	for(int i = 0 ; i < insumos.size(); i++) {
-		soma += insumos[i]->getQuantidade();
-		insumos[i]->incrementaSomaTotal(soma);
-	}
+Insumo* Local::getInsumo(int pos){
+	return insumos[pos];
 }
 
-std::vector<Insumo*> Local::getInsumos(){
-	return insumos;
+std::vector<Insumo*>* Local::getInsumos(){
+	return &insumos;
+}
+
+void Local::addInsumo(Insumo *insumo) {
+	insumos.push_back(insumo);
 }

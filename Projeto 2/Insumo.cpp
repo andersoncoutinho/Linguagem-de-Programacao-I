@@ -2,32 +2,24 @@
 #include <string>
 
 Insumo::Insumo() {
-    this->quantidade = 0;
-    this->valorUnitario = 0;
-}
-	
-Insumo::~Insumo() {
-	
+
 }
 
-Insumo::Insumo(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento, std::string nomeFabricante, std::string tipoInsumo) {
+Insumo::Insumo(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento, std::string nomeFabricante, int tipoInsumo) {
     this->nome = nome;
     this->quantidade = quantidade;
     this->valorUnitario = valorUnitario;
     this->dtVencimento = dtVencimento;
     this->nomeFabricante = nomeFabricante;
+    this->tipoInsumo = tipoInsumo;
 }
 
-float Insumo::getQuantidade() {
+int Insumo::getQuantidade() {
     return quantidade;
 }
 
-std::string Insumo::getTipoInsumo() {
-
-}
-
-std::string Insumo::getConsulta() {
-    
+int Insumo::getTipoInsumo() {
+    return this->tipoInsumo;
 }
 
 std::string Insumo::getDescricao() {
@@ -35,7 +27,14 @@ std::string Insumo::getDescricao() {
     "Quantidade: " + std::to_string(quantidade) + "\n" +
     "Valor Unitário: " + std::to_string(valorUnitario) + "\n" +
     "Data de Vencimento: " + dtVencimento + "\n" +
-    "Nome do fabricante: " + nomeFabricante + "\n";
-    
+    "Nome do fabricante: " + nomeFabricante + "\n";    
     return desc;
+}
+
+std::string Insumo::getConsulta() {
+    return "";
+}
+
+std::string Insumo::getTecnologia() {
+    return "";
 }

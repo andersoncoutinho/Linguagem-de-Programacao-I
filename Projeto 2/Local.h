@@ -11,13 +11,13 @@ class Local {
 		std::vector<Insumo*> insumos;
 
 	public:
-
 		Local();
 		~Local();
 		std::string getDescricaoGeralInsumo();
 		std::string descricaoTotal();
-		std::vector<Insumo*> getInsumos();
-		void SomaTotal();
+		Insumo* getInsumo(int);
+		std::vector<Insumo*>* getInsumos();
+		void addInsumo(Insumo *);
 
 };
 #endif
