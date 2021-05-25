@@ -10,7 +10,7 @@ Controler::~Controler() {
 }
 
 std::string Controler::consultarInsumos(int i) {
-	return locais[i].getInsumo();
+	return locais[i].getDescricaoGeralInsumo();
 	//Falta só testar e melhorar implementação
 }
 
