@@ -12,7 +12,7 @@ Medicamento::Medicamento(std::string nome, int quantidade, int valorUnitario,
 }
 
 std::string Medicamento::getConsulta() {
-    std::string consulta = "Medicamento: " + tipo + "\n" +
+    std::string consulta = "Medicamento: " + this->nome + "\n" +
     "Quantidade: " + std::to_string(quantidade) + "\n\n";
 
     return consulta;

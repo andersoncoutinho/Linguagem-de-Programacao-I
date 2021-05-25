@@ -11,6 +11,7 @@ Insumo::Insumo(std::string nome, int quantidade, int valorUnitario, std::string 
     this->valorUnitario = valorUnitario;
     this->dtVencimento = dtVencimento;
     this->nomeFabricante = nomeFabricante;
+    this->tipoInsumo = tipoInsumo;
 }
 
 int Insumo::getQuantidade() {

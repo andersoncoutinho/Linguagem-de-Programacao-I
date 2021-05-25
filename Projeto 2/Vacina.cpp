@@ -11,7 +11,7 @@ Vacina::Vacina(std::string nome, int quantidade, int valorUnitario,
 }
 
 std::string Vacina::getConsulta() {
-    std::string consulta = "Vacina: " + tecnologia + "\n" +
+    std::string consulta = "Vacina: " + this->nome + "\n" +
     "Quantidade: " + std::to_string(quantidade) + "\n\n";
 
     return consulta;

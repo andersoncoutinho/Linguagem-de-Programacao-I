@@ -2,6 +2,7 @@
 #define INSUMO_H
 
 #include <string>
+#include <iostream>
 
 #define VACINA 1
 #define MEDICAMENTO 2

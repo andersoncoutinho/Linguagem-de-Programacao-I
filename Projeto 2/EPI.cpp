@@ -10,7 +10,7 @@ Epi::Epi(std::string nome, int quantidade, int valorUnitario, std::string dtVenc
 }
 
 std::string Epi::getConsulta() {
-    std::string consulta = "EPI: " + tipo + "\n" +
+    std::string consulta = "EPI: " + this->nome + "\n" +
     "Quantidade: " + std::to_string(quantidade) + "\n\n";
 
     return consulta;

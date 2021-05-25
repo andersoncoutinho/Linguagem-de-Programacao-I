@@ -6,7 +6,6 @@
 
 class Medicamento : public Insumo {
 	private:
-		std::string tipo;
 		std::string dosagem;
 		std::string administracao;
 		std::string disponibilizacao;

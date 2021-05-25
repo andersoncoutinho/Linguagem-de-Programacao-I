@@ -30,7 +30,7 @@ bool Controler::distribuirInsumo(std::string nome, int qtd, int local) {
 }
 
 void Controler::cadastrarInsumosMS(Insumo *ins){
-	locais[ESTQ].getInsumos().push_back(ins);
+	locais[ESTQ].getInsumos()->push_back(ins);
 }
 
 Local Controler::getLocal(int i) {
