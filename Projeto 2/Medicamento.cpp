@@ -1,11 +1,7 @@
 #include "Medicamento.h"  
 	
 Medicamento::Medicamento() {
-<<<<<<< HEAD
-
-=======
 	Insumo();
->>>>>>> 2f142e7f85a727c582f3d91ee879615ebe97aba3
 }
 	
 
