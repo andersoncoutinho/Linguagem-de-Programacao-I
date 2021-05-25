@@ -14,7 +14,7 @@ class Local {
 
 		Local();
 		~Local();
-		std::string getInsumo();
+		std::string getDescricaoGeralInsumo();
 		std::string descricaoTotal();
 		std::vector<Insumo*> getInsumos();
 		void SomaTotal();

@@ -8,7 +8,7 @@ Local::~Local() {
 	
 }
 
-std::string Local::getInsumo() {
+std::string Local::getDescricaoGeralInsumo() {
 	std::string aux;
 
 	aux = "Vacinas:\n";
