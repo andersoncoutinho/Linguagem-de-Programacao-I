@@ -4,18 +4,14 @@
 #include "Insumo.h"
 #include <string>
 
-class EPI : public Insumo {
+class Epi : public Insumo {
 	private:
 		std::string tipo;
 		std::string descricao;
 	public:
-
-		EPI();
-		~EPI();
-		EPI(std::string tipo, std::string descricao);
+		Epi(std::string, int, int, std::string, std::string, int, std::string, std::string);
 		std::string getConsulta();
 		std::string getDescricao();
-		std::string getTipoInsumo();
 
 };
 

@@ -5,17 +5,15 @@
 
 class Vacina : public Insumo {
 	private:
-		std::string tipo;
+		std::string tecnologia;
 		int quantDoses;
 		int intervalo;
 	public:
-
-		Vacina();
-		~Vacina();
-		Vacina(std::string tipo, int quantDoses, int intervalo);
+		Vacina(std::string, int, int, std::string, std::string, int, std::string, int, int);
 		std::string getConsulta();
 		std::string getDescricao();
-		std::string getTipoInsumo();
+		std::string getTecnologia();
+		~Vacina();
 
 };
 #endif

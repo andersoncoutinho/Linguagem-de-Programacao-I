@@ -3,6 +3,10 @@
 
 #include <string>
 
+#define VACINA 1
+#define MEDICAMENTO 2
+#define EPI 3
+
 class Insumo {
         protected:
                 std::string nome;
@@ -10,17 +14,15 @@ class Insumo {
                 int valorUnitario;
                 std::string dtVencimento;
                 std::string nomeFabricante;
-                std::string tipoInsumo;
+                int tipoInsumo;
         public: 
-        	Insumo();
-                ~Insumo();
-                Insumo(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento, std::string nomeFabricante, std::string tipoInsumo);
-                float getQuantidade();
-                float getSomaTotal();
-                virtual std::string getTipoInsumo();
+                Insumo();
+                Insumo(std::string, int, int, std::string, std::string, int);
+                int getQuantidade();
+                virtual int getTipoInsumo();
                 virtual std::string getConsulta();
                 virtual std::string getDescricao();
-                virtual float incrementaSomaTotal(float soma);
+                virtual std::string getTecnologia();
 
 };
 

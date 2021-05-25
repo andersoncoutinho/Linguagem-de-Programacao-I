@@ -6,7 +6,7 @@
 	
 class Controler{
 	private:
-		std::vector<Local> locais;
+		Local locais[28];
 	
 	public:
 		Controler();
@@ -16,6 +16,7 @@ class Controler{
 		Insumo consultarInsumos(Local local, int tipo);
 		bool distribuirInsumo(std::string, int, int);
 		void cadastrarInsumosMS(Insumo *);
+		Local getLocal(int i);
 
 };
 #endif

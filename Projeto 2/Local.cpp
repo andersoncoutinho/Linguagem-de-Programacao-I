@@ -1,5 +1,6 @@
 #include "Local.h"  
-	
+#include <iostream>
+
 Local::Local() {
 	this->tipo = 0;
 }
@@ -13,22 +14,22 @@ std::string Local::getInsumo() {
 
 	aux = "Vacinas:\n";
 
-	for(int i = 0 ; i< insumos.size(); i++) {
-		if(insumos[i]->getTipoInsumo() == "Vacina")
+	for(int i = 0 ; i < insumos.size(); i++) {
+		if(insumos[i]->getTipoInsumo() == VACINA)
 			aux += insumos[i]->getConsulta();
 	}
 
-	aux = "Medicamento:\n";
 
+	aux += "Medicamento:\n";
 	for(int i = 0 ; i< insumos.size(); i++) {
-		if(insumos[i]->getTipoInsumo() == "Medicamento")
+		if(insumos[i]->getTipoInsumo() == MEDICAMENTO)
 			aux += insumos[i]->getConsulta();
 	}
-
-	aux = "EPI:\n";
+	
+	aux += "EPI:\n";
 
 	for(int i = 0 ; i< insumos.size(); i++) {
-		if(insumos[i]->getTipoInsumo() == "EPI")
+		if(insumos[i]->getTipoInsumo() == EPI)
 			aux += insumos[i]->getConsulta();
 	}
 
@@ -38,16 +39,7 @@ std::string Local::getInsumo() {
 }
 
 std::string Local::descricaoTotal() {
-	
-}
-
-void Local::SomaTotal() {
-	float soma = 0;
-
-	for(int i = 0 ; i < insumos.size(); i++) {
-		soma += insumos[i]->getQuantidade();
-		insumos[i]->incrementaSomaTotal(soma);
-	}
+	return "";
 }
 
 std::vector<Insumo*> Local::getInsumos(){
