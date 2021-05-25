@@ -1,12 +1,13 @@
 #include "Medicamento.h"  
 	
 Medicamento::Medicamento() {
+<<<<<<< HEAD
 
+=======
+	Insumo();
+>>>>>>> 2f142e7f85a727c582f3d91ee879615ebe97aba3
 }
 	
-Medicamento::~Medicamento() {
-	
-}
 
 Medicamento::Medicamento(std::string tipo, std::string dosagem, std::string administracao, std::string disponibilizacao) {
     this->tipo = tipo;
@@ -33,4 +34,8 @@ std::string Medicamento::getDescricao() {
 
 std::string Medicamento::getTipoInsumo() {
     return "Medicamento";
+}
+
+Medicamento::~Medicamento() {
+	
 }

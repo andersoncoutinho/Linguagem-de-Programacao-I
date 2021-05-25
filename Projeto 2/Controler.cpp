@@ -23,4 +23,5 @@ Insumo Controler::consultarInsumos(Local local, int tipo) {
 }
 
 void Controler::cadastrarInsumosMS(Insumo *ins){
+	locais[ESTQ].getInsumos().push_back(ins);
 }

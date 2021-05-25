@@ -6,9 +6,6 @@ Vacina::Vacina() {
     Insumo();
 }
 	
-Vacina::~Vacina() {
-	
-}
 
 Vacina::Vacina(std::string tipo, int quantDoses, int intervalo) {
     this->tipo = tipo;
@@ -35,4 +32,8 @@ std::string Vacina::getDescricao() {
 
 std::string Vacina::getTipoInsumo() {
     return "Vacina";
+}
+
+Vacina::~Vacina() {
+	
 }

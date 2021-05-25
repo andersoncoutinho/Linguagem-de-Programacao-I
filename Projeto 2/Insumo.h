@@ -11,7 +11,6 @@ class Insumo {
                 std::string dtVencimento;
                 std::string nomeFabricante;
                 std::string tipoInsumo;
-                float somaTotal;
         public: 
         	Insumo();
                 ~Insumo();
