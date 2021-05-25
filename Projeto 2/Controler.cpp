@@ -1,4 +1,5 @@
 #include "Controler.h"  
+#define ESTQ 0
 	
 Controler::Controler() {
 	Local();
@@ -24,5 +25,8 @@ Insumo Controler::consultarInsumos(Local local, int tipo) {
 bool Controler::distribuirInsumo(std::string nome, int qtd, int local) {
 
 	
+}
 
+void Controler::cadastrarInsumosMS(Insumo *ins){
+	locais[ESTQ].getInsumos().push_back(ins);
 }

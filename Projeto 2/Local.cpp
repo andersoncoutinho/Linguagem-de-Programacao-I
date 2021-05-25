@@ -49,3 +49,7 @@ void Local::SomaTotal() {
 		insumos[i]->incrementaSomaTotal(soma);
 	}
 }
+
+std::vector<Insumo*> Local::getInsumos(){
+	return insumos;
+}
