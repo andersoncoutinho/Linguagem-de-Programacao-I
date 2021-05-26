@@ -12,28 +12,18 @@ Local::~Local() {
 std::string Local::getDescricaoGeralInsumo() {
 	std::string aux, vacina, medicamento, epi;
 
-	aux = "Vacinas:\n";
-
 	for(int i = 0 ; i < insumos.size(); i++) {
 		if(insumos[i]->getTipoInsumo() == VACINA)
-			aux += insumos[i]->getConsulta();
-		
+			vacina += insumos[i]->getConsulta();
+		else if(insumos[i]->getTipoInsumo() == MEDICAMENTO)
+			medicamento += insumos[i]->getConsulta();
+		else if(insumos[i]->getTipoInsumo() == EPI)
+			epi += insumos[i]->getConsulta();
 	}
 
-	aux += "Medicamentos:\n";
-	for(int i = 0 ; i< insumos.size(); i++) {
-		if(insumos[i]->getTipoInsumo() == MEDICAMENTO)
-			aux += insumos[i]->getConsulta();
-	}
-	
-	aux += "EPI:\n";
-
-	for(int i = 0 ; i< insumos.size(); i++) {
-		if(insumos[i]->getTipoInsumo() == EPI)
-			aux += insumos[i]->getConsulta();
-	}
-
-	//Encontrar uma forma de melhorar essa implementação
+	aux = (vacina.size() != 0) ? "Vacinas: \n\n" + vacina : vacina; 
+	aux += (medicamento.size() != 0) ? "Medicamentos: \n\n" + medicamento : medicamento;
+	aux += (epi.size() != 0) ? "Epis: \n\n" + epi : epi;
 	
 	return aux;
 }
