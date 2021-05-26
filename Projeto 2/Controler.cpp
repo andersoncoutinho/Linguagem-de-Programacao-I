@@ -11,7 +11,7 @@ Controler::~Controler() {
 
 std::string Controler::consultarInsumos(int i) {
 	return locais[i].getDescricaoGeralInsumo();
-	//Falta só testar e melhorar implementação
+	//Falta só mudar os nomes das funções para nomes mais significativos
 }
 
 std::string Controler::consultarDescricao(Local local) {
