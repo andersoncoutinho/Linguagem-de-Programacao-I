@@ -15,7 +15,7 @@ Insumo::Insumo(std::string nome, int quantidade, int valorUnitario, std::string 
 }
 
 int Insumo::getQuantidade() {
-    return quantidade;
+    return this->quantidade;
 }
 
 int Insumo::getTipoInsumo() {
