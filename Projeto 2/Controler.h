@@ -11,9 +11,9 @@ class Controler{
 	public:
 		Controler();
 		~Controler();
-		std::string consultarInsumos(int i);
-		std::string consultarDescricao(int i);
-		Insumo consultarInsumos(Local local, int tipo);
+		std::string consultarInsumos(int);
+		std::string consultarDescricao(int);
+		std::string consultarTipoInsumos(int, int);
 		bool distribuirInsumo(std::string, int, int);
 		void cadastrarInsumosMS(Insumo *);
 		Local getLocal(int i);

@@ -47,6 +47,31 @@ std::string Local::getDescricaoInsumo() {
 	return aux;
 }
 
+std::string Local::getDescricaoTipoInsumo(int tipo) {
+	std::string aux;
+
+	switch (tipo) {
+	case 1:
+		aux = "Vacinas: \n\n";
+		break;
+	case 2:
+		aux = "Medicamentos: \n\n";
+		break;
+	case 3:
+		aux = "Epis: \n\n";
+		break;
+	default:
+		break;
+	}
+
+	for(int i = 0 ; i < insumos.size(); i++) {
+		if(insumos[i]->getTipoInsumo() == tipo)
+			aux += insumos[i]->getDescricao();
+	}
+
+	return aux;
+}
+
 Insumo* Local::getInsumo(int pos){
 	return insumos[pos];
 }

@@ -18,9 +18,8 @@ std::string Controler::consultarDescricao(int i) {
 	return locais[i].getDescricaoGeralInsumo();
 }
 
-Insumo Controler::consultarInsumos(Local local, int tipo) {
-	//retornar a descrição de insumos de acordo com o tipo
-	return Insumo();
+std::string Controler::consultarTipoInsumos(int i, int tipo) {
+	return locais[i].getDescricaoTipoInsumo(tipo);
 } 
 
 bool Controler::distribuirInsumo(std::string nome, int qtd, int local) {
