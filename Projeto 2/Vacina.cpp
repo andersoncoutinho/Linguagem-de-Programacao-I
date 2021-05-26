@@ -18,8 +18,7 @@ std::string Vacina::getConsulta() {
 }
 
 std::string Vacina::getDescricao() {
-    std::string desc = "Vacina: \n" +
-    Insumo::getDescricao() +
+    std::string desc = Insumo::getDescricao() +
     "Tecnologia: " + tecnologia + "\n" +
     "Quantidade de doses: " + std::to_string(quantDoses) + "\n" +
     "Intervalo de dia: " + std::to_string(intervalo) + "\n\n";

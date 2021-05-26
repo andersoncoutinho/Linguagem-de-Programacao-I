@@ -17,8 +17,7 @@ std::string Epi::getConsulta() {
 }
  
 std::string Epi::getDescricao() {
-    std::string desc = "EPI: \n" +
-    Insumo::getDescricao() + "\n" +
+    std::string desc = Insumo::getDescricao() +
     "Tipo: " + tipo + "\n" +
     "Descrição: " + descricao + "\n\n";
     return desc;

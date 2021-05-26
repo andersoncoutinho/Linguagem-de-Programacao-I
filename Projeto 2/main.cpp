@@ -40,10 +40,10 @@ int main(void) {
     vector<Insumo*> vetorTeste;
 
     controle.cadastrarInsumosMS(teste);
-    controle.cadastrarInsumosMS(teste3);
+    controle.cadastrarInsumosMS(teste2);
     controle.cadastrarInsumosMS(teste3);
     
-    cout << controle.consultarInsumos(0) << endl;
+    cout << controle.consultarTipoInsumos(0, 1) << endl;
 
     return 0;
 }

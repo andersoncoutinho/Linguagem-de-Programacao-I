@@ -19,8 +19,7 @@ std::string Medicamento::getConsulta() {
 }
 
 std::string Medicamento::getDescricao() {
-    std::string desc = "Medicamento: \n" +
-    Insumo::getDescricao() + "\n" +
+    std::string desc = Insumo::getDescricao() +
     "Dosagem: " + dosagem + "\n" +
     "Administração: " + administracao + "\n" +
     "Disponibilização: " + disponibilizacao + "\n\n";

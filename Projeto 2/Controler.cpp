@@ -15,7 +15,7 @@ std::string Controler::consultarInsumos(int i) {
 }
 
 std::string Controler::consultarDescricao(int i) {
-	return locais[i].getDescricaoGeralInsumo();
+	return locais[i].getDescricaoInsumo();
 }
 
 std::string Controler::consultarTipoInsumos(int i, int tipo) {
