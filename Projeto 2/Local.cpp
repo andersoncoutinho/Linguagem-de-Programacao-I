@@ -28,8 +28,23 @@ std::string Local::getDescricaoGeralInsumo() {
 	return aux;
 }
 
-std::string Local::descricaoTotal() {
-	return "";
+std::string Local::getDescricaoInsumo() {
+	std::string aux, vacina, medicamento, epi;
+
+	for(int i = 0 ; i < insumos.size(); i++) {
+		if(insumos[i]->getTipoInsumo() == VACINA)
+			vacina += insumos[i]->getDescricao();
+		else if(insumos[i]->getTipoInsumo() == MEDICAMENTO)
+			medicamento += insumos[i]->getDescricao();
+		else if(insumos[i]->getTipoInsumo() == EPI)
+			epi += insumos[i]->getDescricao();
+	}
+
+	aux = (vacina.size() != 0) ? "Vacinas: \n\n" + vacina : vacina; 
+	aux += (medicamento.size() != 0) ? "Medicamentos: \n\n" + medicamento : medicamento;
+	aux += (epi.size() != 0) ? "Epis: \n\n" + epi : epi;
+	
+	return aux;
 }
 
 Insumo* Local::getInsumo(int pos){

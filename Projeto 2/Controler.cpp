@@ -14,9 +14,8 @@ std::string Controler::consultarInsumos(int i) {
 	//Falta só mudar os nomes das funções para nomes mais significativos
 }
 
-std::string Controler::consultarDescricao(Local local) {
-	return "";
-	//retornar a descrição de todas vacinas medicamento e epi
+std::string Controler::consultarDescricao(int i) {
+	return locais[i].getDescricaoGeralInsumo();
 }
 
 Insumo Controler::consultarInsumos(Local local, int tipo) {

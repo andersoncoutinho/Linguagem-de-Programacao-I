@@ -12,7 +12,7 @@ class Controler{
 		Controler();
 		~Controler();
 		std::string consultarInsumos(int i);
-		std::string consultarDescricao(Local local);
+		std::string consultarDescricao(int i);
 		Insumo consultarInsumos(Local local, int tipo);
 		bool distribuirInsumo(std::string, int, int);
 		void cadastrarInsumosMS(Insumo *);
