@@ -2,6 +2,7 @@
 #include "ui_JanelaPrincipal.h"
 #include "JanelaCadastro.h"
 #include "JanelaConsulta.h"
+#include "JanelaDistribuir.h"
 
 JanelaPrincipal::JanelaPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::JanelaPrincipal) {
 
@@ -26,7 +27,17 @@ void JanelaPrincipal::on_btnCadastrar_clicked() {
 
 void JanelaPrincipal::on_btnConsultar_clicked() {
 
+    this->hide();
     JanelaConsulta janelaConsulta(nullptr, &controle);
     janelaConsulta.exec();
+    this->show();
+}
+
+
+void JanelaPrincipal::on_btnDistribuir_clicked() {
+    this->hide();
+    JanelaDistribuir janelaDistribuir(nullptr, &controle);
+    janelaDistribuir.exec();
+    this->show();
 }
 

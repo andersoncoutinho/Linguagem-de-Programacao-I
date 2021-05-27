@@ -17,6 +17,7 @@ SOURCES += \
     JanelaCadVacina.cpp \
     JanelaCadastro.cpp \
     JanelaConsulta.cpp \
+    JanelaDistribuir.cpp \
     Local.cpp \
     Medicamento.cpp \
     Vacina.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     JanelaCadMedicamento.h \
     JanelaCadastro.h \
     JanelaConsulta.h \
+    JanelaDistribuir.h \
     JanelaPrincipal.h \
     Local.h \
     Medicamento.h \
@@ -43,6 +45,7 @@ FORMS += \
     JanelaCadVacina.ui \
     JanelaCadastro.ui \
     JanelaConsulta.ui \
+    JanelaDistribuir.ui \
     JanelaPrincipal.ui
 
 TRANSLATIONS += \

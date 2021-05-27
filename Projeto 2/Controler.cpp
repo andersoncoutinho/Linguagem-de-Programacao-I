@@ -1,8 +1,11 @@
 #include "Controler.h"  
 #define ESTQ 0
-	
+#include <QMessageBox>
+
 Controler::Controler() {
-	
+    for(int i = 0; i < 28; i++) {
+        locais[i].setNome(nomesLocais[i]);
+    }
 }
 	
 Controler::~Controler() {
@@ -24,18 +27,24 @@ std::string Controler::consultarTipoInsumos(int i, int tipo) {
 
 int Controler::distribuirInsumo(std::string nome, int qtd, int local) {
 
-    if(int i = locais[ESTQ].insumoExiste(nome)) {
+    int i = locais[ESTQ].insumoExiste(nome);
+
+    if(i >= 0) {
         if(qtd <= locais[ESTQ].getInsumo(i)->getQuantidade()) {
             locais[ESTQ].getInsumo(i)->removerUnidades(qtd);
 
-            if(int j = locais[local].insumoExiste(nome)) {
+            int j = locais[local].insumoExiste(nome);
+
+            if(j >= 0) {
+
                 locais[local].getInsumo(j)->addUnidades(qtd);
             } else {
-                locais[local].getInsumos()
-                  ->push_back(locais[ESTQ].getInsumo(i));
-                locais[local]
-                 .getInsumo(locais[local].getInsumos()->size()-1)
-                 ->setQuantidade(qtd);
+
+                int indice = locais[local].getInsumos()->size();
+                locais[local].getInsumos()->push_back(new Insumo());
+                *locais[local].getInsumo(indice) = *locais[ESTQ].getInsumo(i);
+
+                locais[local].getInsumo(indice)->setQuantidade(qtd);
             }
 
             return 1; // quando é feita a distribuição
@@ -54,4 +63,15 @@ void Controler::cadastrarInsumosMS(Insumo *ins){
 
 Local Controler::getLocal(int i) {
 	return locais[i];
+}
+
+int Controler::getIndiceLocal(std::string local) {
+
+    for(int i = 1; i < 28; i++) {
+        if(locais[i].getNome() == local) {
+            return i; // indice do local
+        }
+    }
+
+    return -1; // caso o local não exista
 }

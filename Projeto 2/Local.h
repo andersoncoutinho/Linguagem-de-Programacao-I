@@ -10,7 +10,6 @@ class Local {
 		int tipo;
 		std::vector<Insumo*> insumos;
 
-
 	public:
 		Local();
 		~Local();
@@ -21,6 +20,8 @@ class Local {
 		std::vector<Insumo*>* getInsumos();
 		void addInsumo(Insumo *);
         int insumoExiste(std::string);
+        std::string getNome();
+        void setNome(std::string nome);
 
 };
 #endif

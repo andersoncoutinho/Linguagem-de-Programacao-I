@@ -24,6 +24,8 @@ private slots:
 
     void on_btnConsultar_clicked();
 
+    void on_btnDistribuir_clicked();
+
 private:
     Ui::JanelaPrincipal *ui;
     Controler controle;

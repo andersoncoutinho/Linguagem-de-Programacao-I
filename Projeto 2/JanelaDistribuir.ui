@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>JanelaDistribuir</class>
+ <widget class="QDialog" name="JanelaDistribuir">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>458</width>
+    <height>415</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>191</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QComboBox" name="comboBox">
+      <item>
+       <property name="text">
+        <string>Selecione um estado</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Acre</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Alagoas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Amapá</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Amazonas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bahia</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ceará</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Distrito Federal</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Espírito Santo</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Goiás</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Maranhão</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Mato Grosso</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Mato Grosso do Sul</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Minas Gerais</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Pará</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Paraíba</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Paraná</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Pernambuco</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Piauí</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rio de Janeiro</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rio Grande do Norte</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rio Grande do Sul</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Roraima</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rondônia</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Santa Catarina</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>São Paulo</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Sergipe</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Tocantins</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Insumo:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="textFieldInsumo"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Quantidade:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="textFieldQtd">
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnDistribuir">
+      <property name="text">
+       <string>Distribuir</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

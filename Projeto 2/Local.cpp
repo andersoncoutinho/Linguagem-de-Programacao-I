@@ -1,5 +1,6 @@
 #include "Local.h"  
 #include <iostream>
+#include <QMessageBox>
 
 Local::Local() {
 	this->tipo = 0;
@@ -90,5 +91,14 @@ int Local::insumoExiste(std::string nome) {
             return i;
         }
     }
-    return 0;
+
+    return -1;
+}
+
+std::string Local::getNome() {
+    return this->nome;
+}
+
+void Local::setNome(std::string nome) {
+    this->nome = nome;
 }
