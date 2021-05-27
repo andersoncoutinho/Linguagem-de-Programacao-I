@@ -19,11 +19,15 @@ class Insumo {
         public: 
                 Insumo();
                 Insumo(std::string, int, int, std::string, std::string, int);
-                int getQuantidade();
+                virtual int getQuantidade();
+                virtual std::string getNome();
                 virtual int getTipoInsumo();
                 virtual std::string getConsulta();
                 virtual std::string getDescricao();
                 virtual std::string getTecnologia();
+                virtual void removerUnidades(int qtd);
+                virtual void addUnidades(int qtd);
+                virtual void setQuantidade(int quantidade);
 
 };
 

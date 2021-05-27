@@ -83,3 +83,12 @@ std::vector<Insumo*>* Local::getInsumos(){
 void Local::addInsumo(Insumo *insumo) {
 	insumos.push_back(insumo);
 }
+
+int Local::insumoExiste(std::string nome) {
+    for(int i = 0; i < insumos.size(); i++) {
+        if(insumos[i]->getNome() == nome) {
+            return i;
+        }
+    }
+    return 0;
+}

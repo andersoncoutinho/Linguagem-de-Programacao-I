@@ -22,9 +22,30 @@ std::string Controler::consultarTipoInsumos(int i, int tipo) {
 	return locais[i].getDescricaoTipoInsumo(tipo);
 } 
 
-bool Controler::distribuirInsumo(std::string nome, int qtd, int local) {
+int Controler::distribuirInsumo(std::string nome, int qtd, int local) {
 
-	return false;
+    if(int i = locais[ESTQ].insumoExiste(nome)) {
+        if(qtd <= locais[ESTQ].getInsumo(i)->getQuantidade()) {
+            locais[ESTQ].getInsumo(i)->removerUnidades(qtd);
+
+            if(int j = locais[local].insumoExiste(nome)) {
+                locais[local].getInsumo(j)->addUnidades(qtd);
+            } else {
+                locais[local].getInsumos()
+                  ->push_back(locais[ESTQ].getInsumo(i));
+                locais[local]
+                 .getInsumo(locais[local].getInsumos()->size()-1)
+                 ->setQuantidade(qtd);
+            }
+
+            return 1; // quando é feita a distribuição
+
+        }
+
+        return -1; // quando não há quantidade suficiente
+    }
+
+    return 0; // quando o insumo não existe no estoque
 }
 
 void Controler::cadastrarInsumosMS(Insumo *ins){

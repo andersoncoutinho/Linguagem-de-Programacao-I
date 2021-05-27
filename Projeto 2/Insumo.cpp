@@ -38,3 +38,19 @@ std::string Insumo::getConsulta() {
 std::string Insumo::getTecnologia() {
     return "";
 }
+
+std::string Insumo::getNome() {
+    return this->nome;
+}
+
+void Insumo::removerUnidades(int qtd) {
+    this->quantidade -= qtd;
+}
+
+void Insumo::addUnidades(int qtd) {
+    this->quantidade += qtd;
+}
+
+void Insumo::setQuantidade(int quantidade) {
+    this->quantidade = quantidade;
+}
