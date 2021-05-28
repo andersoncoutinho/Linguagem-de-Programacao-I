@@ -11,11 +11,10 @@ class Medicamento : public Insumo {
 		std::string disponibilizacao;
 	public:
 		Medicamento(std::string nome, int quantidade, int valorUnitario,
-                            std::string dtVencimento, std::string nomeFabricante, int tipoInsumo,
-                            std::string dosagem, std::string administracao, std::string disponibilizacao); 
+                            std::string dtVencimento, std::string nomeFabricante, 
+							std::string dosagem, std::string administracao, std::string disponibilizacao); 
 		std::string getDisponibilizacao();
 		std::string getConsulta();
 		std::string getDescricao();
-		~Medicamento();
 };
 #endif

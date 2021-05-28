@@ -20,6 +20,8 @@ private slots:
     void on_pushButton_clicked();
 
 
+    void on_btnCancel_clicked();
+
 private:
     Ui::JanelaCadVacina *ui;
     Controler *controle;

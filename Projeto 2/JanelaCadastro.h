@@ -21,6 +21,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_btnVoltar_clicked();
+
 private:
     Ui::JanelaCadastro *ui;
     Controler *controle;

@@ -4,6 +4,8 @@
 #include <string>
 #include "Local.h"
 #include "Insumo.h"
+
+#define ESTQ 0
 	
 class Controler{
 	private:
@@ -28,7 +30,12 @@ class Controler{
 		std::string consultarDescricao(int);
 		std::string consultarTipoInsumos(int, int);
         int distribuirInsumo(std::string, int, int);
+<<<<<<< HEAD
 		int cadastrarInsumosMS(Insumo *);
+=======
+		void cadastrarInsumosMS(Insumo *);
+        bool atualizarQtdInsumoMS(Insumo *);
+>>>>>>> e9b1e2fbb07090d760604ac0e53b91967179f979
 		Local getLocal(int i);
         int getIndiceLocal(std::string local);
         void atualizarQtdInsumoMS(int, int);

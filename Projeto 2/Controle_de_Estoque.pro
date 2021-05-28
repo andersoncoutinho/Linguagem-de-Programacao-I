@@ -20,6 +20,7 @@ SOURCES += \
     JanelaDistribuir.cpp \
     Local.cpp \
     Medicamento.cpp \
+    Persistencia.cpp \
     Vacina.cpp \
     main.cpp \
     JanelaPrincipal.cpp
@@ -36,6 +37,7 @@ HEADERS += \
     JanelaPrincipal.h \
     Local.h \
     Medicamento.h \
+    Persistencia.h \
     Vacina.h \
     janelaCadVacina.h
 
@@ -57,3 +59,6 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Arquivo_de_Recursos.qrc

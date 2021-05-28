@@ -2,25 +2,41 @@
 <ui version="4.0">
  <class>JanelaPrincipal</class>
  <widget class="QMainWindow" name="JanelaPrincipal">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>282</width>
+    <height>298</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Controle de Estoque</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(44, 44, 44);
+color: rgb(255, 255, 255);</string>
+  </property>
+  <property name="animated">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>0</y>
-      <width>451</width>
-      <height>571</height>
+      <x>50</x>
+      <y>50</y>
+      <width>181</width>
+      <height>231</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="_2">
@@ -30,6 +46,34 @@
         <font>
          <pointsize>10</pointsize>
         </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(80, 80, 80);
+	border-width: 4px;
+	border-radius: 10px;
+	padding: 10 px 10px 10px 10px;
+	border-left: 3px solid rgb(30, 30, 30);
+	border-right: 1px solid rgb(30, 30, 30);
+	border-bottom: 4px solid rgb(30, 30, 30);
+	border-top: 1px solid rgb(30, 30, 30);
+}
+
+QPushButton::hover {
+	background-color: rgb(100, 100, 100);
+}
+
+QPushButton::pressed {
+	border-left: 2px solid rgb(30, 30, 30);
+	border-right: 2px solid rgb(30, 30, 30);
+	border-bottom: 3px solid rgb(30, 30, 30);
+	border-top: 3px solid rgb(30, 30, 30);
+}
+
+</string>
        </property>
        <property name="text">
         <string>Cadastrar Insumo</string>
@@ -43,6 +87,34 @@
          <pointsize>10</pointsize>
         </font>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(80, 80, 80);
+	border-width: 4px;
+	border-radius: 10px;
+	padding: 10 px 10px 10px 10px;
+	border-left: 3px solid rgb(30, 30, 30);
+	border-right: 1px solid rgb(30, 30, 30);
+	border-bottom: 4px solid rgb(30, 30, 30);
+	border-top: 1px solid rgb(30, 30, 30);
+}
+
+QPushButton::hover {
+	background-color: rgb(100, 100, 100);
+}
+
+QPushButton::pressed {
+	border-left: 2px solid rgb(30, 30, 30);
+	border-right: 2px solid rgb(30, 30, 30);
+	border-bottom: 3px solid rgb(30, 30, 30);
+	border-top: 3px solid rgb(30, 30, 30);
+}
+
+</string>
+       </property>
        <property name="text">
         <string>Consultar Insumos</string>
        </property>
@@ -55,6 +127,34 @@
          <pointsize>10</pointsize>
         </font>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(80, 80, 80);
+	border-width: 4px;
+	border-radius: 10px;
+	padding: 10 px 10px 10px 10px;
+	border-left: 3px solid rgb(30, 30, 30);
+	border-right: 1px solid rgb(30, 30, 30);
+	border-bottom: 4px solid rgb(30, 30, 30);
+	border-top: 1px solid rgb(30, 30, 30);
+}
+
+QPushButton::hover {
+	background-color: rgb(100, 100, 100);
+}
+
+QPushButton::pressed {
+	border-left: 2px solid rgb(30, 30, 30);
+	border-right: 2px solid rgb(30, 30, 30);
+	border-bottom: 3px solid rgb(30, 30, 30);
+	border-top: 3px solid rgb(30, 30, 30);
+}
+
+</string>
+       </property>
        <property name="text">
         <string>Distribuir Insumos</string>
        </property>
@@ -62,17 +162,55 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>281</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="Arquivo_de_Recursos.qrc">:/icones/icones/ms.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>282</width>
      <height>25</height>
     </rect>
    </property>
+   <property name="tabletTracking">
+    <bool>false</bool>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar::item:selected {
+	background-color: rgb(0, 0, 255);
+}</string>
+   </property>
    <widget class="QMenu" name="menuOp_es">
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QMenu::item:selected {
+	background-color: rgb(0, 0, 255);
+}</string>
+    </property>
     <property name="title">
      <string>Opções</string>
     </property>
@@ -81,18 +219,25 @@
    </widget>
    <addaction name="menuOp_es"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSalvar">
    <property name="text">
     <string>Salvar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionSair">
    <property name="text">
     <string>Sair</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Arquivo_de_Recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

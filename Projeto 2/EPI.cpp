@@ -2,9 +2,10 @@
 	
 
 Epi::Epi(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento,
-            std::string nomeFabricante, int tipoInsumo, std::string tipo, std::string descricao)
-            : Insumo(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo) {
-
+            std::string nomeFabricante, std::string tipo, std::string descricao)
+            : Insumo(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante) {
+    
+    this->tipoInsumo = EPI;
     this->tipo = tipo;
     this->descricao = descricao;
 }

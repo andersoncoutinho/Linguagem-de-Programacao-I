@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/icones">
+        <file>icones/disquete.png</file>
+        <file>icones/sair.png</file>
+        <file>icones/lupa.png</file>
+        <file>icones/ambulancia.png</file>
+        <file>icones/vacina.png</file>
+        <file>icones/insumos.png</file>
+        <file>icones/ms.png</file>
+    </qresource>
+</RCC>

@@ -6,24 +6,241 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>652</width>
-    <height>489</height>
+    <width>352</width>
+    <height>455</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QTextBrowser" name="textBrowser">
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(44, 44, 44);
+color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>30</y>
-     <width>561</width>
-     <height>291</height>
+     <x>0</x>
+     <y>0</y>
+     <width>352</width>
+     <height>451</height>
     </rect>
    </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_9">
+      <property name="maximumSize">
+       <size>
+        <width>350</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="Arquivo_de_Recursos.qrc">:/icones/icones/ms.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnVerDistribuidos_2">
+      <property name="text">
+       <string>Ver Insumos em Estoque</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnVerDistribuidos">
+      <property name="text">
+       <string>Ver Insumos Distribuídos</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QComboBox" name="comboBox">
+        <item>
+         <property name="text">
+          <string>Selecione um estado</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Acre</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Alagoas</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Amapá</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Amazonas</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Bahia</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ceará</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Distrito Federal</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Espírito Santo</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Goiás</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Maranhão</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Mato Grosso</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Mato Grosso do Sul</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Minas Gerais</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Pará</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Paraíba</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Paraná</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Pernambuco</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Piauí</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Rio de Janeiro</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Rio Grande do Norte</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Rio Grande do Sul</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Roraima</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Rondônia</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Santa Catarina</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>São Paulo</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sergipe</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Tocantins</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnFiltrar">
+        <property name="text">
+         <string>Filtrar</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTextBrowser" name="textBrowser"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="btnDetalhes">
+        <property name="text">
+         <string>Mostrar Detalhes</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnVoltar">
+        <property name="text">
+         <string>Voltar</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Arquivo_de_Recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

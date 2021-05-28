@@ -17,7 +17,7 @@ class Local {
 		std::string getDescricaoTipoInsumo(int);
 		std::string getDescricaoInsumo();
 		Insumo* getInsumo(int);
-		std::vector<Insumo*>* getInsumos();
+        std::vector<Insumo*>* getInsumos();
 		void addInsumo(Insumo *);
         int insumoExiste(std::string);
         std::string getNome();
