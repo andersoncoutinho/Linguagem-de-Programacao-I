@@ -28,9 +28,9 @@ class Controler{
 		std::string consultarDescricao(int);
 		std::string consultarTipoInsumos(int, int);
         int distribuirInsumo(std::string, int, int);
-		void cadastrarInsumosMS(Insumo *);
+		int cadastrarInsumosMS(Insumo *);
 		Local getLocal(int i);
         int getIndiceLocal(std::string local);
-
+        void atualizarQtdInsumoMS(int, int);
 };
 #endif

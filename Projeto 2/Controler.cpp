@@ -57,8 +57,24 @@ int Controler::distribuirInsumo(std::string nome, int qtd, int local) {
     return 0; // quando o insumo não existe no estoque
 }
 
-void Controler::cadastrarInsumosMS(Insumo *ins){
-	locais[ESTQ].getInsumos()->push_back(ins);
+int Controler::cadastrarInsumosMS(Insumo *ins){
+
+    int i = locais[ESTQ].insumoExiste(ins->getNome());
+
+    if ( i >= 0 ) {   
+
+        return i; // retorna o índice do insumo caso já exista
+    }
+    
+    locais[ESTQ].addInsumo(ins);
+    
+        return -1;
+}
+
+void Controler::atualizarQtdInsumoMS(int i, int qtd){
+
+    locais[ESTQ].getInsumo(i)->addUnidades(qtd);
+
 }
 
 Local Controler::getLocal(int i) {
