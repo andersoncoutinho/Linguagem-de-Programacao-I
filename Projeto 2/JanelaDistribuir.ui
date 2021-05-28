@@ -230,6 +230,9 @@ color: rgb(255, 255, 255);</string>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="btnDistribuir">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="text">
          <string>Distribuir</string>
         </property>
@@ -237,6 +240,9 @@ color: rgb(255, 255, 255);</string>
       </item>
       <item>
        <widget class="QPushButton" name="btnVoltar">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="text">
          <string>Voltar</string>
         </property>

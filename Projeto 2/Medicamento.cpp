@@ -1,10 +1,11 @@
 #include "Medicamento.h"  
 	
 Medicamento::Medicamento(std::string nome, int quantidade, int valorUnitario,
-                            std::string dtVencimento, std::string nomeFabricante, int tipoInsumo,
+                            std::string dtVencimento, std::string nomeFabricante,
                             std::string dosagem, std::string administracao, std::string disponibilizacao)
-                            : Insumo(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo) {
+                            : Insumo(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante) {
 
+    this->tipoInsumo = MEDICAMENTO;
     this->dosagem = dosagem;
     this->administracao = administracao;
     this->disponibilizacao = disponibilizacao;
@@ -25,8 +26,4 @@ std::string Medicamento::getDescricao() {
     "Disponibilização: " + disponibilizacao + "\n\n";
 
     return desc;
-}
-
-Medicamento::~Medicamento() {
-	
 }

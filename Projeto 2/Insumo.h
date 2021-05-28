@@ -18,7 +18,7 @@ class Insumo {
                 int tipoInsumo;
         public: 
                 Insumo();
-                Insumo(std::string, int, int, std::string, std::string, int);
+                Insumo(std::string, int, int, std::string, std::string);
                 virtual int getQuantidade();
                 virtual std::string getNome();
                 virtual int getTipoInsumo();

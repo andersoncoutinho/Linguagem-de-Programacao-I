@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>282</width>
-    <height>316</height>
+    <height>298</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -191,7 +191,26 @@ QPushButton::pressed {
      <height>25</height>
     </rect>
    </property>
+   <property name="tabletTracking">
+    <bool>false</bool>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar::item:selected {
+	background-color: rgb(0, 0, 255);
+}</string>
+   </property>
    <widget class="QMenu" name="menuOp_es">
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QMenu::item:selected {
+	background-color: rgb(0, 0, 255);
+}</string>
+    </property>
     <property name="title">
      <string>Opções</string>
     </property>
@@ -204,15 +223,16 @@ QPushButton::pressed {
    <property name="text">
     <string>Salvar</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionSair">
    <property name="text">
     <string>Sair</string>
    </property>
-  </action>
-  <action name="actionalguma_coisa">
-   <property name="text">
-    <string>alguma coisa</string>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
    </property>
   </action>
  </widget>

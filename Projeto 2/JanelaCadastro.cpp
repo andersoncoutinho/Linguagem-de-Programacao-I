@@ -25,10 +25,10 @@ void JanelaCadastro::on_pushButton_clicked() {
         janelaVacina.exec();
 
     } else if(ui->comboBox->currentText() == "Medicamento") {
-        JanelaCadMedicamento janelaMedicamento;
+        JanelaCadMedicamento janelaMedicamento(nullptr, controle);
         janelaMedicamento.exec();
     } else if(ui->comboBox->currentText() == "EPI"){
-        JanelaCadEpi janelaEpi;
+        JanelaCadEpi janelaEpi(nullptr, controle);
         janelaEpi.exec();
     } else {
         QMessageBox::about(this, "", "Selecione um tipo de insumo");

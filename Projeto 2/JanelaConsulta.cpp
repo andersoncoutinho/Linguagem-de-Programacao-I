@@ -7,14 +7,33 @@ JanelaConsulta::JanelaConsulta(QWidget *parent, Controler *controle) :
     ui(new Ui::JanelaConsulta)
 {
     ui->setupUi(this);
+    this->controle = controle;
 
-    QString desc =
-            QString::fromStdString(
-                controle->consultarInsumos(0));
-    ui->textBrowser->setText(desc);
+
 }
 
 JanelaConsulta::~JanelaConsulta()
 {
     delete ui;
 }
+
+void JanelaConsulta::on_btnVerDistribuidos_2_clicked() {
+
+    QString desc =
+            QString::fromStdString(controle->consultarInsumos(ESTQ));
+
+    ui->textBrowser->clear();
+    ui->textBrowser->setText(desc);
+}
+
+
+void JanelaConsulta::on_btnDetalhes_clicked() {
+
+    QString desc =
+            QString::fromStdString(controle->consultarDescricao(ESTQ));
+
+    ui->textBrowser->clear();
+    ui->textBrowser->setText(desc);
+
+}
+

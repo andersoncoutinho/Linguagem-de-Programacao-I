@@ -4,6 +4,8 @@
 #include <string>
 #include "Local.h"
 #include "Insumo.h"
+
+#define ESTQ 0
 	
 class Controler{
 	private:

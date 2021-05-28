@@ -68,3 +68,8 @@ void JanelaPrincipal::on_actionSalvar_triggered() {
     Persistencia::salvarInsumos(controle);
 }
 
+
+void JanelaPrincipal::on_actionSalvar_hovered() {
+
+}
+

@@ -2,9 +2,10 @@
 
 Vacina::Vacina(std::string nome, int quantidade, int valorUnitario, 
                 std::string dtVencimento, std::string nomeFabricante,
-                int tipoInsumo, std::string tecnologia, int quantDoses, int intervalo)
-                : Insumo(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo)  {
-
+                std::string tecnologia, int quantDoses, int intervalo)
+                : Insumo(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante)  {
+    
+    this->tipoInsumo = VACINA;
     this->tecnologia = tecnologia;
     this-> quantDoses = quantDoses;
     this-> intervalo = intervalo;

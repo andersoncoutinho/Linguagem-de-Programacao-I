@@ -182,6 +182,9 @@ color: rgb(255, 255, 255);</string>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QPushButton" name="pushButton">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="text">
          <string>OK</string>
         </property>
@@ -189,6 +192,9 @@ color: rgb(255, 255, 255);</string>
       </item>
       <item>
        <widget class="QPushButton" name="btnCancel">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="text">
          <string>Cancelar</string>
         </property>

@@ -9,7 +9,7 @@ class Epi : public Insumo {
 		std::string tipo;
 		std::string descricao;
 	public:
-		Epi(std::string, int, int, std::string, std::string, int, std::string, std::string);
+		Epi(std::string, int, int, std::string, std::string, std::string, std::string);
 		std::string getConsulta();
 		std::string getDescricao();
 

@@ -5,13 +5,12 @@ Insumo::Insumo() {
 
 }
 
-Insumo::Insumo(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento, std::string nomeFabricante, int tipoInsumo) {
+Insumo::Insumo(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento, std::string nomeFabricante) {
     this->nome = nome;
     this->quantidade = quantidade;
     this->valorUnitario = valorUnitario;
     this->dtVencimento = dtVencimento;
     this->nomeFabricante = nomeFabricante;
-    this->tipoInsumo = tipoInsumo;
 }
 
 int Insumo::getQuantidade() {

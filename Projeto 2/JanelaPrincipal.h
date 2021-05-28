@@ -27,6 +27,8 @@ private slots:
 
     void on_actionSalvar_triggered();
 
+    void on_actionSalvar_hovered();
+
 private:
     Ui::JanelaPrincipal *ui;
     Controler controle;

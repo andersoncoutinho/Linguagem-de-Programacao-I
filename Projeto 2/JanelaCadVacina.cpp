@@ -20,27 +20,21 @@ JanelaCadVacina::~JanelaCadVacina()
 
 void JanelaCadVacina::on_pushButton_clicked() {
 
-    try{
-        std::string nome = ui->textBoxNome->text().toUtf8().constData();
-        int qtd = ui->textBoxQuant->text().toInt();
-        int valor = ui->textBovValor->text().toInt();
-        std::string vencimento = ui->textBoxVencimento->text().toUtf8().constData();
-        std::string fabricante = ui->textBoxFabricante->text().toUtf8().constData();
-        std::string tecnologia = ui->textBoxTecnologia->text().toUtf8().constData();
-        int doses = ui->textBoxDoses->text().toInt();
-        int intervalo = ui->textBoxInterv->text().toInt();
+    std::string nome = ui->textBoxNome->text().toUtf8().constData();
+    int qtd = ui->textBoxQuant->text().toInt();
+    int valor = ui->textBovValor->text().toInt();
+    std::string vencimento = ui->textBoxVencimento->text().toUtf8().constData();
+    std::string fabricante = ui->textBoxFabricante->text().toUtf8().constData();
+    std::string tecnologia = ui->textBoxTecnologia->text().toUtf8().constData();
+    int doses = ui->textBoxDoses->text().toInt();
+    int intervalo = ui->textBoxInterv->text().toInt();
 
-        Insumo *insumo = new Vacina(nome, qtd, valor, vencimento, fabricante, VACINA,
-                                    tecnologia, doses, intervalo);
+    Insumo *insumo = new Vacina(nome, qtd, valor, vencimento, fabricante,
+                                tecnologia, doses, intervalo);
 
-        controle->cadastrarInsumosMS(insumo);
-        this->close();
-        QMessageBox::about(this, "", "Vacina cadastrada com sucesso");
-    } catch(int e) {
-
-        ui->textBovValor->setText(QString::fromStdString(std::to_string(e)));
-
-    }
+    controle->cadastrarInsumosMS(insumo);
+    QMessageBox::about(this, "", "Vacina cadastrada com sucesso");
+    this->close();
 
 }
 

@@ -1,5 +1,4 @@
 #include "Controler.h"  
-#define ESTQ 0
 #include <QMessageBox>
 
 Controler::Controler() {
@@ -16,7 +15,7 @@ Controler::~Controler() {
 std::string Controler::consultarInsumos(int i) {
 	return locais[i].getDescricaoGeralInsumo();
 	//Falta só mudar os nomes das funções para nomes mais significativos
-}
+}  
 
 std::string Controler::consultarDescricao(int i) {
 	return locais[i].getDescricaoInsumo();
@@ -59,7 +58,7 @@ int Controler::distribuirInsumo(std::string nome, int qtd, int local) {
 }
 
 void Controler::cadastrarInsumosMS(Insumo *ins){
-	locais[ESTQ].getInsumos()->push_back(ins);
+	locais[ESTQ].addInsumo(ins);
 }
 
 Local Controler::getLocal(int i) {
