@@ -9,6 +9,7 @@ Controler::Controler() {
 }
 	
 Controler::~Controler() {
+
 	
 }
 

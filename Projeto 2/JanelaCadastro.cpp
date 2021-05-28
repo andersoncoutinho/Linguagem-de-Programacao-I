@@ -3,6 +3,7 @@
 #include "janelaCadVacina.h"
 #include "JanelaCadMedicamento.h"
 #include "JanelaCadEpi.h"
+#include <QMessageBox>
 
 JanelaCadastro::JanelaCadastro(QWidget *parent, Controler *controle)
     : QDialog(parent), ui(new Ui::JanelaCadastro) {
@@ -17,11 +18,6 @@ JanelaCadastro::~JanelaCadastro()
     delete ui;
 }
 
-void JanelaCadastro::on_pushButton_2_clicked() {
-    this->close();
-}
-
-
 void JanelaCadastro::on_pushButton_clicked() {
 
     if(ui->comboBox->currentText() == "Vacina") {
@@ -34,7 +30,13 @@ void JanelaCadastro::on_pushButton_clicked() {
     } else if(ui->comboBox->currentText() == "EPI"){
         JanelaCadEpi janelaEpi;
         janelaEpi.exec();
+    } else {
+        QMessageBox::about(this, "", "Selecione um tipo de insumo");
     }
+}
 
+
+void JanelaCadastro::on_btnVoltar_clicked() {
+    this->close();
 }
 

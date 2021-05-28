@@ -35,18 +35,17 @@ void JanelaCadVacina::on_pushButton_clicked() {
 
         controle->cadastrarInsumosMS(insumo);
         this->close();
-        //QMessageBox::question(this, "", "Erro");
+        QMessageBox::about(this, "", "Vacina cadastrada com sucesso");
     } catch(int e) {
 
         ui->textBovValor->setText(QString::fromStdString(std::to_string(e)));
 
     }
 
+}
 
 
-
-
-
-
+void JanelaCadVacina::on_btnCancel_clicked() {
+    this->close();
 }
 

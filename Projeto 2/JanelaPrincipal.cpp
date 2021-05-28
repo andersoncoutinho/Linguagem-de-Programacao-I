@@ -3,10 +3,27 @@
 #include "JanelaCadastro.h"
 #include "JanelaConsulta.h"
 #include "JanelaDistribuir.h"
+#include "Persistencia.h"
+#include <QSize>
 
 JanelaPrincipal::JanelaPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::JanelaPrincipal) {
 
+    Persistencia::lerInsumos(&controle);
     ui->setupUi(this);
+
+    disquete.addFile(":/icones/icones/disquete.png");
+    sair.addFile(":/icones/icones/sair.png");
+    vacina.addFile(":/icones/icones/vacina.png");
+    lupa.addFile(":/icones/icones/lupa.png");
+    ambulancia.addFile(":/icones/icones/ambulancia.png");
+
+    ui->actionSalvar->setIcon(disquete);
+    ui->actionSair->setIcon(sair);
+    ui->btnCadastrar->setIcon(vacina);
+    ui->btnConsultar->setIcon(lupa);
+    ui->btnDistribuir->setIcon(ambulancia);
+
+
 
 }
 
@@ -39,5 +56,15 @@ void JanelaPrincipal::on_btnDistribuir_clicked() {
     JanelaDistribuir janelaDistribuir(nullptr, &controle);
     janelaDistribuir.exec();
     this->show();
+}
+
+
+void JanelaPrincipal::on_actionSair_triggered() {
+    this->close();
+}
+
+
+void JanelaPrincipal::on_actionSalvar_triggered() {
+    Persistencia::salvarInsumos(controle);
 }
 

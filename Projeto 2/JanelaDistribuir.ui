@@ -6,23 +6,46 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>458</width>
-    <height>415</height>
+    <width>353</width>
+    <height>224</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(44, 44, 44);
+color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>40</y>
-     <width>191</width>
-     <height>141</height>
+     <x>0</x>
+     <y>0</y>
+     <width>352</width>
+     <height>221</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_9">
+      <property name="maximumSize">
+       <size>
+        <width>350</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="Arquivo_de_Recursos.qrc">:/icones/icones/ms.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="QComboBox" name="comboBox">
       <item>
@@ -170,45 +193,62 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Insumo:</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Insumo:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Quantidade:</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QLineEdit" name="textFieldInsumo"/>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLineEdit" name="textFieldInsumo"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="textFieldQtd">
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QPushButton" name="btnDistribuir">
         <property name="text">
-         <string>Quantidade:</string>
+         <string>Distribuir</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="textFieldQtd">
-        <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
+       <widget class="QPushButton" name="btnVoltar">
+        <property name="text">
+         <string>Voltar</string>
         </property>
        </widget>
       </item>
      </layout>
     </item>
-    <item>
-     <widget class="QPushButton" name="btnDistribuir">
-      <property name="text">
-       <string>Distribuir</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Arquivo_de_Recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

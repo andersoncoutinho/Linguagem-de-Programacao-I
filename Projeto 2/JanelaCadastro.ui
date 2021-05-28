@@ -6,76 +6,167 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>556</width>
-    <height>380</height>
+    <width>305</width>
+    <height>166</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(44, 44, 44);
+color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>80</y>
-     <width>201</width>
-     <height>80</height>
+     <x>0</x>
+     <y>0</y>
+     <width>304</width>
+     <height>161</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QComboBox" name="comboBox">
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <property name="text">
-        <string>Selecione o tipo de insumo:</string>
-       </property>
+       <widget class="QLabel" name="label">
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>65</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="Arquivo_de_Recursos.qrc">:/icones/icones/ms.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item>
-       <property name="text">
-        <string>Vacina</string>
-       </property>
+       <widget class="QComboBox" name="comboBox">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	background-color: rgb(80, 80, 80);
+	border-width: 4px;
+	border-radius: 10px;
+	padding: 10 px 10px 10px 10px;
+	border-left: 3px solid rgb(30, 30, 30);
+	border-right: 1px solid rgb(30, 30, 30);
+	border-bottom: 4px solid rgb(30, 30, 30);
+	border-top: 1px solid rgb(30, 30, 30);
+}
+
+QPushButton::hover {
+	background-color: rgb(100, 100, 100);
+	cursor: none;
+}
+
+QPushButton::pressed {
+	border-left: 2px solid rgb(30, 30, 30);
+	border-right: 2px solid rgb(30, 30, 30);
+	border-bottom: 3px solid rgb(30, 30, 30);
+	border-top: 3px solid rgb(30, 30, 30);
+}</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Selecione o tipo de insumo:</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Vacina</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Medicamento</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>EPI</string>
+         </property>
+        </item>
+       </widget>
       </item>
-      <item>
-       <property name="text">
-        <string>Medicamento</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>EPI</string>
-       </property>
-      </item>
-     </widget>
+     </layout>
     </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>180</y>
-     <width>201</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>OK</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Voltar</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	background-color: rgb(80, 80, 80);
+	border-width: 4px;
+	border-radius: 10px;
+	padding: 10 px 10px 10px 10px;
+	border-left: 3px solid rgb(30, 30, 30);
+	border-right: 1px solid rgb(30, 30, 30);
+	border-bottom: 4px solid rgb(30, 30, 30);
+	border-top: 1px solid rgb(30, 30, 30);
+}
+
+QPushButton::hover {
+	background-color: rgb(100, 100, 100);
+}
+
+QPushButton::pressed {
+	border-left: 2px solid rgb(30, 30, 30);
+	border-right: 2px solid rgb(30, 30, 30);
+	border-bottom: 3px solid rgb(30, 30, 30);
+	border-top: 3px solid rgb(30, 30, 30);
+}</string>
+        </property>
+        <property name="text">
+         <string>OK</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnVoltar">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	background-color: rgb(80, 80, 80);
+	border-width: 4px;
+	border-radius: 10px;
+	padding: 10 px 10px 10px 10px;
+	border-left: 3px solid rgb(30, 30, 30);
+	border-right: 1px solid rgb(30, 30, 30);
+	border-bottom: 4px solid rgb(30, 30, 30);
+	border-top: 1px solid rgb(30, 30, 30);
+}
+
+QPushButton::hover {
+	background-color: rgb(100, 100, 100);
+}
+
+QPushButton::pressed {
+	border-left: 2px solid rgb(30, 30, 30);
+	border-right: 2px solid rgb(30, 30, 30);
+	border-bottom: 3px solid rgb(30, 30, 30);
+	border-top: 3px solid rgb(30, 30, 30);
+}</string>
+        </property>
+        <property name="text">
+         <string>Voltar</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Arquivo_de_Recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

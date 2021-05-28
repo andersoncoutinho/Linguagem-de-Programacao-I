@@ -19,6 +19,8 @@ public:
 private slots:
     void on_btnDistribuir_clicked();
 
+    void on_btnVoltar_clicked();
+
 private:
     Ui::JanelaDistribuir *ui;
     Controler *controle;
