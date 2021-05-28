@@ -32,7 +32,8 @@ void JanelaCadVacina::on_pushButton_clicked() {
     Insumo *insumo = new Vacina(nome, qtd, valor, vencimento, fabricante,
                                 tecnologia, doses, intervalo);
 
-    controle->cadastrarInsumosMS(insumo);
+    int i = controle->cadastrarInsumosMS(insumo);
+
     QMessageBox::about(this, "", "Vacina cadastrada com sucesso");
     this->close();
 
