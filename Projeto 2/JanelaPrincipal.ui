@@ -22,14 +22,26 @@
   <property name="windowTitle">
    <string>Controle de Estoque</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Arquivo_de_Recursos.qrc">
+    <normaloff>:/icones/icones/brasil.png</normaloff>:/icones/icones/brasil.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(44, 44, 44);
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+
+</string>
   </property>
   <property name="animated">
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
@@ -198,7 +210,10 @@ QPushButton::pressed {
     <enum>Qt::NoFocus</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QMenuBar::item:selected {
+    <string notr="true">QMenuBar{
+	background-color: rgb(0, 0, 0);
+}
+QMenuBar::item:selected {
 	background-color: rgb(0, 0, 255);
 }</string>
    </property>

@@ -11,6 +11,7 @@ JanelaPrincipal::JanelaPrincipal(QWidget *parent) : QMainWindow(parent), ui(new 
     Persistencia::lerInsumos(&controle);
     ui->setupUi(this);
 
+
     disquete.addFile(":/icones/icones/disquete.png");
     sair.addFile(":/icones/icones/sair.png");
     vacina.addFile(":/icones/icones/vacina.png");
@@ -22,6 +23,9 @@ JanelaPrincipal::JanelaPrincipal(QWidget *parent) : QMainWindow(parent), ui(new 
     ui->btnCadastrar->setIcon(vacina);
     ui->btnConsultar->setIcon(lupa);
     ui->btnDistribuir->setIcon(ambulancia);
+
+    this->setFixedSize(this->width(), this->height());
+
 
 
 

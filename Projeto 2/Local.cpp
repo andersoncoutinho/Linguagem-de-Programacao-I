@@ -1,6 +1,5 @@
 #include "Local.h"  
 #include <iostream>
-#include <QMessageBox>
 
 Local::Local() {
 	this->tipo = 0;

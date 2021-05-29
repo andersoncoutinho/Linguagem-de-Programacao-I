@@ -1,5 +1,9 @@
 #include "Vacina.h"  
 
+Vacina::Vacina() {
+    
+}
+
 Vacina::Vacina(std::string nome, int quantidade, int valorUnitario, 
                 std::string dtVencimento, std::string nomeFabricante,
                 std::string tecnologia, int quantDoses, int intervalo)

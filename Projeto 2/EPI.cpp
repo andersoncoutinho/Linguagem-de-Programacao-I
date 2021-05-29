@@ -1,5 +1,8 @@
 #include "EPI.h"  
-	
+
+Epi::Epi() {
+
+}	
 
 Epi::Epi(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento,
             std::string nomeFabricante, std::string tipo, std::string descricao)

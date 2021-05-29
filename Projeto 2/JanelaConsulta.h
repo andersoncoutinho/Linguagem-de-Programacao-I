@@ -21,9 +21,17 @@ private slots:
 
     void on_btnDetalhes_clicked();
 
+    void on_btnFiltrar_clicked();
+
+    void on_btnVerDistribuidos_clicked();
+
+    void on_btnVoltar_clicked();
+
 private:
     Ui::JanelaConsulta *ui;
     Controler *controle;
+    bool estoque;
+    int indiceEstado;
 };
 
 #endif // JANELACONSULTA_H

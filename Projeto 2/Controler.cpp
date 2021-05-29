@@ -1,5 +1,7 @@
-#include "Controler.h"  
-#include <QMessageBox>
+#include "Controler.h" 
+#include "Vacina.h" 
+#include "Medicamento.h"
+#include "EPI.h"
 
 Controler::Controler() {
     for(int i = 0; i < 28; i++) {
@@ -29,20 +31,34 @@ int Controler::distribuirInsumo(std::string nome, int qtd, int local) {
 
     int i = locais[ESTQ].insumoExiste(nome);
 
-    if(i >= 0) {
-        if(qtd <= locais[ESTQ].getInsumo(i)->getQuantidade()) {
-            locais[ESTQ].getInsumo(i)->removerUnidades(qtd);
+    if(i != -1) {
+        Insumo *insumoEstoque = locais[ESTQ].getInsumo(i);
+        if(qtd <= insumoEstoque->getQuantidade()) {
+            insumoEstoque->removerUnidades(qtd);
 
             int j = locais[local].insumoExiste(nome);
 
-            if(j >= 0) {
-
+            
+            if(j != -1) {
                 locais[local].getInsumo(j)->addUnidades(qtd);
             } else {
 
                 int indice = locais[local].getInsumos()->size();
-                locais[local].getInsumos()->push_back(new Insumo());
-                *locais[local].getInsumo(indice) = *locais[ESTQ].getInsumo(i);
+
+                switch(insumoEstoque->getTipoInsumo()) {
+                    case VACINA:
+                        locais[local].getInsumos()->push_back(new Vacina());
+                        break;
+                    case MEDICAMENTO:
+                        locais[local].getInsumos()->push_back(new Medicamento());
+                        break;
+                    case EPI:
+                        locais[local].getInsumos()->push_back(new Epi());
+                        break;
+                }
+
+                
+                *(locais[local].getInsumo(indice))= *(insumoEstoque);
 
                 locais[local].getInsumo(indice)->setQuantidade(qtd);
             }
@@ -76,11 +92,6 @@ void Controler::atualizarQtdInsumoMS(int i, int qtd){
     locais[ESTQ].getInsumo(i)->addUnidades(qtd);
 }
 
-void Controler::cadastrarInsumosMS(Insumo *ins){
-	locais[ESTQ].addInsumo(ins);
-
-}
-
 Local Controler::getLocal(int i) {
 	return locais[i];
 }
@@ -94,4 +105,8 @@ int Controler::getIndiceLocal(std::string local) {
     }
 
     return -1; // caso o local não exista
+}
+
+std::string Controler::getNomeLocal(int i) {
+    return this->locais[i].getNome();
 }

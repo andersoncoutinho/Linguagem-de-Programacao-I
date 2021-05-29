@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>352</width>
-    <height>455</height>
+    <width>353</width>
+    <height>471</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>10</y>
      <width>352</width>
      <height>451</height>
     </rect>
@@ -66,7 +66,7 @@ color: rgb(255, 255, 255);</string>
        <widget class="QComboBox" name="comboBox">
         <item>
          <property name="text">
-          <string>Selecione um estado</string>
+          <string>Selecione um estado:</string>
          </property>
         </item>
         <item>

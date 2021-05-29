@@ -34,9 +34,20 @@ void JanelaCadVacina::on_pushButton_clicked() {
 
     int i = controle->cadastrarInsumosMS(insumo);
 
-    QMessageBox::about(this, "", "Vacina cadastrada com sucesso");
-    this->close();
+    if(i == -1) {
+        QMessageBox::about(this, "", "Vacina cadastrada com sucesso");
+    } else {
+        QMessageBox::StandardButton resposta =
+        QMessageBox::question(this, "", "Insumo já existe no cadastro. "
+"                                        Deseja adicionar a quantidade informada?");
 
+        if(resposta == QMessageBox::Yes) {
+            controle->atualizarQtdInsumoMS(i, insumo->getQuantidade());
+        }
+
+    }
+
+    this->close();
 }
 
 
