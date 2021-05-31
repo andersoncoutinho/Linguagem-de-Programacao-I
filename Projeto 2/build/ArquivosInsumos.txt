@@ -1,0 +1,59 @@
+Ministério da Saúde
+sfhsf,1000,10,dsfsf,sfsfs,2,11,sfsf,sfsfsf,
+aaa,0,11,aaa,aaa,1,aaa,11,11,
+FIM
+Acre
+FIM
+Alagoas
+aaa,1000,11,aaa,aaa,1,,86631968,0,
+FIM
+Amapá
+FIM
+Amazonas
+FIM
+Bahia
+FIM
+Ceará
+FIM
+Distrito Federal
+FIM
+Espírito Santo
+FIM
+Goiás
+FIM
+Maranhão
+FIM
+Mato Grosso
+FIM
+Mato Grosso do Sul
+FIM
+Minas Gerais
+FIM
+Pará
+FIM
+Paraíba
+FIM
+Paraná
+FIM
+Pernambuco
+FIM
+Piauí
+FIM
+Rio de Janeiro
+FIM
+Rio Grande do Norte
+FIM
+RS
+FIM
+Rondônia
+FIM
+Roraima
+FIM
+Santa Catarina
+FIM
+São Paulo
+FIM
+Sergipe
+FIM
+Tocantins
+FIM
