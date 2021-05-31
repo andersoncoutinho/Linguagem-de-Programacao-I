@@ -1,5 +1,5 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'JanelaCadMedicamento.h'
+** Meta object code from reading C++ file 'JanelaCadEpi.h'
 **
 ** Created by: The Qt Meta Object Compiler version 68 (Qt 6.1.0)
 **
@@ -7,11 +7,11 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../Projeto 2/JanelaCadMedicamento.h"
+#include "../../JanelaCadEpi.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'JanelaCadMedicamento.h' doesn't include <QObject>."
+#error "The header file 'JanelaCadEpi.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
 #error "This file was generated using the moc from 6.1.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -21,26 +21,26 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_JanelaCadMedicamento_t {
+struct qt_meta_stringdata_JanelaCadEpi_t {
     const uint offsetsAndSize[8];
-    char stringdata0[60];
+    char stringdata0[52];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(offsetof(qt_meta_stringdata_JanelaCadMedicamento_t, stringdata0) + ofs), len 
-static const qt_meta_stringdata_JanelaCadMedicamento_t qt_meta_stringdata_JanelaCadMedicamento = {
+    uint(offsetof(qt_meta_stringdata_JanelaCadEpi_t, stringdata0) + ofs), len 
+static const qt_meta_stringdata_JanelaCadEpi_t qt_meta_stringdata_JanelaCadEpi = {
     {
-QT_MOC_LITERAL(0, 20), // "JanelaCadMedicamento"
-QT_MOC_LITERAL(21, 20), // "on_btnCancel_clicked"
-QT_MOC_LITERAL(42, 0), // ""
-QT_MOC_LITERAL(43, 16) // "on_btnOK_clicked"
+QT_MOC_LITERAL(0, 12), // "JanelaCadEpi"
+QT_MOC_LITERAL(13, 20), // "on_btnCancel_clicked"
+QT_MOC_LITERAL(34, 0), // ""
+QT_MOC_LITERAL(35, 16) // "on_btnOK_clicked"
 
     },
-    "JanelaCadMedicamento\0on_btnCancel_clicked\0"
-    "\0on_btnOK_clicked"
+    "JanelaCadEpi\0on_btnCancel_clicked\0\0"
+    "on_btnOK_clicked"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_JanelaCadMedicamento[] = {
+static const uint qt_meta_data_JanelaCadEpi[] = {
 
  // content:
        9,       // revision
@@ -64,10 +64,10 @@ static const uint qt_meta_data_JanelaCadMedicamento[] = {
        0        // eod
 };
 
-void JanelaCadMedicamento::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void JanelaCadEpi::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<JanelaCadMedicamento *>(_o);
+        auto *_t = static_cast<JanelaCadEpi *>(_o);
         (void)_t;
         switch (_id) {
         case 0: _t->on_btnCancel_clicked(); break;
@@ -78,13 +78,13 @@ void JanelaCadMedicamento::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
     (void)_a;
 }
 
-const QMetaObject JanelaCadMedicamento::staticMetaObject = { {
+const QMetaObject JanelaCadEpi::staticMetaObject = { {
     QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
-    qt_meta_stringdata_JanelaCadMedicamento.offsetsAndSize,
-    qt_meta_data_JanelaCadMedicamento,
+    qt_meta_stringdata_JanelaCadEpi.offsetsAndSize,
+    qt_meta_data_JanelaCadEpi,
     qt_static_metacall,
     nullptr,
-qt_incomplete_metaTypeArray<qt_meta_stringdata_JanelaCadMedicamento_t
+qt_incomplete_metaTypeArray<qt_meta_stringdata_JanelaCadEpi_t
 
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
@@ -94,20 +94,20 @@ qt_incomplete_metaTypeArray<qt_meta_stringdata_JanelaCadMedicamento_t
 } };
 
 
-const QMetaObject *JanelaCadMedicamento::metaObject() const
+const QMetaObject *JanelaCadEpi::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *JanelaCadMedicamento::qt_metacast(const char *_clname)
+void *JanelaCadEpi::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_JanelaCadMedicamento.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_JanelaCadEpi.stringdata0))
         return static_cast<void*>(this);
     return QDialog::qt_metacast(_clname);
 }
 
-int JanelaCadMedicamento::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int JanelaCadEpi::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
