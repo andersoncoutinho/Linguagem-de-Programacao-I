@@ -28,8 +28,10 @@ class Controler{
 		Controler();
 		~Controler();
 		std::string consultarInsumos(int);
+        std::vector<Insumo *> consultarInsumos2(int);
 		std::string consultarDescricao(int);
 		std::string consultarTipoInsumos(int, int);
+        std::vector<Insumo *> consultarTipoInsumos2(int, int);
         int distribuirInsumo(std::string, int, int);
 		int cadastrarInsumosMS(Insumo *);
         int cadastrarInsumosMS(Insumo *, int i);

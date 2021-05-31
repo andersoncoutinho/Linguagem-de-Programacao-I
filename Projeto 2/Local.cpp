@@ -80,6 +80,18 @@ std::vector<Insumo*>* Local::getInsumos(){
 	return &insumos;
 }
 
+std::vector<Insumo*> Local::getTipoInsumo(int tipoInsumo) {
+    std::vector<Insumo*> insumoTipo;
+
+    for(int i = 0; i < insumos.size(); i++) {
+        if(insumos[i]->getTipoInsumo() == tipoInsumo) {
+            insumoTipo.push_back(insumos[i]);
+        }
+    }
+
+    return insumoTipo;
+}
+
 void Local::addInsumo(Insumo *insumo) {
 	insumos.push_back(insumo);
 }

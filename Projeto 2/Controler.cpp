@@ -27,6 +27,17 @@ std::string Controler::consultarTipoInsumos(int i, int tipo) {
 	return locais[i].getDescricaoTipoInsumo(tipo);
 } 
 
+std::vector<Insumo *> Controler::consultarInsumos2(int i) {
+    //Retornar o vector de insumos do local inserido
+
+    return *locais[i].getInsumos();
+}
+
+std::vector<Insumo *> Controler::consultarTipoInsumos2(int local, int tipoInsumo) {
+    //Retornar um vector do tipo de insumo de acordo com o local e tipo inserido
+    return locais[local].getTipoInsumo(tipoInsumo);
+}
+
 int Controler::distribuirInsumo(std::string nome, int qtd, int local) {
 
     int i = locais[ESTQ].insumoExiste(nome);
