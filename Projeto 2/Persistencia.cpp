@@ -1,34 +1,71 @@
-#include "Persistencia.h"  
-	
-void Persistencia::lerInsumos(Controler *controle) {
+#include "Persistencia.h"
+#include "Vacina.h"
+#include "Medicamento.h"
+#include "EPI.h"
+
+
+
+bool Persistencia::lerInsumos(Controler *controle) {
 
     std::ifstream file;
     std::string linha, dado;
 
     file.open("ArquivosInsumos.txt");
-    //carregar dados do arquivo para o objeto controler
 
     if (file.is_open()){
-        while(getline(file, linha)) {
-            for(int i = 0; i < linha.size(); i++) {
-                if(linha[i] != ',' && i < linha.size()) {
-                   dado += linha[i];
-                }else{
-                   for(int j = 0; j < 28; j++){
-                       if(dado == "Ministério da Saúde"){
-                           //controle->cadastrarInsumosMS()
-                           //Preciso identificar qual o tipo de insumo
 
-                       }else{
-                           //controle->distribuirInsumo()
-                           //Preciso identificar qual o tipo de insumo
+        for(int i = 0; i < QTD_ESTADOS; i++) {
 
-                       }
-                   }
+            getline(file, linha);
+
+            while(true) {
+
+                getline(file, linha);
+                std::cout << linha << std::endl;
+                if(linha[0] == 'F') {
+                    break;
+                }
+
+                std::vector<std::string> valores;
+                for(int j = 0; j < linha.size(); j++) {
+
+                    if(linha[j] == ',') {
+                        valores.push_back(dado);
+                        dado.clear();
+                        continue;
+                    }
+                    dado.push_back(linha[j]);
+                }
+
+                std::string nome = valores[0];
+                int quantidade = stoi(valores[1]);
+                int valor = stoi(valores[2]);
+                std::string vencimento = valores[3];
+                std::string fabricante = valores[4];
+                int tipoInsumo = stoi(valores[5]);
+
+
+                if(tipoInsumo == VACINA) {
+                    std::string tecnologia = valores[6];
+                    int doses = stoi(valores[7]);
+                    int intervalo = stoi(valores[8]);
+                    controle->cadastrarInsumosMS(new Vacina(nome, quantidade, valor, vencimento, fabricante, tecnologia, doses, intervalo), i);
+                } else if(tipoInsumo == MEDICAMENTO) {
+                    std::string dosagem = valores[6];
+                    std::string administracao = valores[7];
+                    std::string disponibilizacao = valores[8];
+                    controle->cadastrarInsumosMS(new Medicamento(nome, quantidade, valor, vencimento, fabricante, dosagem, administracao, disponibilizacao),i);
+                } else if(tipoInsumo == EPI) {
+                    std::string tipo = valores[6];
+                    std::string descricao = valores[7];
+                    controle->cadastrarInsumosMS(new Epi(nome, quantidade, valor, vencimento, fabricante, tipo, descricao), i);
                 }
             }
         }
+        return true;
     }
+
+    return false;
 }
 
 bool Persistencia::salvarInsumos(Controler controle) {

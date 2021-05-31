@@ -6,7 +6,7 @@
 
 class Persistencia {
 	public:
-		static void lerInsumos(Controler *controle);
+        static bool lerInsumos(Controler *controle);
         static bool salvarInsumos(Controler controle);
 
 };

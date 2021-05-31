@@ -87,6 +87,19 @@ int Controler::cadastrarInsumosMS(Insumo *ins){
         return -1;
 }
 
+int Controler::cadastrarInsumosMS(Insumo *ins, int local) {
+    int i = locais[local].insumoExiste(ins->getNome());
+
+    if ( i >= 0 ) {   
+
+        return i; // retorna o índice do insumo caso já exista
+    }
+    
+    locais[local].addInsumo(ins);
+    
+    return -1;
+}
+
 void Controler::atualizarQtdInsumoMS(int i, int qtd){
 
     locais[ESTQ].getInsumo(i)->addUnidades(qtd);

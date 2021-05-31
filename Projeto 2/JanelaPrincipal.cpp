@@ -5,10 +5,13 @@
 #include "JanelaDistribuir.h"
 #include "Persistencia.h"
 #include <QSize>
-
+#include <QMessageBox>
 JanelaPrincipal::JanelaPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::JanelaPrincipal) {
 
-    Persistencia::lerInsumos(&controle);
+    if(!Persistencia::lerInsumos(&controle)) {
+        QMessageBox::about(this, "", "Erro ao carregar arquivo");
+    }
+
     ui->setupUi(this);
 
 
@@ -25,7 +28,6 @@ JanelaPrincipal::JanelaPrincipal(QWidget *parent) : QMainWindow(parent), ui(new 
     ui->btnDistribuir->setIcon(ambulancia);
 
     this->setFixedSize(this->width(), this->height());
-
 
 
 
