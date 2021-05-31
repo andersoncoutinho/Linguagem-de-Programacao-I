@@ -26,3 +26,10 @@ std::string Epi::getDescricao() {
     "Descrição: " + descricao + "\n\n";
     return desc;
 }
+
+std::string Epi::getInfoArquivo(){
+    
+    std::string info;
+
+    info = Insumo::getInfoArquivo() + tipo + "," + descricao + ",";
+}

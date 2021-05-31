@@ -17,5 +17,6 @@ class Medicamento : public Insumo {
 		std::string getDisponibilizacao();
 		std::string getConsulta();
 		std::string getDescricao();
+		virtual std::string getInfoArquivo();
 };
 #endif

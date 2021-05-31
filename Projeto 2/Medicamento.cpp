@@ -31,3 +31,12 @@ std::string Medicamento::getDescricao() {
 
     return desc;
 }
+
+std::string Medicamento::getInfoArquivo(){
+    
+    std::string info;
+
+    info = Insumo::getInfoArquivo() + dosagem + "," + administracao + "," + disponibilizacao + ",";
+
+    return info;
+}

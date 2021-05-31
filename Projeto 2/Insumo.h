@@ -28,6 +28,7 @@ class Insumo {
                 virtual void removerUnidades(int qtd);
                 virtual void addUnidades(int qtd);
                 virtual void setQuantidade(int quantidade);
+                virtual std::string getInfoArquivo(); 
 
 };
 

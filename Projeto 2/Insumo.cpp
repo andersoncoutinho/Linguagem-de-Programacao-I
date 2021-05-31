@@ -53,3 +53,17 @@ void Insumo::addUnidades(int qtd) {
 void Insumo::setQuantidade(int quantidade) {
     this->quantidade = quantidade;
 }
+
+std::string Insumo::getInfoArquivo() {
+    std::string info;
+
+    info = nome + "," + 
+           std::to_string(quantidade) + "," + 
+           std::to_string(valorUnitario) + "," +
+           dtVencimento + "," + 
+           nomeFabricante + "," +
+           std::to_string(tipoInsumo) + ",";
+    
+    return info;
+
+}

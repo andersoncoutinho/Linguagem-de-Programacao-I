@@ -35,6 +35,18 @@ std::string Vacina::getTecnologia() {
     return this->tecnologia;
 }
 
+std::string Vacina::getInfoArquivo(){
+
+    std::string info;
+    
+    info = Insumo::getInfoArquivo() + 
+           tecnologia + "," + 
+           std::to_string(quantDoses) + "," + 
+           std::to_string(intervalo) + ",";
+
+    return info;
+}
+
 Vacina::~Vacina() {
 	
 }
