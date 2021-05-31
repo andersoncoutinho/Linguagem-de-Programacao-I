@@ -1,0 +1,57 @@
+Ministério da Saúde
+Pfizer,1000,8,21//02/2022,kaffa,1,afafaf,1,0,
+FIM
+Acre
+FIM
+Alagoas
+FIM
+Amapá
+FIM
+Amazonas
+FIM
+Bahia
+FIM
+Ceará
+FIM
+Distrito Federal
+FIM
+Espírito Santo
+FIM
+Goiás
+FIM
+Maranhão
+FIM
+Mato Grosso
+FIM
+Mato Grosso do Sul
+FIM
+Minas Gerais
+FIM
+Pará
+FIM
+Paraíba
+FIM
+Paraná
+FIM
+Pernambuco
+FIM
+Piauí
+FIM
+Rio de Janeiro
+FIM
+Rio Grande do Norte
+FIM
+RS
+FIM
+Rondônia
+FIM
+Roraima
+FIM
+Santa Catarina
+FIM
+São Paulo
+FIM
+Sergipe
+FIM
+Tocantins
+FIM
