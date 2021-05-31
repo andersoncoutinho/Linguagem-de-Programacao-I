@@ -43,7 +43,7 @@ public:
         if (JanelaPrincipal->objectName().isEmpty())
             JanelaPrincipal->setObjectName(QString::fromUtf8("JanelaPrincipal"));
         JanelaPrincipal->setEnabled(true);
-        JanelaPrincipal->resize(282, 298);
+        JanelaPrincipal->resize(281, 308);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -171,7 +171,7 @@ public:
         JanelaPrincipal->setCentralWidget(centralwidget);
         menubar = new QMenuBar(JanelaPrincipal);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 282, 25));
+        menubar->setGeometry(QRect(0, 0, 281, 25));
         menubar->setTabletTracking(false);
         menubar->setFocusPolicy(Qt::NoFocus);
         menubar->setStyleSheet(QString::fromUtf8("QMenuBar{\n"

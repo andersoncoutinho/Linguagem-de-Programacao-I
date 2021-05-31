@@ -21,8 +21,8 @@ bool Persistencia::lerInsumos(Controler *controle) {
             while(true) {
 
                 getline(file, linha);
-                std::cout << linha << std::endl;
-                if(linha[0] == 'F') {
+
+                if(linha == "FIM") {
                     break;
                 }
 

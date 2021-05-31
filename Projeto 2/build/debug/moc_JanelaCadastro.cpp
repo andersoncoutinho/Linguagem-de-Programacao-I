@@ -73,7 +73,7 @@ void JanelaCadastro::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         auto *_t = static_cast<JanelaCadastro *>(_o);
         (void)_t;
         switch (_id) {
-        case 0:  break;
+        case 0: break;
         case 1: _t->on_pushButton_clicked(); break;
         case 2: _t->on_btnVoltar_clicked(); break;
         default: ;
