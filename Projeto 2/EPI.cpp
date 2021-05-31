@@ -32,4 +32,6 @@ std::string Epi::getInfoArquivo(){
     std::string info;
 
     info = Insumo::getInfoArquivo() + tipo + "," + descricao + ",";
+
+    return info;
 }
