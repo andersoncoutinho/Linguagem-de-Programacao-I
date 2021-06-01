@@ -62,6 +62,9 @@ bool Persistencia::lerInsumos(Controler *controle) {
                 }
             }
         }
+
+        file.close();
+
         return true;
     }
 
