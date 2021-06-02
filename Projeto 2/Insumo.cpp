@@ -67,3 +67,11 @@ std::string Insumo::getInfoArquivo() {
     return info;
 
 }
+
+void Insumo::copiarInsumo(Insumo *insumo) {
+    this->nome = insumo->nome;
+    this->quantidade = insumo->quantidade;
+    this->valorUnitario = insumo->valorUnitario;
+    this->dtVencimento = insumo->dtVencimento;
+    this->nomeFabricante = insumo->nomeFabricante;
+}

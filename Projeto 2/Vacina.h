@@ -14,7 +14,8 @@ class Vacina : public Insumo {
 		std::string getConsulta();
 		std::string getDescricao();
 		std::string getTecnologia();
-		virtual std::string getInfoArquivo();
+        std::string getInfoArquivo();
+        void copiarInsumo(Insumo insumo);
 		~Vacina();
 
 };

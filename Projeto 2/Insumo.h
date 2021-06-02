@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 
+
+
 #define VACINA 1
 #define MEDICAMENTO 2
 #define EPI 3
@@ -28,8 +30,8 @@ class Insumo {
                 virtual void removerUnidades(int qtd);
                 virtual void addUnidades(int qtd);
                 virtual void setQuantidade(int quantidade);
-                virtual std::string getInfoArquivo(); 
-
+                virtual std::string getInfoArquivo();
+                virtual void copiarInsumo(Insumo *insumo);
 };
 
 #endif

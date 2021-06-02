@@ -58,18 +58,18 @@ int Controler::distribuirInsumo(std::string nome, int qtd, int local) {
 
                 switch(insumoEstoque->getTipoInsumo()) {
                     case VACINA:
-                        locais[local].getInsumos()->push_back(new Vacina());
+                        this->cadastrarInsumosMS(new Vacina(), local);
+                        *((Vacina *) getLocal(local).getInsumo(indice)) = *((Vacina *) insumoEstoque);
                         break;
                     case MEDICAMENTO:
                         locais[local].getInsumos()->push_back(new Medicamento());
+                        *((Medicamento *) getLocal(local).getInsumo(indice)) = *((Medicamento *) insumoEstoque);
                         break;
                     case EPI:
                         locais[local].getInsumos()->push_back(new Epi());
+                        *((Epi *) getLocal(local).getInsumo(indice)) = *(((Epi *) insumoEstoque));
                         break;
                 }
-
-                
-                *(locais[local].getInsumo(indice))= *(insumoEstoque);
 
                 locais[local].getInsumo(indice)->setQuantidade(qtd);
             }
