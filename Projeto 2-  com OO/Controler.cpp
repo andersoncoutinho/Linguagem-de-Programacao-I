@@ -51,7 +51,7 @@ int Controler::distribuirInsumo(std::string nome, int qtd, int local) {
 
             
             if(j != -1) {
-                locais[local].getInsumo(j)->addUnidades(qtd);
+                getInsumo(local, j)->addUnidades(qtd);
             } else {
 
                 int indice = locais[local].getInsumos()->size();
@@ -59,19 +59,19 @@ int Controler::distribuirInsumo(std::string nome, int qtd, int local) {
                 switch(insumoEstoque->getTipoInsumo()) {
                     case VACINA:
                         this->cadastrarInsumosMS(new Vacina(), local);
-                        *((Vacina *) getLocal(local).getInsumo(indice)) = *((Vacina *) insumoEstoque);
+                        *((Vacina *) getInsumo(local, indice)) = *((Vacina *) insumoEstoque);
                         break;
                     case MEDICAMENTO:
                         locais[local].getInsumos()->push_back(new Medicamento());
-                        *((Medicamento *) getLocal(local).getInsumo(indice)) = *((Medicamento *) insumoEstoque);
+                        *((Medicamento *) getInsumo(local, indice)) = *((Medicamento *) insumoEstoque);
                         break;
                     case EPI:
                         locais[local].getInsumos()->push_back(new Epi());
-                        *((Epi *) getLocal(local).getInsumo(indice)) = *(((Epi *) insumoEstoque));
+                        *((Epi *) getInsumo(local, indice)) = *(((Epi *) insumoEstoque));
                         break;
                 }
 
-                locais[local].getInsumo(indice)->setQuantidade(qtd);
+                getInsumo(local, indice)->setQuantidade(qtd);
             }
 
             return 1; // quando é feita a distribuição
@@ -133,4 +133,8 @@ int Controler::getIndiceLocal(std::string local) {
 
 std::string Controler::getNomeLocal(int i) {
     return this->locais[i].getNome();
+}
+
+Insumo* Controler::getInsumo(int local, int i) {
+    return locais[local].getInsumo(i);
 }

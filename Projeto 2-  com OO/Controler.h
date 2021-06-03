@@ -36,6 +36,7 @@ class Controler{
 		int cadastrarInsumosMS(Insumo *);
         int cadastrarInsumosMS(Insumo *, int i);
 		Local getLocal(int i);
+        Insumo* getInsumo(int, int);
         int getIndiceLocal(std::string local);
         void atualizarQtdInsumoMS(int, int);
         std::string getNomeLocal(int i);
