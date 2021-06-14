@@ -6,12 +6,22 @@ BioNTech,100000,20.000000,10/11/2021,Pfizer,1,mRNA,2,30,
 Sputnik V,150000,30.000000,15/01/2022,União Química,1,mRNA,2,25,
 Janssen,10000,15.000000,15/11/2021,Johnson & Johnson,1,Adenovírus,1,0,
 Paracetamol,75000,4.000000,10/12/2021,Genérico,2,750 mg,Oral,Comprimido,
-teste,500,14.577000,,,1,,0,0,
+teste,9500,14.000000,,,1,,0,0,
+Remdesivir,2500,15.000000,25/12/21,Generico,2,200mg,Oral,Comprimido,
+Ivermectina,3000,12.000000,25/12/21,Generico,2,150mg,Oral,Comprimido,
+Dexametasona,5000,12.000000,25/12/21,Generico,2,400mg,Oral,Comprimido,
+Clofazimina,2000,20.000000,25/12/21,Generico,2,150mg,Oral,Comprimido,
+Mascara,10000,5.000000,25/12/21,Venkuri,3,Protecao,Protege,
+Lencos de  papel,1000,2.000000,25/12/21,Verkuri,3,Limpar,Limpa,
+Luvas de procedimento,1000,10.000000,25/12/21,Verkuri,3,Protecao,Protege,
+Avental impermeavel,1000,10.000000,25/12/21,Verkuri,3,Protecao,Protege,
+Teste,9000,12.000000,V,F,2,D,A,Di,
+testeEpi,9500,1.000000,V,F,3,T,D,
 FIM
 Acre
 CoronaVac,1200,16.000000,31/12/2021,Butantan,1,Vírus Inativado,2,15,
 Dipirona Sódica,3500,3.000000,06/09/2021,Genérico,2,500 mg,Oral,Comprimido,
-teste,500,14.577000,,,1,,0,0,
+teste,500,14.000000,,,1,,0,0,
 FIM
 Alagoas
 Dipirona Sódica,1000,3.000000,06/09/2021,Genérico,2,500 mg,Oral,Comprimido,
@@ -22,6 +32,7 @@ Amazonas
 CoronaVac,7800,16.000000,31/12/2021,Butantan,1,Vírus Inativado,2,15,
 FIM
 Bahia
+testeEpi,500,1.000000,V,F,3,T,D,
 FIM
 Ceará
 FIM
@@ -30,6 +41,7 @@ FIM
 Espírito Santo
 FIM
 Goiás
+Teste,1000,12.000000,V,F,2,D,A,Di,
 FIM
 Maranhão
 FIM
@@ -42,6 +54,7 @@ FIM
 Pará
 FIM
 Paraíba
+teste,1000,14.000000,,,1,,0,0,
 FIM
 Paraná
 FIM
