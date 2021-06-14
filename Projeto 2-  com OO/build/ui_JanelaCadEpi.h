@@ -10,6 +10,7 @@
 #define UI_JANELACADEPI_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
@@ -53,6 +54,9 @@ public:
         if (JanelaCadEpi->objectName().isEmpty())
             JanelaCadEpi->setObjectName(QString::fromUtf8("JanelaCadEpi"));
         JanelaCadEpi->resize(353, 353);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icones/icones/brasil.png"), QSize(), QIcon::Normal, QIcon::Off);
+        JanelaCadEpi->setWindowIcon(icon);
         JanelaCadEpi->setStyleSheet(QString::fromUtf8("background-color: rgb(44, 44, 44);\n"
 "color: rgb(255, 255, 255);"));
         verticalLayoutWidget = new QWidget(JanelaCadEpi);
@@ -188,7 +192,7 @@ public:
 
     void retranslateUi(QDialog *JanelaCadEpi)
     {
-        JanelaCadEpi->setWindowTitle(QCoreApplication::translate("JanelaCadEpi", "Dialog", nullptr));
+        JanelaCadEpi->setWindowTitle(QCoreApplication::translate("JanelaCadEpi", "Cadastro de EPIs", nullptr));
         label_17->setText(QString());
         label_16->setText(QCoreApplication::translate("JanelaCadEpi", "Nome:", nullptr));
         label_18->setText(QCoreApplication::translate("JanelaCadEpi", "Quantidade:", nullptr));

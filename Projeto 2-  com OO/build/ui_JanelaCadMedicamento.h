@@ -10,6 +10,7 @@
 #define UI_JANELACADMEDICAMENTO_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
@@ -55,6 +56,9 @@ public:
         if (JanelaCadMedicamento->objectName().isEmpty())
             JanelaCadMedicamento->setObjectName(QString::fromUtf8("JanelaCadMedicamento"));
         JanelaCadMedicamento->resize(353, 384);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icones/icones/brasil.png"), QSize(), QIcon::Normal, QIcon::Off);
+        JanelaCadMedicamento->setWindowIcon(icon);
         JanelaCadMedicamento->setStyleSheet(QString::fromUtf8("background-color: rgb(44, 44, 44);\n"
 "color: rgb(255, 255, 255);"));
         verticalLayoutWidget = new QWidget(JanelaCadMedicamento);
@@ -201,7 +205,7 @@ public:
 
     void retranslateUi(QDialog *JanelaCadMedicamento)
     {
-        JanelaCadMedicamento->setWindowTitle(QCoreApplication::translate("JanelaCadMedicamento", "Dialog", nullptr));
+        JanelaCadMedicamento->setWindowTitle(QCoreApplication::translate("JanelaCadMedicamento", "Cadastro de Medicamentos", nullptr));
         label_17->setText(QString());
         label_9->setText(QCoreApplication::translate("JanelaCadMedicamento", "Nome:", nullptr));
         label_10->setText(QCoreApplication::translate("JanelaCadMedicamento", "Quantidade:", nullptr));

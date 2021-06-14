@@ -3,7 +3,7 @@
 #include "Vacina.h"
 #include <iostream>
 #include <QMessageBox>
-
+#include "Persistencia.h"
 
 JanelaCadVacina::JanelaCadVacina(QWidget *parent, Controler *controle) :
     QDialog(parent),
@@ -35,17 +35,21 @@ void JanelaCadVacina::on_pushButton_clicked() {
     int i = controle->cadastrarInsumosMS(insumo);
 
     if(i == -1) {
-        QMessageBox::about(this, "", "Vacina cadastrada com sucesso");
+        QMessageBox::about(this, "Cadastro", "Vacina cadastrada com sucesso");
+
     } else {
         QMessageBox::StandardButton resposta =
-        QMessageBox::question(this, "", "Insumo já existe no cadastro. "
-"                                        Deseja adicionar a quantidade informada?");
+        QMessageBox::question(this, "Aviso", "Insumo já existe no cadastro.\n"
+                                             "Deseja adicionar a quantidade informada?");
 
         if(resposta == QMessageBox::Yes) {
             controle->atualizarQtdInsumoMS(i, insumo->getQuantidade());
+            QMessageBox::about(this, "Cadastro", "Quantidade atualizada com sucesso");
         }
 
     }
+
+
 
     this->close();
 }

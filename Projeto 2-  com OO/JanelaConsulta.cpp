@@ -51,7 +51,7 @@ void JanelaConsulta::on_btnDetalhes_clicked() {
                 desc = controle->getNomeLocal(indiceEstado) + "\n"
                             + controle->consultarDescricao(indiceEstado);
             } else {
-                for(int i = 1; i < QTD_ESTADOS; i++) {
+                for(int i = 1; i < QTD_LOCAIS; i++) {
                     if(controle->getLocal(i).getInsumos()->size()) {
                         desc += controle->getNomeLocal(i) + "\n"
                                 + controle->consultarDescricao(i);
@@ -74,7 +74,7 @@ void JanelaConsulta::on_btnDetalhes_clicked() {
                 desc = controle->getNomeLocal(indiceEstado) + "\n"
                         + controle->consultarInsumos(indiceEstado);
             } else {
-                for(int i = 1; i < QTD_ESTADOS; i++) {
+                for(int i = 1; i < QTD_LOCAIS; i++) {
                     if(controle->getLocal(i).getInsumos()->size()) {
                         desc += controle->getNomeLocal(i) + "\n"
                                 + controle->consultarInsumos(i);
@@ -122,7 +122,7 @@ void JanelaConsulta::on_btnVerDistribuidos_clicked() {
 
     std::string desc;
 
-    for(int i = 1; i < QTD_ESTADOS; i++) {
+    for(int i = 1; i < QTD_LOCAIS; i++) {
         if(controle->getLocal(i).getInsumos()->size() > 0) {
             desc += controle->getNomeLocal(i) + "\n" +
                     controle->consultarInsumos(i);

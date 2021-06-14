@@ -10,6 +10,7 @@
 #define UI_JANELACADASTRO_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
@@ -38,6 +39,9 @@ public:
         if (JanelaCadastro->objectName().isEmpty())
             JanelaCadastro->setObjectName(QString::fromUtf8("JanelaCadastro"));
         JanelaCadastro->resize(305, 166);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icones/icones/brasil.png"), QSize(), QIcon::Normal, QIcon::Off);
+        JanelaCadastro->setWindowIcon(icon);
         JanelaCadastro->setStyleSheet(QString::fromUtf8("background-color: rgb(44, 44, 44);\n"
 "color: rgb(255, 255, 255);"));
         verticalLayoutWidget_2 = new QWidget(JanelaCadastro);
@@ -117,7 +121,7 @@ public:
 
     void retranslateUi(QDialog *JanelaCadastro)
     {
-        JanelaCadastro->setWindowTitle(QCoreApplication::translate("JanelaCadastro", "Dialog", nullptr));
+        JanelaCadastro->setWindowTitle(QCoreApplication::translate("JanelaCadastro", "Cadastro", nullptr));
         label->setText(QString());
         comboBox->setItemText(0, QCoreApplication::translate("JanelaCadastro", "Selecione o tipo de insumo:", nullptr));
         comboBox->setItemText(1, QCoreApplication::translate("JanelaCadastro", "Vacina", nullptr));

@@ -10,6 +10,7 @@
 #define UI_JANELACONSULTA_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
@@ -43,6 +44,9 @@ public:
         if (JanelaConsulta->objectName().isEmpty())
             JanelaConsulta->setObjectName(QString::fromUtf8("JanelaConsulta"));
         JanelaConsulta->resize(353, 471);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icones/icones/brasil.png"), QSize(), QIcon::Normal, QIcon::Off);
+        JanelaConsulta->setWindowIcon(icon);
         JanelaConsulta->setStyleSheet(QString::fromUtf8("background-color: rgb(44, 44, 44);\n"
 "color: rgb(255, 255, 255);"));
         verticalLayoutWidget = new QWidget(JanelaConsulta);
@@ -140,7 +144,7 @@ public:
 
     void retranslateUi(QDialog *JanelaConsulta)
     {
-        JanelaConsulta->setWindowTitle(QCoreApplication::translate("JanelaConsulta", "Dialog", nullptr));
+        JanelaConsulta->setWindowTitle(QCoreApplication::translate("JanelaConsulta", "Consulta de Insumos", nullptr));
         label_9->setText(QString());
         btnVerDistribuidos_2->setText(QCoreApplication::translate("JanelaConsulta", "Ver Insumos em Estoque", nullptr));
         btnVerDistribuidos->setText(QCoreApplication::translate("JanelaConsulta", "Ver Insumos Distribu\303\255dos", nullptr));

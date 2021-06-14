@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Cadastro de EPIs</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Arquivo_de_Recursos.qrc">
+    <normaloff>:/icones/icones/brasil.png</normaloff>:/icones/icones/brasil.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(44, 44, 44);

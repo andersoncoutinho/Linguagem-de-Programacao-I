@@ -10,6 +10,7 @@
 #define UI_JANELACADVACINA_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
@@ -55,6 +56,9 @@ public:
         if (JanelaCadVacina->objectName().isEmpty())
             JanelaCadVacina->setObjectName(QString::fromUtf8("JanelaCadVacina"));
         JanelaCadVacina->resize(355, 376);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icones/icones/brasil.png"), QSize(), QIcon::Normal, QIcon::Off);
+        JanelaCadVacina->setWindowIcon(icon);
         JanelaCadVacina->setStyleSheet(QString::fromUtf8("background-color: rgb(44, 44, 44);\n"
 "color: rgb(255, 255, 255);"));
         verticalLayoutWidget = new QWidget(JanelaCadVacina);
@@ -201,7 +205,7 @@ public:
 
     void retranslateUi(QDialog *JanelaCadVacina)
     {
-        JanelaCadVacina->setWindowTitle(QCoreApplication::translate("JanelaCadVacina", "Dialog", nullptr));
+        JanelaCadVacina->setWindowTitle(QCoreApplication::translate("JanelaCadVacina", "Cadastro de Vacinas", nullptr));
         label_9->setText(QString());
         label->setText(QCoreApplication::translate("JanelaCadVacina", "Nome:", nullptr));
         label_2->setText(QCoreApplication::translate("JanelaCadVacina", "Quantidade:", nullptr));

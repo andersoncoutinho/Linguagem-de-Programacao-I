@@ -10,6 +10,7 @@
 #define UI_JANELADISTRIBUIR_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
@@ -45,6 +46,9 @@ public:
         if (JanelaDistribuir->objectName().isEmpty())
             JanelaDistribuir->setObjectName(QString::fromUtf8("JanelaDistribuir"));
         JanelaDistribuir->resize(353, 224);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icones/icones/brasil.png"), QSize(), QIcon::Normal, QIcon::Off);
+        JanelaDistribuir->setWindowIcon(icon);
         JanelaDistribuir->setStyleSheet(QString::fromUtf8("background-color: rgb(44, 44, 44);\n"
 "color: rgb(255, 255, 255);"));
         verticalLayoutWidget = new QWidget(JanelaDistribuir);
@@ -155,7 +159,7 @@ public:
 
     void retranslateUi(QDialog *JanelaDistribuir)
     {
-        JanelaDistribuir->setWindowTitle(QCoreApplication::translate("JanelaDistribuir", "Dialog", nullptr));
+        JanelaDistribuir->setWindowTitle(QCoreApplication::translate("JanelaDistribuir", "Distribui\303\247\303\243o de Insumos", nullptr));
         label_9->setText(QString());
         comboBox->setItemText(0, QCoreApplication::translate("JanelaDistribuir", "Selecione um estado:", nullptr));
         comboBox->setItemText(1, QCoreApplication::translate("JanelaDistribuir", "Acre", nullptr));

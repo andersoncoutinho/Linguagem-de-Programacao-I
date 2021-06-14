@@ -6,12 +6,12 @@
 #include "Insumo.h"
 
 #define ESTQ 0
-#define QTD_ESTADOS 28
+#define QTD_LOCAIS 28
 	
 class Controler{
 	private:
-		Local locais[QTD_ESTADOS];
-        std::string nomesLocais[QTD_ESTADOS] = { "Ministério da Saúde",
+        Local locais[QTD_LOCAIS];
+        std::string nomesLocais[QTD_LOCAIS] = { "Ministério da Saúde",
                                         "Acre", "Alagoas", "Amapá",
                                         "Amazonas", "Bahia", "Ceará",
                                         "Distrito Federal", "Espírito Santo",

@@ -1,5 +1,5 @@
 Ministério da Saúde
-CoronaVac,90000,16,31/12/2021,Butantan,1,Vírus Inativado,2,15,
+CoronaVac,115000,16,31/12/2021,Butantan,1,Vírus Inativado,2,15,
 Dipirona Sódica,499000,3,06/09/2021,Genérico,2,500 mg,Oral,Comprimido,
 AstraZeneca,50000,25,21/12/2021,Fiocruz,1,Vetor Viral Não Replicante,2,90,
 BioNTech,100000,20,10/11/2021,Pfizer,1,mRNA,2,30,

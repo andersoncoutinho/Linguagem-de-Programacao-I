@@ -28,6 +28,7 @@ class Ui_JanelaPrincipal
 public:
     QAction *actionSalvar;
     QAction *actionSair;
+    QAction *actionteste;
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *_2;
@@ -43,7 +44,7 @@ public:
         if (JanelaPrincipal->objectName().isEmpty())
             JanelaPrincipal->setObjectName(QString::fromUtf8("JanelaPrincipal"));
         JanelaPrincipal->setEnabled(true);
-        JanelaPrincipal->resize(281, 308);
+        JanelaPrincipal->resize(282, 298);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -62,6 +63,8 @@ public:
         actionSalvar->setObjectName(QString::fromUtf8("actionSalvar"));
         actionSair = new QAction(JanelaPrincipal);
         actionSair->setObjectName(QString::fromUtf8("actionSair"));
+        actionteste = new QAction(JanelaPrincipal);
+        actionteste->setObjectName(QString::fromUtf8("actionteste"));
         centralwidget = new QWidget(JanelaPrincipal);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setEnabled(true);
@@ -171,7 +174,7 @@ public:
         JanelaPrincipal->setCentralWidget(centralwidget);
         menubar = new QMenuBar(JanelaPrincipal);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 281, 25));
+        menubar->setGeometry(QRect(0, 0, 282, 25));
         menubar->setTabletTracking(false);
         menubar->setFocusPolicy(Qt::NoFocus);
         menubar->setStyleSheet(QString::fromUtf8("QMenuBar{\n"
@@ -208,6 +211,7 @@ public:
 #if QT_CONFIG(shortcut)
         actionSair->setShortcut(QCoreApplication::translate("JanelaPrincipal", "Ctrl+W", nullptr));
 #endif // QT_CONFIG(shortcut)
+        actionteste->setText(QCoreApplication::translate("JanelaPrincipal", "teste", nullptr));
         btnCadastrar->setText(QCoreApplication::translate("JanelaPrincipal", "Cadastrar Insumo", nullptr));
         btnConsultar->setText(QCoreApplication::translate("JanelaPrincipal", "Consultar Insumos", nullptr));
         btnDistribuir->setText(QCoreApplication::translate("JanelaPrincipal", "Distribuir Insumos", nullptr));

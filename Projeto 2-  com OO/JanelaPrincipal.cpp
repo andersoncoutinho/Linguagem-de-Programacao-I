@@ -78,4 +78,3 @@ void JanelaPrincipal::on_actionSalvar_triggered() {
 void JanelaPrincipal::on_actionSalvar_hovered() {
 
 }
-

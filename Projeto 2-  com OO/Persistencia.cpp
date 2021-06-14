@@ -14,7 +14,7 @@ bool Persistencia::lerInsumos(Controler *controle) {
 
     if (file.is_open()){
 
-        for(int i = 0; i < QTD_ESTADOS; i++) {
+        for(int i = 0; i < QTD_LOCAIS; i++) {
 
             getline(file, linha);
 
@@ -80,7 +80,7 @@ bool Persistencia::salvarInsumos(Controler controle) {
 
     if (file.is_open()){
 
-        for (int i = 0; i < QTD_ESTADOS; i++) {
+        for (int i = 0; i < QTD_LOCAIS; i++) {
             file << controle.getNomeLocal(i) << std::endl;
 
             for (int j = 0; j < controle.getLocal(i).getInsumos()->size(); j++) {
