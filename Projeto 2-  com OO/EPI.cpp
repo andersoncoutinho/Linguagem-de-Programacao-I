@@ -4,7 +4,7 @@ Epi::Epi() {
 
 }	
 
-Epi::Epi(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento,
+Epi::Epi(std::string nome, int quantidade, double valorUnitario, std::string dtVencimento,
             std::string nomeFabricante, std::string tipo, std::string descricao)
             : Insumo(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante) {
     

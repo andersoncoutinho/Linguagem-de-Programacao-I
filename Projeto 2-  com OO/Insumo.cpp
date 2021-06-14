@@ -1,11 +1,13 @@
 #include "Insumo.h"  
 #include <string>
+#include <iomanip>
+
 
 Insumo::Insumo() {
-
+    std::setprecision(2);
 }
 
-Insumo::Insumo(std::string nome, int quantidade, int valorUnitario, std::string dtVencimento, std::string nomeFabricante) {
+Insumo::Insumo(std::string nome, int quantidade, double valorUnitario, std::string dtVencimento, std::string nomeFabricante) {
     this->nome = nome;
     this->quantidade = quantidade;
     this->valorUnitario = valorUnitario;
@@ -22,11 +24,17 @@ int Insumo::getTipoInsumo() {
 }
 
 std::string Insumo::getDescricao() {
+
+    std::ostringstream valor;
+    valor << std::setprecision(2);
+    valor<< std::fixed;
+    valor << valorUnitario;
+
     std::string desc = "Nome: " + nome + "\n" +
     "Quantidade: " + std::to_string(quantidade) + "\n" +
-    "Valor Unitário: " + std::to_string(valorUnitario) + "\n" +
+    "Valor Unitário: " + valor.str() + "\n" +
     "Data de Vencimento: " + dtVencimento + "\n" +
-    "Nome do fabricante: " + nomeFabricante + "\n";    
+    "Nome do fabricante: " + nomeFabricante + "\n";
     return desc;
 }
 

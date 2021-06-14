@@ -9,6 +9,7 @@ JanelaCadMedicamento::JanelaCadMedicamento(QWidget *parent, Controler *controle)
 {
     ui->setupUi(this);
     this->controle = controle;
+    this->setFixedSize(this->width(), this->height());
 }
 
 JanelaCadMedicamento::~JanelaCadMedicamento()
@@ -26,7 +27,7 @@ void JanelaCadMedicamento::on_btnOK_clicked() {
 
     std::string nome = ui->textBoxNome->text().toUtf8().constData();
     int qtd = ui->textBoxQuant->text().toInt();
-    int valor = ui->textBoxValor->text().toInt();
+    double valor = ui->textBoxValor->text().toDouble();
     std::string vencimento = ui->textBoxVencimento->text().toUtf8().constData();
     std::string fabricante = ui->textBoxFabricante->text().toUtf8().constData();
     std::string dosagem = ui->textBoxDosagem->text().toUtf8().constData();

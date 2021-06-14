@@ -14,13 +14,13 @@ class Insumo {
         protected:
                 std::string nome;
                 int quantidade;
-                int valorUnitario;
+                double valorUnitario;
                 std::string dtVencimento;
                 std::string nomeFabricante;
                 int tipoInsumo;
         public: 
                 Insumo();
-                Insumo(std::string, int, int, std::string, std::string);
+                Insumo(std::string, int, double, std::string, std::string);
                 virtual int getQuantidade();
                 virtual std::string getNome();
                 virtual int getTipoInsumo();

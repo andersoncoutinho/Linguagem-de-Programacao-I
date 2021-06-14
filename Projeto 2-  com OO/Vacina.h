@@ -10,12 +10,11 @@ class Vacina : public Insumo {
 		int intervalo;
 	public:
 		Vacina();
-		Vacina(std::string, int, int, std::string, std::string, std::string, int, int);
+        Vacina(std::string, int, double, std::string, std::string, std::string, int, int);
 		std::string getConsulta();
 		std::string getDescricao();
 		std::string getTecnologia();
         std::string getInfoArquivo();
-        void copiarInsumo(Insumo insumo);
 		~Vacina();
 
 };

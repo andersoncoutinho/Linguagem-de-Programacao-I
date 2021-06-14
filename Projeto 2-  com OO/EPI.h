@@ -10,7 +10,7 @@ class Epi : public Insumo {
 		std::string descricao;
 	public:
 		Epi();
-		Epi(std::string, int, int, std::string, std::string, std::string, std::string);
+        Epi(std::string, int, double, std::string, std::string, std::string, std::string);
 		std::string getConsulta();
 		std::string getDescricao();
 		virtual std::string getInfoArquivo();

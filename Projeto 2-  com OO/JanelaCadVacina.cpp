@@ -11,6 +11,7 @@ JanelaCadVacina::JanelaCadVacina(QWidget *parent, Controler *controle) :
 {
     ui->setupUi(this);
     this->controle = controle;
+    this->setFixedSize(this->width(), this->height());
 }
 
 JanelaCadVacina::~JanelaCadVacina()
@@ -22,7 +23,7 @@ void JanelaCadVacina::on_pushButton_clicked() {
 
     std::string nome = ui->textBoxNome->text().toUtf8().constData();
     int qtd = ui->textBoxQuant->text().toInt();
-    int valor = ui->textBovValor->text().toInt();
+    double valor = ui->textBovValor->text().toDouble();
     std::string vencimento = ui->textBoxVencimento->text().toUtf8().constData();
     std::string fabricante = ui->textBoxFabricante->text().toUtf8().constData();
     std::string tecnologia = ui->textBoxTecnologia->text().toUtf8().constData();

@@ -39,7 +39,7 @@ bool Persistencia::lerInsumos(Controler *controle) {
 
                 std::string nome = valores[0];
                 int quantidade = stoi(valores[1]);
-                int valor = stoi(valores[2]);
+                int valor = stod(valores[2]);
                 std::string vencimento = valores[3];
                 std::string fabricante = valores[4];
                 int tipoInsumo = stoi(valores[5]);

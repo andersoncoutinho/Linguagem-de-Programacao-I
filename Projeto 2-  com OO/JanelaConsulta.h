@@ -17,7 +17,7 @@ public:
     ~JanelaConsulta();
 
 private slots:
-    void on_btnVerDistribuidos_2_clicked();
+    void on_btnVerEstoque_clicked();
 
     void on_btnDetalhes_clicked();
 

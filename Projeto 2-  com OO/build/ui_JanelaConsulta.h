@@ -29,7 +29,7 @@ public:
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QLabel *label_9;
-    QPushButton *btnVerDistribuidos_2;
+    QPushButton *btnVerEstoque;
     QPushButton *btnVerDistribuidos;
     QHBoxLayout *horizontalLayout;
     QComboBox *comboBox;
@@ -63,10 +63,10 @@ public:
 
         verticalLayout->addWidget(label_9);
 
-        btnVerDistribuidos_2 = new QPushButton(verticalLayoutWidget);
-        btnVerDistribuidos_2->setObjectName(QString::fromUtf8("btnVerDistribuidos_2"));
+        btnVerEstoque = new QPushButton(verticalLayoutWidget);
+        btnVerEstoque->setObjectName(QString::fromUtf8("btnVerEstoque"));
 
-        verticalLayout->addWidget(btnVerDistribuidos_2);
+        verticalLayout->addWidget(btnVerEstoque);
 
         btnVerDistribuidos = new QPushButton(verticalLayoutWidget);
         btnVerDistribuidos->setObjectName(QString::fromUtf8("btnVerDistribuidos"));
@@ -146,7 +146,7 @@ public:
     {
         JanelaConsulta->setWindowTitle(QCoreApplication::translate("JanelaConsulta", "Consulta de Insumos", nullptr));
         label_9->setText(QString());
-        btnVerDistribuidos_2->setText(QCoreApplication::translate("JanelaConsulta", "Ver Insumos em Estoque", nullptr));
+        btnVerEstoque->setText(QCoreApplication::translate("JanelaConsulta", "Ver Insumos em Estoque", nullptr));
         btnVerDistribuidos->setText(QCoreApplication::translate("JanelaConsulta", "Ver Insumos Distribu\303\255dos", nullptr));
         comboBox->setItemText(0, QCoreApplication::translate("JanelaConsulta", "Selecione um estado:", nullptr));
         comboBox->setItemText(1, QCoreApplication::translate("JanelaConsulta", "Acre", nullptr));

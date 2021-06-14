@@ -9,6 +9,7 @@ JanelaCadEpi::JanelaCadEpi(QWidget *parent, Controler *controle) :
 {
     ui->setupUi(this);
     this->controle = controle;
+    this->setFixedSize(this->width(), this->height());
 }
 
 JanelaCadEpi::~JanelaCadEpi()
@@ -25,7 +26,7 @@ void JanelaCadEpi::on_btnOK_clicked() {
 
     std::string nome = ui->textBoxNome->text().toUtf8().constData();
     int qtd = ui->textBoxQuantidade->text().toInt();
-    int valor = ui->textBoxValor->text().toInt();
+    double valor = ui->textBoxValor->text().toDouble();
     std::string vencimento = ui->textBoxVencimento->text().toUtf8().constData();
     std::string fabricante = ui->textBoxFabricante->text().toUtf8().constData();
     std::string tipo = ui->textBoxTipo->text().toUtf8().constData();

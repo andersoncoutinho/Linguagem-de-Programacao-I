@@ -23,22 +23,22 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_JanelaConsulta_t {
     const uint offsetsAndSize[14];
-    char stringdata0[144];
+    char stringdata0[137];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_JanelaConsulta_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_JanelaConsulta_t qt_meta_stringdata_JanelaConsulta = {
     {
 QT_MOC_LITERAL(0, 14), // "JanelaConsulta"
-QT_MOC_LITERAL(15, 31), // "on_btnVerDistribuidos_2_clicked"
-QT_MOC_LITERAL(47, 0), // ""
-QT_MOC_LITERAL(48, 22), // "on_btnDetalhes_clicked"
-QT_MOC_LITERAL(71, 21), // "on_btnFiltrar_clicked"
-QT_MOC_LITERAL(93, 29), // "on_btnVerDistribuidos_clicked"
-QT_MOC_LITERAL(123, 20) // "on_btnVoltar_clicked"
+QT_MOC_LITERAL(15, 24), // "on_btnVerEstoque_clicked"
+QT_MOC_LITERAL(40, 0), // ""
+QT_MOC_LITERAL(41, 22), // "on_btnDetalhes_clicked"
+QT_MOC_LITERAL(64, 21), // "on_btnFiltrar_clicked"
+QT_MOC_LITERAL(86, 29), // "on_btnVerDistribuidos_clicked"
+QT_MOC_LITERAL(116, 20) // "on_btnVoltar_clicked"
 
     },
-    "JanelaConsulta\0on_btnVerDistribuidos_2_clicked\0"
+    "JanelaConsulta\0on_btnVerEstoque_clicked\0"
     "\0on_btnDetalhes_clicked\0on_btnFiltrar_clicked\0"
     "on_btnVerDistribuidos_clicked\0"
     "on_btnVoltar_clicked"
@@ -81,7 +81,7 @@ void JanelaConsulta::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         auto *_t = static_cast<JanelaConsulta *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_btnVerDistribuidos_2_clicked(); break;
+        case 0: _t->on_btnVerEstoque_clicked(); break;
         case 1: _t->on_btnDetalhes_clicked(); break;
         case 2: _t->on_btnFiltrar_clicked(); break;
         case 3: _t->on_btnVerDistribuidos_clicked(); break;

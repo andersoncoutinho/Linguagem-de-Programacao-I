@@ -21,9 +21,9 @@ std::string Local::getDescricaoGeralInsumo() {
 			epi += insumos[i]->getConsulta();
 	}
 
-	aux = (vacina.size() != 0) ? "Vacinas: \n\n" + vacina : vacina; 
-	aux += (medicamento.size() != 0) ? "Medicamentos: \n\n" + medicamento : medicamento;
-	aux += (epi.size() != 0) ? "Epis: \n\n" + epi : epi;
+    aux = (vacina.size() != 0) ? "VACINAS \n\n" + vacina : vacina;
+    aux += (medicamento.size() != 0) ? "MEDICAMENTOS \n\n" + medicamento : medicamento;
+    aux += (epi.size() != 0) ? "EPIS \n\n" + epi : epi;
 	
 	return aux;
 }
@@ -40,9 +40,9 @@ std::string Local::getDescricaoInsumo() {
 			epi += insumos[i]->getDescricao();
 	}
 
-	aux = (vacina.size() != 0) ? "Vacinas: \n\n" + vacina : vacina; 
-	aux += (medicamento.size() != 0) ? "Medicamentos: \n\n" + medicamento : medicamento;
-	aux += (epi.size() != 0) ? "Epis: \n\n" + epi : epi;
+    aux = (vacina.size() != 0) ? "VACINAS \n\n" + vacina : vacina;
+    aux += (medicamento.size() != 0) ? "MEDICAMENTOS \n\n" + medicamento : medicamento;
+    aux += (epi.size() != 0) ? "EPIS \n\n" + epi : epi;
 	
 	return aux;
 }
@@ -52,13 +52,13 @@ std::string Local::getDescricaoTipoInsumo(int tipo) {
 
 	switch (tipo) {
 	case 1:
-		aux = "Vacinas: \n\n";
+        aux = "VACINAS \n\n";
 		break;
 	case 2:
-		aux = "Medicamentos: \n\n";
+        aux = "MEDICAMENTOS \n\n";
 		break;
 	case 3:
-		aux = "Epis: \n\n";
+        aux = "EPIS \n\n";
 		break;
 	default:
 		break;

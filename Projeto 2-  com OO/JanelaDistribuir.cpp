@@ -2,6 +2,7 @@
 #include "ui_JanelaDistribuir.h"
 #include "QMessageBox"
 #include <string>
+#include "Persistencia.h"
 
 JanelaDistribuir::JanelaDistribuir(QWidget *parent, Controler *controle) :
     QDialog(parent),
@@ -9,6 +10,7 @@ JanelaDistribuir::JanelaDistribuir(QWidget *parent, Controler *controle) :
 {
     ui->setupUi(this);
     this->controle = controle;
+    this->setFixedSize(this->width(), this->height());
 }
 
 JanelaDistribuir::~JanelaDistribuir()
@@ -34,6 +36,7 @@ void JanelaDistribuir::on_btnDistribuir_clicked() {
         switch(controle->distribuirInsumo(nome, qtd, indiceEstado)) {
             case 1:
                 QMessageBox::about(this, "", "Insumo distribuído com sucesso");
+                Persistencia::salvarInsumos(*controle);
                 this->close();
                 break;
             case -1:

@@ -51,7 +51,7 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="btnVerDistribuidos_2">
+     <widget class="QPushButton" name="btnVerEstoque">
       <property name="text">
        <string>Ver Insumos em Estoque</string>
       </property>

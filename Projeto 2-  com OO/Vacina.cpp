@@ -4,7 +4,7 @@ Vacina::Vacina() {
     
 }
 
-Vacina::Vacina(std::string nome, int quantidade, int valorUnitario, 
+Vacina::Vacina(std::string nome, int quantidade, double valorUnitario,
                 std::string dtVencimento, std::string nomeFabricante,
                 std::string tecnologia, int quantDoses, int intervalo)
                 : Insumo(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante)  {

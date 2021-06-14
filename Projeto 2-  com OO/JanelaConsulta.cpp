@@ -11,6 +11,7 @@ JanelaConsulta::JanelaConsulta(QWidget *parent, Controler *controle) :
     ui->btnFiltrar->hide();
     ui->btnDetalhes->hide();
     ui->comboBox->hide();
+    this->setFixedSize(this->width(), this->height());
 
 
 }
@@ -20,8 +21,9 @@ JanelaConsulta::~JanelaConsulta()
     delete ui;
 }
 
-void JanelaConsulta::on_btnVerDistribuidos_2_clicked() {
+void JanelaConsulta::on_btnVerEstoque_clicked() {
 
+    ui->btnDetalhes->setText("Mostrar Detalhes");
     estoque = true;
     indiceEstado = 0;
     ui->btnFiltrar->hide();
@@ -48,12 +50,17 @@ void JanelaConsulta::on_btnDetalhes_clicked() {
             desc = controle->consultarDescricao(ESTQ);
         } else {
             if(indiceEstado) {
-                desc = controle->getNomeLocal(indiceEstado) + "\n"
-                            + controle->consultarDescricao(indiceEstado);
+                desc = "------------------------------------\n"
+                       + controle->getNomeLocal(indiceEstado) + "\n"
+                       + "------------------------------------\n"
+                       + controle->consultarDescricao(indiceEstado);
             } else {
                 for(int i = 1; i < QTD_LOCAIS; i++) {
                     if(controle->getLocal(i).getInsumos()->size()) {
-                        desc += controle->getNomeLocal(i) + "\n"
+
+                        desc += "------------------------------------\n"
+                                + controle->getNomeLocal(i) + "\n"
+                                + "------------------------------------\n"
                                 + controle->consultarDescricao(i);
                     }
                 }
@@ -71,12 +78,16 @@ void JanelaConsulta::on_btnDetalhes_clicked() {
             desc = controle->consultarInsumos(ESTQ);
         } else {
             if(indiceEstado) {
-                desc = controle->getNomeLocal(indiceEstado) + "\n"
+                desc =  "------------------------------------\n"
+                        + controle->getNomeLocal(indiceEstado) + "\n"
+                        + "------------------------------------\n"
                         + controle->consultarInsumos(indiceEstado);
             } else {
                 for(int i = 1; i < QTD_LOCAIS; i++) {
                     if(controle->getLocal(i).getInsumos()->size()) {
-                        desc += controle->getNomeLocal(i) + "\n"
+                        desc += "------------------------------------\n"
+                                + controle->getNomeLocal(i) + "\n"
+                                + "------------------------------------\n"
                                 + controle->consultarInsumos(i);
                     }
 
@@ -95,13 +106,17 @@ void JanelaConsulta::on_btnDetalhes_clicked() {
 
 void JanelaConsulta::on_btnFiltrar_clicked() {
 
+    ui->btnDetalhes->setText("Mostrar Detalhes");
     QString estado = ui->comboBox->currentText();
+
 
     int i = controle->getIndiceLocal(estado.toUtf8().toStdString());
 
     if(i != -1) {
         indiceEstado = i;
-        std::string desc = controle->getNomeLocal(i) + "\n"
+        std::string desc = "------------------------------------\n"
+                           + controle->getNomeLocal(i) + "\n"
+                           + "------------------------------------\n"
                            + controle->consultarInsumos(i);
 
         ui->textBrowser->clear();
@@ -114,6 +129,7 @@ void JanelaConsulta::on_btnFiltrar_clicked() {
 
 void JanelaConsulta::on_btnVerDistribuidos_clicked() {
 
+    ui->btnDetalhes->setText("Mostrar Detalhes");
     estoque = false;
     indiceEstado = 0;
     ui->btnFiltrar->show();
@@ -124,8 +140,10 @@ void JanelaConsulta::on_btnVerDistribuidos_clicked() {
 
     for(int i = 1; i < QTD_LOCAIS; i++) {
         if(controle->getLocal(i).getInsumos()->size() > 0) {
-            desc += controle->getNomeLocal(i) + "\n" +
-                    controle->consultarInsumos(i);
+            desc += "------------------------------------\n"
+                    + controle->getNomeLocal(i) + "\n"
+                    + "------------------------------------\n"
+                    + controle->consultarInsumos(i);
         }
 
     }

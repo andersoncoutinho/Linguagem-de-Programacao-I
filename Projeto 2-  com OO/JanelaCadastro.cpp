@@ -11,6 +11,7 @@ JanelaCadastro::JanelaCadastro(QWidget *parent, Controler *controle)
 
     ui->setupUi(this);
     this->controle = controle;
+    this->setFixedSize(this->width(), this->height());
 
 }
 
