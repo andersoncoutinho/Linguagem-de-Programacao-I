@@ -8,9 +8,7 @@
 #include <QMessageBox>
 JanelaPrincipal::JanelaPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::JanelaPrincipal) {
 
-    if(!Persistencia::lerInsumos(&controle)) {
-        QMessageBox::about(this, "", "Erro ao carregar arquivo");
-    }
+    Persistencia::lerInsumos(&controle);
 
     ui->setupUi(this);
 

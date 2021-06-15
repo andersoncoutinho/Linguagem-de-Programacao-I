@@ -17,11 +17,15 @@ Luvas de procedimento,1000,10.000000,25/12/21,Verkuri,3,Protecao,Protege,
 Avental impermeavel,1000,10.000000,25/12/21,Verkuri,3,Protecao,Protege,
 Teste,9000,12.000000,V,F,2,D,A,Di,
 testeEpi,9500,1.000000,V,F,3,T,D,
+NovaVacina,1900,2.578000,,,1,,0,0,
+NovoMedicamento,4500,2.789000,,,2,,,,
 FIM
 Acre
 CoronaVac,1200,16.000000,31/12/2021,Butantan,1,Vírus Inativado,2,15,
 Dipirona Sódica,3500,3.000000,06/09/2021,Genérico,2,500 mg,Oral,Comprimido,
 teste,500,14.000000,,,1,,0,0,
+NovaVacina,100,2.578000,,,1,,0,0,
+NovoMedicamento,500,2.789000,,,2,,,,
 FIM
 Alagoas
 Dipirona Sódica,1000,3.000000,06/09/2021,Genérico,2,500 mg,Oral,Comprimido,
